@@ -24,7 +24,7 @@ const faqs = [
   },
 ];
 
-export default function Faqs() {
+export default function Faqs(imagesLinks: { imagesLinks: string[] }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
   const toggle = (index: number) => {
@@ -38,20 +38,20 @@ export default function Faqs() {
         <div className="flex flex-col justify-between h-auto md:h-130">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             <img
-              src="/images/f1.webp"
-              alt=""
+              src={imagesLinks.imagesLinks[0]}
+              alt="frequently asked question"
               className="h-55 md:h-95 w-full object-cover rounded-2xl shadow-lg"
             />
 
             <div className="flex flex-col gap-4 md:gap-6">
               <img
-                src="/images/f2.webp"
-                alt=""
+                src={imagesLinks.imagesLinks[1]}
+                alt="frequently asked question"
                 className="h-55 md:h-37.5 w-full object-cover rounded-2xl shadow-lg"
               />
               <img
-                src="/images/f3.webp"
-                alt=""
+                src={imagesLinks.imagesLinks[2]}
+                alt="frequently asked question"
                 className="h-55 md:h-80 w-full object-cover rounded-2xl shadow-lg"
               />
             </div>
@@ -76,7 +76,7 @@ export default function Faqs() {
           >
             <div className="flex items-center gap-3 mt-2">
               <img
-                src="/images/f4.webp"
+                src={imagesLinks.imagesLinks[3]}
                 alt="icon"
                 className="w-8 h-8 object-contain"
               />

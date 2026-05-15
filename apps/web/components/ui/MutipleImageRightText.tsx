@@ -1,7 +1,12 @@
-"use client";
 import Link from "next/link";
+import { Plane, Binoculars, Phone } from "lucide-react";
+import { FaStackExchange } from "react-icons/fa";
 
-export default function MutipleImageRightText() {
+export default function MutipleImageRightText({
+  imageData,
+}: {
+  imageData: string[];
+}) {
   return (
     <section
       className="relative py-20 px-4 sm:px-8 md:px-16 bg-cover bg-center bg-no-repeat overflow-hidden"
@@ -11,32 +16,32 @@ export default function MutipleImageRightText() {
       <div className="absolute inset-0 bg-[#dff4fb]/85"></div>
 
       {/* CONTENT */}
-      <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+      <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 ">
         {/* LEFT IMAGES */}
-        <div className="relative w-full h-112.5">
+        <div className="relative w-full ">
           <img
-            src="/assets/umrah/why-1.webp"
-            alt=""
+            src={imageData[0]}
+            alt="Your Trusted Visa Partner"
             className="absolute top-0 left-0 w-55 h-62.5 object-cover border-[5px] border-white shadow-md z-30"
           />
 
           <img
-            src="/assets/umrah/why-2.webp"
-            alt=""
+            src={imageData[1]}
+            alt="Your Trusted Visa Partner"
             className="absolute top-5 left-50 w-50 h-50 object-cover border-[5px] border-white shadow-md z-20"
           />
 
           <img
-            src="/assets/umrah/why-3.webp"
-            alt=""
+            src={imageData[2]}
+            alt="Your Trusted Visa Partner"
             className="absolute top-37.5 left-42.5 w-50 h-55 object-cover border-[5px] border-white shadow-md z-40"
           />
 
           {/* KAABA */}
           <div className="absolute top-42.5 left-7.5 w-62.5 h-57.5 object-cover border-[5px] border-white shadow-md z-10">
             <img
-              src="/assets/umrah/why-4.webp"
-              alt=""
+              src={imageData[3]}
+              alt="Your Trusted Visa Partner"
               className="w-full h-full object-cover"
               style={{ objectPosition: "center bottom" }}
             />
@@ -45,33 +50,36 @@ export default function MutipleImageRightText() {
 
         {/* RIGHT TEXT */}
         <div>
-          <h2 className="text-4xl md:text-5xl font-extrabold leading-tight text-black">
-            Why Hassaan Travel is <br />
+          <h2 className="text-4xl md:text-3xl font-extrabold leading-tight text-black">
+            Why Hassaan Travel is
             Your Trusted Visa Partner
           </h2>
 
-          <p className="mt-5 text-gray-600 text-base leading-relaxed max-w-xl">
+          <p className="mt-5 text-gray-600 text-base leading-relaxed ">
             We're more than just a travel agency; we're your passport to
             extraordinary experiences. Here's why you should choose us:
           </p>
 
-          <div className="mt-8 space-y-5">
+          <div className="mt-8 space-y-2">
             <Feature
-              icon="✈"
+              icon=<Plane/>
               text="Assistance in obtaining all necessary documents, including legalisations and translations."
             />
 
             <Feature
-              icon="⚙"
+              icon=<FaStackExchange/>
               text="Fast, reliable, and transparent visa services."
             />
 
             <Feature
-              icon="📄"
+              icon=<Binoculars/>
               text="Expertise in handling visa applications for multiple countries."
             />
 
-            <Feature icon="☎" text="Customer support in multiple languages." />
+            <Feature
+              icon=<Phone/>
+              text="Customer support in multiple languages."
+            />
           </div>
 
           <Link href="/contact">
@@ -86,7 +94,7 @@ export default function MutipleImageRightText() {
 }
 
 /* 🔥 Small reusable sub-component */
-function Feature({ icon, text }: { icon: string; text: string }) {
+function Feature({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
     <div className="flex items-start gap-4">
       <div className="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center text-white text-sm">
