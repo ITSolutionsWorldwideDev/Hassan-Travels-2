@@ -1,14 +1,13 @@
 import React from "react";
-
-const HeadingAndDesc = ({head,desc}:{head:string,desc:string}) => {
+const HeadingAndDesc = ({head,desc}:{head:string | React.ReactNode,desc:string | React.ReactNode}) => {
   return (
     <section>
-      <div className="text-center mb-10">
+      <div className=" mb-10">
         <h2 className="text-3xl md:text-4xl font-bold ">
           {head}
         </h2>
-        <p className=" mt-2 text-sm max-w-xl mx-auto lg:text-lg">
-          {desc}
+        <p className=" mt-2 text-sm max-w-xl mx-auto lg:text-lg  whitespace-pre-line">
+       {desc}
         </p>
       </div>
     </section>

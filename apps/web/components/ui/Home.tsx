@@ -11,8 +11,11 @@ import LuxurayAccommodation from "../layout/home/LuxurayAccommodation";
 import CenterIconHeadingDesc from "./CenterIconHeadingDesc";
 import Map from "./Map";
 
-const visaSolution = [
-  {
+const visaSolution = {
+  head:<>Expert Visa <span className="text-blue-600">Solutions</span></>,
+  details:"Streamlined processing with guaranteed approval for all destinations",
+  data:[{
+    
     title: "Flight Booking",
     desc: "Book affordable flights with flexible options for individuals and families.",
     icon: <Plane />,
@@ -31,8 +34,8 @@ const visaSolution = [
     title: "24/7 Support",
     desc: "Round-the-clock customer support for all your travel needs.",
     icon: <MdOutlineSupportAgent />,
-  },
-];
+  },]
+};
 
 
 
