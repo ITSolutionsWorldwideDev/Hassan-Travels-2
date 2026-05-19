@@ -83,7 +83,7 @@ export default function Navbar() {
             About
           </Link>
           <Link className="text-gray-700 font-medium" href="/contact">
-            Contact
+            Contact-us
           </Link>
 
           {/* EXTRA */}
