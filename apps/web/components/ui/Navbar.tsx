@@ -38,7 +38,7 @@ export default function Navbar() {
         <Link href="/about-us" className="hover:text-blue-600 ">
           About
         </Link>
-        <Link href="/contact" className="hover:text-blue-600 ">
+        <Link href="/contact-us" className="hover:text-blue-600 ">
           Contact
         </Link>
       </nav>
@@ -79,11 +79,11 @@ export default function Navbar() {
           <Link className="text-gray-700 font-medium" href="/packages">
             Packages
           </Link>
-          <Link className="text-gray-700 font-medium" href="/about">
+          <Link className="text-gray-700 font-medium" href="/about-us">
             About
           </Link>
-          <Link className="text-gray-700 font-medium" href="/contact">
-            Contact-us
+          <Link className="text-gray-700 font-medium" href="/contact-us">
+            Contact
           </Link>
 
           {/* EXTRA */}
