@@ -23,8 +23,8 @@ export default function Navbar() {
 
       {/* DESKTOP NAV */}
       <nav className="hidden md:flex items-center gap-4 lg:gap-8 text-gray-700  font-medium">
-        <Link href="/services" className="hover:text-blue-600 ">
-          Services
+        <Link href="/destinations" className="hover:text-blue-600 ">
+          Destinations
         </Link>
         <Link href="/umrah" className="hover:text-blue-600 ">
           Umrah

@@ -274,22 +274,38 @@ return (
                 Travel Type
               </label>
               <div className="grid grid-cols-4 gap-3">
-                {travelTypes.map((t: TravelTypeOption) => (
-                  <button
-                    key={t.id}
-                    type="button"
-                    onClick={() => setTravelType(t.id)}
-                    className={`flex flex-col items-center justify-center gap-2 py-4 rounded-2xl border-2 text-sm font-semibold transition-all ${
-                      travelType === t.id
-                        ? "bg-sky-500 border-sky-500 text-white shadow-lg shadow-sky-200 scale-105"
-                        : "bg-white border-gray-200 text-gray-600 hover:border-sky-300 hover:bg-sky-50"
-                    }`}
-                  >
-                   <span className="text-2xl text-sky-500">{t.icon}</span>
-                    <span className="text-xs">{t.label}</span>
-                  </button>
-                ))}
-              </div>
+  {travelTypes.map((t: TravelTypeOption) => {
+    const active = travelType === t.id;
+
+    return (
+      <button
+        key={t.id}
+        type="button"
+        onClick={() => setTravelType(t.id)}
+        className={`flex flex-col items-center justify-center gap-2 py-4 rounded-2xl border-2 text-sm font-semibold transition-all
+        ${
+          active
+            ? "bg-[#058BD0] border-[#058BD0] text-white shadow-lg scale-105"
+            : "bg-white border-gray-200 text-gray-600 hover:border-[#058BD0] hover:bg-[#E6F4FB]"
+        }`}
+      >
+        {/* ICON FIX */}
+        <span
+          className={`text-2xl ${
+            active ? "text-white" : "text-[#058BD0]"
+          }`}
+        >
+          {t.icon}
+        </span>
+
+        {/* TEXT */}
+        <span className={`${active ? "text-white" : "text-gray-600"} text-xs`}>
+          {t.label}
+        </span>
+      </button>
+    );
+  })}
+</div>
             </div>
 
             {/* Duration */}

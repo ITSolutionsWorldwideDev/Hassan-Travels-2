@@ -1,15 +1,24 @@
-import CommonHeader from "@/components/ui/CommonHeader";
-import React from "react";
+import { MdLocationOn, MdEmail, MdPhone } from "react-icons/md";
 
-const page = () => {
+import Faqs from "@/components/ui/Faqs";
+import Testimonials from "@/components/ui/Testimonials";
+import CommonHeader from "@/components/ui/CommonHeader";
+import ContactForm from "@/components/layout/ContactForm";
+const imageLinks=['/assets/contact-us/1.webp','/assets/contact-us/2.webp','/assets/contact-us/3.webp']
+export default function ContactPage() {
+    
   return (
-    <div>
+    <>
       <CommonHeader
         heading="Netherlands Visa Services for Pakistani & UAE Citizens"
         desc="Expert Visa Services for Pakistani and UAE Travelers."
       />
-    </div>
-  );
-};
 
-export default page;
+      {/* <ContactSection /> */}
+      <ContactForm/>
+
+      <Faqs imagesLinks={imageLinks}/>
+      <Testimonials />
+    </>
+  );
+}

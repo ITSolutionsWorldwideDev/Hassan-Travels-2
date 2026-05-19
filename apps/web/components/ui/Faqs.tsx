@@ -32,8 +32,8 @@ export default function Faqs(imagesLinks: { imagesLinks: string[] }) {
   };
 
   return (
-    <section className="bg-[#f4f4f4] py-20 px-6">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
+    <section className="bg-[#f4f4f4] py-20 px-6  mx-auto">
+      <div className="container mx-auto grid md:grid-cols-2 gap-12 items-start px-4 sm:px-8 md:px-16">
         {/* LEFT SIDE */}
         <div className="flex flex-col justify-between h-auto md:h-130">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
@@ -76,7 +76,7 @@ export default function Faqs(imagesLinks: { imagesLinks: string[] }) {
           >
             <div className="flex items-center gap-3 mt-2">
               <img
-                src={imagesLinks.imagesLinks[3]}
+                src={"/assets/Frame 1000009700.webp"}
                 alt="icon"
                 className="w-8 h-8 object-contain"
               />
