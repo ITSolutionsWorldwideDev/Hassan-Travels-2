@@ -8,12 +8,21 @@ export default function MutipleImageRightText({
   imageData: string[];
 }) {
   return (
-    <section
-      className="relative py-20 px-4 sm:px-8 md:px-16 bg-cover bg-center bg-no-repeat overflow-hidden"
-      style={{ backgroundImage: "url('/assets/umrah/why-bg.webp')" }}
-    >
-      {/* OVERLAY */}
-      <div className="absolute inset-0 bg-[#dff4fb]/85"></div>
+    <section className="relative w-full py-12 sm:py-20 overflow-hidden">
+
+  {/* BACKGROUND IMAGE (LAZY LOAD) */}
+  <img
+    src="/assets/bgimage/h2.webp"
+    loading="lazy"
+    alt=""
+    className="absolute inset-0 w-full h-full object-cover"
+  />
+
+  {/* GRADIENT (MAIN STYLE) */}
+  <div className="absolute inset-0 bg-gradient-to-b from-[rgba(207,234,246,0.6)] to-[rgba(85,178,218,0.6)]"></div>
+
+  {/* LIGHT OVERLAY (OPTIONAL - SAME AS YOUR CODE) */}
+  <div className="absolute inset-0 bg-white/30"></div>
 
       {/* CONTENT */}
       <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 ">

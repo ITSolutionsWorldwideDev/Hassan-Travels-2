@@ -18,11 +18,22 @@ const hotelQualities = [
 ];
 const LuxurayAccommodation = () => {
   return (
-    <section
-      className="py-12 sm:py-20 px-4 sm:px-8 md:px-16 bg-cover bg-center bg-no-repeat relative container mx-auto"
-      style={{ backgroundImage: "url('/images/hote.jpg')" }}
-      aria-labelledby="hotel-experience"
-    >
+  <section
+  className="py-12 sm:py-20 bg-cover bg-center bg-no-repeat relative w-full"
+  style={{
+    backgroundImage:
+      "linear-gradient(rgba(207,234,246,0.52), rgba(207,234,246,0.52)), url('/assets/bgimage/h1.webp')",
+  }}
+>
+  {/* Lazy load (for performance) */}
+  <img
+    src="/assets/bgimage/h1.webp"
+    alt="background decorative image"
+    loading="lazy"
+    className="hidden"
+  />
+
+  <div className="container mx-auto px-4 sm:px-8 md:px-16">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         {/* LEFT */}
         <div>
@@ -57,20 +68,20 @@ const LuxurayAccommodation = () => {
             ))}
           </div>
         </div>
-
-        {/* RIGHT IMAGE */}
-        <div className="order-first lg:order-last flex justify-end items-center">
-          <Image
-            src="/assets/home/hotel.webp"
-            alt="Luxury five-star hotel experience"
-            width={500}
-            height={700}
-            loading="lazy"
-            className="rounded-2xl shadow-lg w-full max-w-md h-130 object-cover object-top"
-          />
-        </div>
+{/* RIGHT IMAGE */}
+<div className="order-first lg:order-last flex justify-end items-center">
+  <Image
+    src="/assets/home/hote.webp"
+    alt="Luxury five-star hotel experience"
+    width={500}
+    height={700}
+    priority
+    className="rounded-2xl shadow-lg w-full max-w-md h-130 object-cover object-top"
+  />
+</div>
+          </div>
       </div>
-    </section>
+    </section> 
   );
 };
 

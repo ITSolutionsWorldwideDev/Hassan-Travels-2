@@ -9,17 +9,19 @@ const CommonHeader = ({
 }) => {
   return (
     <section className="relative py-20 md:py-24 px-4 overflow-hidden">
-      {/* BACKGROUND IMAGE (light + soft) */}
-      <div
-        className="absolute inset-0 bg-cover bg-center brightness-125 contrast-90 saturate-75"
-        style={{ backgroundImage: "url('/assets/umrah.webp')" }}
-      ></div>
+{/* BACKGROUND IMAGE (ORIGINAL) */}
+<img
+  src="/assets/bgimage/bg.webp"
+  alt=""
+  loading="lazy"
+  className="absolute inset-0 w-full h-full object-cover"
+/>
 
-      {/* SOFT BLUE OVERLAY */}
-      <div className="absolute inset-0 bg-[#dff4fb]/40"></div>
+{/* VERY LIGHT OVERLAY */}
+<div className="absolute inset-0 bg-[#dff4fb]/15"></div>
 
-      {/* TOP GRADIENT (sky feel) */}
-      <div className="absolute inset-0 bg-linear-to-b from-[#dff4fb]/60 via-[#dff4fb]/30 to-transparent"></div>
+{/* LIGHT GRADIENT */}
+<div className="absolute inset-0 bg-gradient-to-b from-[#dff4fb]/20 via-transparent to-transparent"></div>
 
       {/* CONTENT */}
       <div className="relative z-10 max-w-5xl mx-auto text-center">

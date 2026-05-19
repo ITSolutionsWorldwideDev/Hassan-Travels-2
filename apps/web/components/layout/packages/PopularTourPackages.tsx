@@ -293,11 +293,24 @@ const PopularTourPackages = () => {
   };
 
   return (
-    <section className="relative py-16 bg-linear-to-b from-blue-100 via-blue-50 to-white overflow-hidden">
-      {/* LIGHT BG */}
-      <div className="absolute inset-0 opacity-20 bg-[url('/images/contact-bg.jpg')] bg-cover bg-center"></div>
+  <section className="relative py-16 overflow-hidden">
 
-      <div className="container relative z-10 max-w-7xl mx-auto px-4">
+  {/* IMAGE */}
+  <img
+    src="/assets/bgimage/h1.webp"
+    alt=""
+    loading="lazy"
+    className="absolute inset-0 w-full h-full object-cover"
+  />
+
+  {/* VERY SOFT GRADIENT */}
+  <div className="absolute inset-0 bg-gradient-to-b from-[rgba(207,234,246,0.15)] to-[rgba(85,178,218,0.25)]"></div>
+
+  {/* LIGHT WASH */}
+  <div className="absolute inset-0 bg-white/35"></div>
+
+  {/* ✅ CONTENT */}
+  <div className="container relative z-10 max-w-7xl mx-auto px-4">
         {/* ===== HEADING ===== */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-blue-600">

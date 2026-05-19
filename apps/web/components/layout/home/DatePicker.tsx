@@ -203,7 +203,7 @@ export function FlexibleMonthGrid({
   );
 }
 
-// ─── InfoTooltip ──────────────────────────────────────────────────────────────
+// ─── InfoTooltip ──── //
 export function InfoTooltip() {
   const [show, setShow] = useState(false);
   return (

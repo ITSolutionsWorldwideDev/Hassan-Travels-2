@@ -76,14 +76,13 @@ export default function HomeMain() {
           </div>
 
           {/* MAIN SEO HEADING */}
-          <h1 className="text-4xl md:text-6xl font-extrabold leading-[1.05] whitespace-nowrap">
-            Fast Tickets. Smooth <span className="text-blue-400">Journeys</span>
-          </h1>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05] lg:whitespace-nowrap break-words">
+  Fast Tickets. Smooth <span className="text-blue-400">Journeys</span>
+</h1>
 
-          {/* SUB HEADING */}
-          <h2 className="text-4xl md:text-6xl font-extrabold text-blue-400 mt-1">
-            From Booking to Boarding
-          </h2>
+<h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-blue-400 mt-1 lg:whitespace-nowrap break-words">
+  From Booking to Boarding
+</h2>
 
           {/* DESCRIPTION */}
           <p className="mt-4 text-gray-200 text-sm md:text-lg leading-snug">
@@ -124,21 +123,33 @@ export default function HomeMain() {
         <Testimonials />
       </section>
 
-      {/* CTA SECTION */}
-      <section className="py-12 sm:py-20 px-4 text-center bg-linear-to-r from-[#1ea7d7] to-[#0f7db0] text-white">
-        <h2 className="text-2xl sm:text-3xl font-bold mb-3">
-          Ready to Start Your Journey?
-        </h2>
+     {/* CTA SECTION */}
+{/* CTA SECTION */}
+<section
+  className="relative py-12 sm:py-20 px-4 text-center text-white bg-cover bg-center bg-no-repeat overflow-hidden"
+  style={{
+    backgroundImage: "url('/assets/home/h3.webp')",
+  }}
+>
+  {/* BLUE OVERLAY (FIGMA COLOR) */}
+  <div className="absolute inset-0 bg-[rgba(15,145,213,0.8)]"></div>
 
-        <p className="text-sm text-white/80 mb-6 max-w-xl mx-auto px-2">
-          Contact us today for a free consultation and discover how we can make
-          your travel dreams a reality.
-        </p>
+  {/* CONTENT */}
+  <div className="relative z-10">
+    <h2 className="text-2xl sm:text-3xl font-bold mb-3">
+      Ready to Start Your Journey?
+    </h2>
 
-        <button className="bg-lime-400 text-black px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm font-semibold">
-          Request a Free Quote →
-        </button>
-      </section>
+    <p className="text-sm text-white/80 mb-6 max-w-xl mx-auto px-2">
+      Contact us today for a free consultation and discover how we can make
+      your travel dreams a reality.
+    </p>
+
+    <button className="bg-lime-400 text-black px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm font-semibold">
+      Request a Free Quote →
+    </button>
+  </div>
+</section>
     </main>
   );
 }

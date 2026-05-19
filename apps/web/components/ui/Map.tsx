@@ -4,110 +4,126 @@ import { MapPin, Phone, Mail } from "lucide-react";
 const Map = () => {
   return (
     <section
-      className="py-12 sm:py-20 px-4 sm:px-8 md:px-16 bg-cover bg-center bg-no-repeat relative"
-      style={{ backgroundImage: "url('/assets/tour.webp')" }}
-      aria-labelledby="contact-section"
-    >
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-stretch">
-        <div className="order-last lg:order-first h-full">
-          <iframe
-            title="Hassaan Travel Rotterdam Location"
-            src="https://www.google.com/maps?q=Dordtselaan+67D,+3081BG+Rotterdam,+Netherlands&output=embed"
-            className="rounded-xl shadow-lg w-full h-full min-h-125"
-            loading="lazy"
-          ></iframe>
-        </div>
+  className="relative w-full py-12 sm:py-20 bg-cover bg-center bg-no-repeat overflow-hidden"
+  style={{
+    backgroundImage:
+      "linear-gradient(rgba(207,234,246,0.6), rgba(85, 178, 218, 0.6)), url('/assets/bgimage/h2.webp')",
+  }}
+  aria-labelledby="contact-section"
+>
+  {/* Lazy load background image */}
+  <img
+    src="/assets/bgimage/h2.webp"
+    alt="contact section background image"
+    loading="lazy"
+    className="hidden"
+  />
+      {/* LIGHT OVERLAY */}
+      <div className="absolute inset-0 bg-white/30"></div>
 
-        {/* RIGHT SIDE */}
-        <div className="space-y-4 sm:space-y-6 h-full flex flex-col justify-between">
-          {/* LOCATION CARD */}
-          <article className="bg-white/70 backdrop-blur-md p-4 sm:p-6 rounded-xl shadow flex gap-4 items-start">
-            {/* <div className="w-8 h-8 sm:w-10 sm:h-10 shrink-0 flex items-center justify-center bg-blue-500 text-white rounded-lg"> */}
-            <MapPin className="text-green-500" />
-            {/* </div> */}
+      {/* CONTENT WRAPPER (IMPORTANT FIX) */}
+      <div className="relative z-10 container mx-auto px-4 sm:px-8 md:px-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-stretch">
+          
+          {/* MAP */}
+          <div className="order-last lg:order-first h-full">
+            <iframe
+              title="Hassaan Travel Rotterdam Location"
+              src="https://www.google.com/maps?q=Dordtselaan+67D,+3081BG+Rotterdam,+Netherlands&output=embed"
+              className="rounded-xl shadow-lg w-full h-full min-h-[350px]"
+              loading="lazy"
+            ></iframe>
+          </div>
 
-            <div>
-              <h2 id="contact-section" className="font-semibold">
-                Rotterdam
-              </h2>
+          {/* RIGHT SIDE */}
+          <div className="space-y-4 sm:space-y-6 h-full flex flex-col justify-between">
+            
+            {/* LOCATION CARD */}
+            <article className="bg-white/70 backdrop-blur-md p-4 sm:p-6 rounded-xl shadow flex gap-4 items-start">
+              <MapPin className="text-green-500" />
 
-              <address className="text-sm text-gray-500 not-italic">
-                Dordtselaan 67D, 3081BG Rotterdam, Netherlands
-              </address>
-              <p className="text-sm text-gray-500">We are available:</p>
-              <p className="  mt-2 font-bold">
-                Monday - Saturday <br /> Sunday: Closed
-              </p>
-            </div>
-          </article>
+              <div>
+                <h2 id="contact-section" className="font-semibold">
+                  Rotterdam
+                </h2>
 
-          {/* FORM */}
-          <form
-            className="bg-white/70 backdrop-blur-md p-4 sm:p-6 rounded-xl shadow space-y-4"
-            aria-label="Contact Form"
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <input
-                type="text"
-                placeholder="Your Name"
-                aria-label="Your Name"
-                className="border-2 border-gray-300 p-3 rounded-lg text-sm w-full"
-              />
+                <address className="text-sm text-gray-500 not-italic">
+                  Dordtselaan 67D, 3081BG Rotterdam, Netherlands
+                </address>
 
-              <input
-                type="email"
-                placeholder="your@email.com"
-                aria-label="Your Email"
-                className="p-3 rounded-lg text-sm w-full border-2 border-gray-300"
-              />
-            </div>
+                <p className="text-sm text-gray-500">We are available:</p>
 
-            <textarea
-              placeholder="Tell us about your travel plans..."
-              aria-label="Travel Plans"
-              className=" p-3 rounded-lg text-sm w-full border-2 border-gray-300"
-              rows={3}
-            ></textarea>
+                <p className="mt-2 font-bold">
+                  Monday - Saturday <br /> Sunday: Closed
+                </p>
+              </div>
+            </article>
 
-            <button
-              type="submit"
-              className="bg-blue-500 text-white px-6 py-2 rounded-lg text-sm w-full sm:w-auto"
+            {/* FORM */}
+            <form
+              className="bg-white/70 backdrop-blur-md p-4 sm:p-6 rounded-xl shadow space-y-4"
+              aria-label="Contact Form"
             >
-              Send Now
-            </button>
-          </form>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  className="border-2 border-gray-300 p-3 rounded-lg text-sm w-full"
+                />
 
-          {/* PHONE */}
-          <article className="bg-white/70 backdrop-blur-md p-4 sm:p-5 rounded-xl shadow flex items-center gap-4">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 shrink-0 flex items-center justify-center bg-blue-500 text-white rounded-lg">
-              <Phone />
-            </div>
+                <input
+                  type="email"
+                  placeholder="your@email.com"
+                  className="p-3 rounded-lg text-sm w-full border-2 border-gray-300"
+                />
+              </div>
 
-            <div>
-              <p className="text-xs text-gray-400">Phone</p>
-              <a href="tel:+31104857673" className="text-sm font-medium">
-                +31 104857673
-              </a>
-            </div>
-          </article>
+              <textarea
+                placeholder="Tell us about your travel plans..."
+                className="p-3 rounded-lg text-sm w-full border-2 border-gray-300"
+                rows={3}
+              ></textarea>
 
-          {/* EMAIL */}
-          <article className="bg-white/70 backdrop-blur-md p-4 sm:p-5 rounded-xl shadow flex items-center gap-4">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 shrink-0 flex items-center justify-center bg-blue-500 text-white rounded-lg">
-              <Mail />
-            </div>
-
-            <div>
-              <p className="text-xs text-gray-400">Email</p>
-
-              <a
-                href="mailto:info@hassaantravel.nl"
-                className="text-sm font-medium"
+              <button
+                type="submit"
+                className="bg-blue-500 text-white px-6 py-2 rounded-lg text-sm w-full sm:w-auto"
               >
-                info@hassaantravel.nl
-              </a>
-            </div>
-          </article>
+                Send Now
+              </button>
+            </form>
+
+            {/* PHONE */}
+            <article className="bg-white/70 backdrop-blur-md p-4 sm:p-5 rounded-xl shadow flex items-center gap-4">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center bg-blue-500 text-white rounded-lg">
+                <Phone />
+              </div>
+
+              <div>
+                <p className="text-xs text-gray-400">Phone</p>
+                <a href="tel:+31104857673" className="text-sm font-medium">
+                  +31 104857673
+                </a>
+              </div>
+            </article>
+
+            {/* EMAIL */}
+            <article className="bg-white/70 backdrop-blur-md p-4 sm:p-5 rounded-xl shadow flex items-center gap-4">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center bg-blue-500 text-white rounded-lg">
+                <Mail />
+              </div>
+
+              <div>
+                <p className="text-xs text-gray-400">Email</p>
+                <a
+                  href="mailto:info@hassaantravel.nl"
+                  className="text-sm font-medium"
+                >
+                  info@hassaantravel.nl
+                </a>
+              </div>
+            </article>
+
+          </div>
         </div>
       </div>
     </section>
