@@ -12,37 +12,6 @@ interface SideIconDescProps {
 
 const SideIconDesc = ({ data }: SideIconDescProps) => {
   return (
-<<<<<<< HEAD
-   <section
-  className="relative w-full py-12 sm:py-20 bg-cover bg-center bg-no-repeat overflow-hidden"
-  style={{
-    backgroundImage:
-      "linear-gradient(rgba(207,234,246,0.6), rgba(85, 178, 218, 0.6)), url('/assets/bgimage/h2.webp')",
-  }}
->
-  {/* LAZY LOAD BACKGROUND IMAGE */}
-  <img
-    src="/assets/bgimage/h2.webp"
-    alt=""
-    loading="lazy"
-    className="hidden"
-  />
-  
-  {/* LIGHT OVERLAY (optional but safe) */}
- <div className="absolute inset-0 bg-white/30"></div>
-
-  {/* CONTENT (THIS FIXES YOUR ISSUE) */}
-  <div className="relative z-10 container mx-auto px-4 sm:px-8 md:px-16 text-center">
-
-      {/* TITLE */}
-      <h2 className="text-3xl sm:text-4xl font-bold">
-        Expert Visa <span className="text-blue-600">Solutions</span>
-      </h2>
-
-      <p className="text-gray-600 mt-2 mb-12 px-2">
-        Streamlined processing with guaranteed approval for all destinations
-      </p>
-=======
     <section
       className="py-12 sm:py-20 px-4 sm:px-8 md:px-16 bg-cover bg-center bg-no-repeat relative container mx-auto"
       style={{ backgroundImage: "url('/images/tour.jpg')" }}
@@ -50,7 +19,6 @@ const SideIconDesc = ({ data }: SideIconDescProps) => {
       <div className=" text-center">
         {/* TITLE */}
         <h2 className="text-3xl sm:text-4xl font-bold">{data.head}</h2>
->>>>>>> 3dd56e2335c1694753f4ad5771b2f2f009c3a674
 
         <p className="text-gray-600 mt-2 mb-12 px-2">{data.details}</p>
       </div>
@@ -76,10 +44,6 @@ const SideIconDesc = ({ data }: SideIconDescProps) => {
       </div>
 
       {/* PARTNERS */}
-<<<<<<< HEAD
-      </div>
-=======
->>>>>>> 3dd56e2335c1694753f4ad5771b2f2f009c3a674
     </section>
     
   );
