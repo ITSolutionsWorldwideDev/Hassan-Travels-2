@@ -4,22 +4,16 @@ import { MapPin, Phone, Mail } from "lucide-react";
 const Map = () => {
   return (
     <section
-  className="relative w-full py-12 sm:py-20 bg-cover bg-center bg-no-repeat overflow-hidden"
-  style={{
-    backgroundImage:
-      "linear-gradient(rgba(207,234,246,0.6), rgba(85, 178, 218, 0.6)), url('/assets/bgimage/h2.webp')",
-  }}
+  className="relative w-full py-12 sm:py-20 overflow-hidden"
   aria-labelledby="contact-section"
 >
-  {/* Lazy load background image */}
+  {/* 1. ACTUAL BACKGROUND IMAGE (With 18% Opacity & Lazy Loading) */}
   <img
     src="/assets/bgimage/h2.webp"
-    alt="contact section background image"
     loading="lazy"
-    className="hidden"
+    alt="contact section background image"
+    className="absolute inset-0 w-full h-full object-cover opacity-[0.21] z-0"
   />
-      {/* LIGHT OVERLAY */}
-      <div className="absolute inset-0 bg-white/30"></div>
 
       {/* CONTENT WRAPPER (IMPORTANT FIX) */}
       <div className="relative z-10 container mx-auto px-4 sm:px-8 md:px-16">

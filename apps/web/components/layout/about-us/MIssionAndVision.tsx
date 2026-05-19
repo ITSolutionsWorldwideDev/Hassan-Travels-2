@@ -30,13 +30,15 @@ const data = {
 const MIssionAndVision = () => {
   return (
     <section className="relative py-20 px-6 bg-[#eef7fc] overflow-hidden">
-      <img
-        src="/assets/about-us/3.webp"
-        className="absolute inset-0 w-full h-full object-cover opacity-20"
-      />
+  {/* BACKGROUND IMAGE (Updated to 25% Opacity) */}
+  <img
+    src="/assets/about-us/3.webp"
+    loading="lazy"
+    alt=""
+    className="absolute inset-0 w-full h-full object-cover opacity-35"
+  />
 
-      {/* SOFT OVERLAY */}
-      <div className="absolute inset-0 bg-white/10"></div>
+  
 
       {/* CONTENT */}
       <div className="relative max-w-6xl mx-auto">

@@ -1,23 +1,34 @@
 import React from "react";
 import { Star } from "lucide-react";
+
 const OurCommitment = () => {
   return (
-    <section className="relative py-20 px-6 bg-[#d9eef7] overflow-hidden">
-      {/* SOFT WAVY BG EFFECT */}
-      <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_top_left,white,transparent_60%)]"></div>
+     <section className="relative w-full py-12 sm:py-20 overflow-hidden flex items-center justify-center">
 
-      <div className="relative max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    {/* BACKGROUND IMAGE */}
+<img
+  src="/assets/bgimage/h2.webp"
+  loading="lazy"
+  alt=""
+  className="absolute inset-0 w-full h-full object-cover opacity-[0.18]"
+/>
+
+
+      <div className="relative max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center z-20">
         {/* LEFT IMAGE */}
         <div className="relative">
           <img
-            src="/assets/about-us/2.webp" // 👈 ADD IMAGE HERE
+            src="/assets/about-us/2.webp"
             alt="Customer"
+            loading="lazy"
             className="rounded-2xl shadow-lg w-full h-95 object-cover"
           />
 
           {/* RATING CARD */}
-          <div className="absolute top-6 right-0 -translate-x-1/2 bg-white rounded-xl shadow px-4 py-2 flex  gap-2">
-            <span className="text-blue-500 text-lg"><Star className="fill-blue-500"/></span>
+          <div className="absolute top-6 right-0 -translate-x-1/2 bg-white rounded-xl shadow px-4 py-2 flex gap-2">
+            <span className="text-blue-500 text-lg">
+              <Star className="fill-blue-500" />
+            </span>
             <div>
               <p className="text-blue-600 font-bold text-sm">4.9</p>
               <p className="text-gray-500 text-[11px]">Customer Rating</p>

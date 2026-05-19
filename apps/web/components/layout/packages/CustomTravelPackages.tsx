@@ -174,18 +174,14 @@ return (
   <section className="relative w-full py-12 sm:py-20 overflow-hidden flex items-center justify-center">
 
     {/* BACKGROUND IMAGE */}
-    <img
-      src="/assets/bgimage/h2.webp"
-      loading="lazy"
-      alt=""
-      className="absolute inset-0 w-full h-full object-cover"
-    />
+<img
+  src="/assets/bgimage/h2.webp"
+  loading="lazy"
+  alt=""
+  className="absolute inset-0 w-full h-full object-cover opacity-[0.18]"
+/>
 
-    {/* GRADIENT */}
-    <div className="absolute inset-0 bg-gradient-to-b from-[rgba(207,234,246,0.6)] to-[rgba(85,178,218,0.6)]"></div>
-
-    {/* LIGHT OVERLAY (FIXED LIGHTER) */}
-    <div className="absolute inset-0 bg-white/20"></div>
+    
 
     {/* CONTENT */}
     <div className="relative z-10 w-full max-w-5xl mx-auto px-4 font-sans">
