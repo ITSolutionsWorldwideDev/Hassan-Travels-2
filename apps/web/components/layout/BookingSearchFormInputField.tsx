@@ -1,27 +1,44 @@
+"use client";
 import React from "react";
+
+interface Props {
+  placeHolder: string;
+  label: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
 export const BookingSearchFormInputField = ({
   placeHolder,
   label,
-}: {
-  placeHolder: string;
-  label: string;
-}) => {
+  value,
+  onChange,
+}: Props) => {
   return (
-    <div className="w-auto h-[90]">
-      <label className="block border-[3px] p-4  rounded-2xl  bg-white focus-within:ring-3 focus-within:ring-blue-500">
-        <span className="block truncate text-gray-700 font-semibold text-sm  lg:text-lg mb-1 text-left">
-          {label}
-        </span>
+    <div className="h-[85px] flex flex-col justify-center px-5 bg-white rounded-xl shadow-sm">
 
-        <input
-          type="text"
-          placeholder={placeHolder}
-          className=" outline-none text-gray-500 placeholder:text-gray-400  bg-transparent"
-        />
-      </label>
+      {/* LABEL */}
+     <span className="text-gray-800 font-bold text-sm mb-1 text-left">
+  {label}
+</span>
+
+      {/* INPUT */}
+      <input
+        type="text"
+        placeholder={placeHolder}
+        value={value || ""}
+        onChange={onChange}
+        className="
+          bg-transparent
+          outline-none
+          text-gray-900
+          placeholder:text-gray-400
+          text-base sm:text-base
+          font-medium
+          text-left
+        "
+      />
+
     </div>
   );
 };
-
-// export default BookingSearchFormInputField;

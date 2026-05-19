@@ -17,33 +17,53 @@ export default function packages() {
       {/* ====== SECTION WRAPPER WITH BG ====== */}
       <PopularTourPackages />
 
-      <section className="relative py-20 px-4 bg-linear-to-b from-[#cfe8f3] to-[#eaf6fb]">
-        {/* HEADING */}
-
-        <HeadingAndDesc
-          head="Make Your Custom Travel Package"
-          desc="Build your perfect journey tailored to your preferences. Choose your destination, travel style, and let us create an unforgettable experience."
-        />
-        {/* BOX */}
+        
         <CustomTravelPackages />
-      </section>
+      
 
-      <section className="relative container mx-auto px-5 mb-5">
-        {/* CARD */}
-        <div className=" text-white  bg-[#0F91D5] rounded-3xl shadow-2xl px-12 py-16 text-center">
-          <HeadingAndDesc
-            head="Can't Find What You're Looking For?"
-            desc="Our travel experts are ready to create a personalized package just
-            for you. Contact us today for a custom quote tailored to your
-            preferences and budget."
-          />
 
-          {/* BUTTON */}
-          <button className="bg-white text-[#0f91d5] font-semibold px-8 py-4 rounded-2xl shadow-lg hover:bg-gray-100 transition">
-            Speak with a Travel Expert
-          </button>
-        </div>
-      </section>
+
+    <section className="relative w-full py-12 px-5 overflow-hidden">
+
+  {/* 🔥 BACKGROUND IMAGE */}
+  <img
+    src="/assets/home/h1.webp"
+    loading="lazy"
+    alt=""
+    className="absolute inset-0 w-full h-full object-cover"
+  />
+
+  {/* 🔥 LIGHT GRADIENT */}
+  <div className="absolute inset-0 bg-gradient-to-b from-[rgba(207,234,246,0.15)] to-[rgba(85,178,218,0.25)]"></div>
+
+  {/* 🔥 LIGHT OVERLAY */}
+  <div className="absolute inset-0 bg-white/35"></div>
+
+  {/* 🔥 CONTENT */}
+  <div className="relative z-10 container mx-auto">
+
+    {/* 🔥 SLIGHT SPACING (CONTROL HEIGHT) */}
+    <div className="mt-6 sm:mt-10">
+
+      {/* 🔥 CARD */}
+      <div className="text-white bg-[#0F91D5] rounded-3xl shadow-2xl px-8 py-8 text-center">
+
+        {/* HEADING + DESC */}
+        <HeadingAndDesc
+          head="Can't Find What You're Looking For?"
+          desc="Our travel experts are ready to create a personalized package just for you. Contact us today for a custom quote tailored to your preferences and budget."
+        />
+
+        {/* BUTTON */}
+        <button className="mt-4 bg-white text-[#0f91d5] font-semibold px-6 py-3 rounded-2xl shadow-lg hover:bg-gray-100 transition">
+          Speak with a Travel Expert
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+</section>
     </>
   );
 }

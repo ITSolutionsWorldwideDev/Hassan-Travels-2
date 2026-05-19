@@ -1,19 +1,36 @@
 "use client";
+
 import { useState } from "react";
 import { BookingSearchFormInputField } from "../BookingSearchFormInputField";
-// import { DatePickerDialog } from "./DatePicker";
 import { DatePickerDialog } from "./DatePIckerDialog";
-export default function DateInputField({label,placeHolder}:{label:string,placeHolder:string}) {
+
+export default function DateInputField({
+  label,
+  placeHolder,
+}: {
+  label: string;
+  placeHolder: string;
+}) {
   const [open, setOpen] = useState(false);
 
   return (
     <>
-      <button
+      {/* IMPORTANT: use div instead of button */}
+      <div
         onClick={() => setOpen(true)}
-        className=" text-white border-none rounded-xl   cursor-pointer" type="button"
+        className="
+          w-full h-full
+          cursor-pointer
+          rounded-xl
+        "
       >
-        <BookingSearchFormInputField label={label} placeHolder={placeHolder} />
-      </button>
+        <div className="h-full w-full">
+          <BookingSearchFormInputField
+            label={label}
+            placeHolder={placeHolder}
+          />
+        </div>
+      </div>
 
       {open && <DatePickerDialog onClose={() => setOpen(false)} />}
     </>

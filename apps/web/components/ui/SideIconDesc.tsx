@@ -43,8 +43,10 @@ const SideIconDesc = ({ data }: SideIconDescProps) => {
         ))}
       </div>
 
+      
       {/* PARTNERS */}
     </section>
+    
   );
 };
 

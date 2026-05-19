@@ -1,5 +1,6 @@
 import { JSX, useState } from "react";
-
+import { FaHotel, FaPlaneArrival, FaUserTie, FaUtensils } from "react-icons/fa";
+import { FaUsers, FaHeart, FaUser, FaUserFriends } from "react-icons/fa";
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 type CountryCode =
@@ -22,7 +23,7 @@ interface Country {
 interface TravelTypeOption {
   id: string;
   label: string;
-  icon: string;
+  icon: JSX.Element;
 }
 
 interface DurationOption {
@@ -33,7 +34,7 @@ interface DurationOption {
 interface PreferenceOption {
   id: string;
   label: string;
-  icon: string;
+  icon: JSX.Element;
 }
 
 interface TravelerRowConfig {
@@ -91,10 +92,10 @@ const airportsByCountry: Record<CountryCode, string[]> = {
 const timeSpans: string[] = ["Day", "Night"];
 
 const travelTypes: TravelTypeOption[] = [
-  { id: "family", label: "Family", icon: "👨‍👩‍👧‍👦" },
-  { id: "couple", label: "Couple", icon: "💑" },
-  { id: "solo", label: "Solo", icon: "🧳" },
-  { id: "friends", label: "Friends", icon: "👥" },
+  { id: "family", label: "Family", icon: <FaUsers /> },
+  { id: "couple", label: "Couple", icon: <FaHeart /> },
+  { id: "solo", label: "Solo", icon: <FaUser /> },
+  { id: "friends", label: "Friends", icon: <FaUserFriends /> },
 ];
 
 const durations: DurationOption[] = [
@@ -106,10 +107,10 @@ const durations: DurationOption[] = [
 ];
 
 const preferences: PreferenceOption[] = [
-  { id: "hotel", label: "Hotel Accommodation", icon: "🏨" },
-  { id: "airport", label: "Airport Pick & Drop", icon: "🚖" },
-  { id: "guide", label: "Tour Guide", icon: "🧭" },
-  { id: "meals", label: "Meals Included", icon: "🍽️" },
+  { id: "hotel", label: "Hotel Accommodation", icon: <FaHotel /> as any },
+  { id: "airport", label: "Airport Pick & Drop", icon: <FaPlaneArrival /> as any },
+  { id: "guide", label: "Tour Guide", icon: <FaUserTie /> as any },
+  { id: "meals", label: "Meals Included", icon: <FaUtensils /> as any },
 ];
 
 // ─── Component ────────────────────────────────────────────────────────────────
@@ -169,10 +170,35 @@ export default function TravelBookingForm(): JSX.Element {
     },
   ];
 
-  return (
-    <div className="min-h-screen bg-linear-to-br from-sky-50 via-white to-cyan-50 flex items-center justify-center p-4 font-sans">
-      <div className="w-full max-w-5xl bg-white rounded-3xl shadow-2xl shadow-sky-100 overflow-hidden">
-        {/* Header */}
+return (
+  <section className="relative w-full py-12 sm:py-20 overflow-hidden flex items-center justify-center">
+
+    {/* BACKGROUND IMAGE */}
+<img
+  src="/assets/bgimage/h2.webp"
+  loading="lazy"
+  alt=""
+  className="absolute inset-0 w-full h-full object-cover opacity-[0.18]"
+/>
+
+    
+
+    {/* CONTENT */}
+    <div className="relative z-10 w-full max-w-5xl mx-auto px-4 font-sans">
+
+      {/* 🔥 HEADING FIX */}
+      <div className="text-center mb-10">
+        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
+          Make Your Custom Travel Package
+        </h2>
+        <p className="text-gray-700 max-w-2xl mx-auto">
+          Build your perfect journey tailored to your preferences. Choose your destination,
+          travel style, and let us create an unforgettable experience.
+        </p>
+      </div>
+
+      {/* FORM CARD */}
+      <div className="w-full bg-white rounded-3xl shadow-2xl shadow-sky-100 overflow-hidden">
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 divide-y lg:divide-y-0 lg:divide-x divide-gray-100">
           {/* ── LEFT PANEL ── */}
@@ -248,22 +274,38 @@ export default function TravelBookingForm(): JSX.Element {
                 Travel Type
               </label>
               <div className="grid grid-cols-4 gap-3">
-                {travelTypes.map((t: TravelTypeOption) => (
-                  <button
-                    key={t.id}
-                    type="button"
-                    onClick={() => setTravelType(t.id)}
-                    className={`flex flex-col items-center justify-center gap-2 py-4 rounded-2xl border-2 text-sm font-semibold transition-all ${
-                      travelType === t.id
-                        ? "bg-sky-500 border-sky-500 text-white shadow-lg shadow-sky-200 scale-105"
-                        : "bg-white border-gray-200 text-gray-600 hover:border-sky-300 hover:bg-sky-50"
-                    }`}
-                  >
-                    <span className="text-2xl">{t.icon}</span>
-                    <span className="text-xs">{t.label}</span>
-                  </button>
-                ))}
-              </div>
+  {travelTypes.map((t: TravelTypeOption) => {
+    const active = travelType === t.id;
+
+    return (
+      <button
+        key={t.id}
+        type="button"
+        onClick={() => setTravelType(t.id)}
+        className={`flex flex-col items-center justify-center gap-2 py-4 rounded-2xl border-2 text-sm font-semibold transition-all
+        ${
+          active
+            ? "bg-[#058BD0] border-[#058BD0] text-white shadow-lg scale-105"
+            : "bg-white border-gray-200 text-gray-600 hover:border-[#058BD0] hover:bg-[#E6F4FB]"
+        }`}
+      >
+        {/* ICON FIX */}
+        <span
+          className={`text-2xl ${
+            active ? "text-white" : "text-[#058BD0]"
+          }`}
+        >
+          {t.icon}
+        </span>
+
+        {/* TEXT */}
+        <span className={`${active ? "text-white" : "text-gray-600"} text-xs`}>
+          {t.label}
+        </span>
+      </button>
+    );
+  })}
+</div>
             </div>
 
             {/* Duration */}
@@ -399,7 +441,7 @@ export default function TravelBookingForm(): JSX.Element {
                           </svg>
                         )}
                       </div>
-                      <span className="text-xl">{pref.icon}</span>
+                      <span className="text-xl text-sky-500">{pref.icon}</span>
                       <span
                         className={`text-sm font-semibold ${
                           active ? "text-sky-700" : "text-gray-700"
@@ -413,21 +455,7 @@ export default function TravelBookingForm(): JSX.Element {
               </div>
             </div>
 
-            {/* Special Requests */}
-            <div className="space-y-2">
-              <label className="heading text-sm font-semibold text-gray-700">
-                Special Requests
-              </label>
-              <textarea
-                rows={3}
-                placeholder="Any special requirements, dietary needs, accessibility requests..."
-                value={specialRequests}
-                onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-                  setSpecialRequests(e.target.value)
-                }
-                className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-700 text-sm resize-none focus:outline-none focus:border-sky-400 focus:bg-white transition-all"
-              />
-            </div>
+           
 
             {/* Submit */}
             <button
@@ -445,5 +473,6 @@ export default function TravelBookingForm(): JSX.Element {
         </div>
       </div>
     </div>
+    </section>
   );
 }

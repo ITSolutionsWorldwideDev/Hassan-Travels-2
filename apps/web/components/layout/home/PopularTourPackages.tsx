@@ -83,11 +83,16 @@ const PopularTourPackages = () => {
     (tour) => tour.category === selectedCategory,
   );
   return (
-    <section
-      className="py-12 sm:py-20 px-4 sm:px-8 md:px-16 bg-cover bg-center bg-no-repeat relative container mx-auto"
-      style={{ backgroundImage: "url('/images/tour.jpg')" }}
-      aria-labelledby="popular-tour-packages"
-    >
+   <section
+  className="relative w-full min-h-[70vh] py-12 sm:py-20 px-4 sm:px-8 md:px-16 bg-cover bg-center bg-no-repeat"
+  style={{
+   backgroundImage: "linear-gradient(rgba(207,234,246,0.6), rgba(85, 178, 218, 0.6)), url('/assets/bgimage/h1.webp')",
+  }}
+  aria-labelledby="popular-tour-packages"
+>
+
+
+
       {/* TITLE */}
       <h2
         id="popular-tour-packages"
@@ -128,33 +133,42 @@ const PopularTourPackages = () => {
       {/* CARDS GRID */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredTours.map((item, i) => (
-          <article
-            key={i}
-            className="flex bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition"
-          >
-            {/* IMAGE LEFT */}
-            <Image
-              src={`/assets/home/${item.img}`}
-              alt={`${item.name} tour package`}
-              width={140}
-              height={110}
-              loading="lazy"
-              className="w-30 sm:w-35 h-25 sm:h-27.5 object-cover"
-            />
+      <article
+  key={i}
+  className="group flex bg-white rounded-2xl shadow-md overflow-hidden transition-all duration-500 hover:shadow-2xl"
+>
+  {/* IMAGE SIDE */}
+  <div className="w-1/2 h-[170px] overflow-hidden">
+<Image
+  src={`/assets/home/${item.img}`}
+  alt={`${item.name} - ${item.country} tour package`}
+  width={400}
+  height={170}
+  priority={i < 2} // only first 2 images load fast
+  className="w-full h-full object-cover transition-all duration-500 ease-out group-hover:-translate-x-10"
+/>
+  </div>
 
-            {/* TEXT RIGHT */}
-            <div className="p-3 sm:p-4 flex flex-col justify-between w-full">
-              <div>
-                <h3 className="font-semibold text-sm">{item.name}</h3>
-                <p className="text-xs text-gray-500">{item.country}</p>
-              </div>
+  {/* TEXT SIDE */}
+  <div className="w-1/2 bg-white px-5 py-4 flex flex-col justify-center transition-all duration-500 ease-out group-hover:-translate-x-6">
+    
+    <h3 className="text-lg font-semibold text-gray-900">
+      {item.name}
+    </h3>
 
-              <div>
-                <p className="text-xs text-gray-400">Retour vanaf</p>
-                <p className="text-blue-600 font-bold">{item.price}</p>
-              </div>
-            </div>
-          </article>
+    <p className="text-sm text-gray-500 mt-1">
+      {item.country}
+    </p>
+
+    <div className="mt-4">
+      <p className="text-sm text-gray-500">Retour vanaf</p>
+      <p className="text-blue-600 text-xl font-bold">
+        {item.price}
+      </p>
+    </div>
+
+  </div>
+</article>
         ))}
       </div>
     </section>
