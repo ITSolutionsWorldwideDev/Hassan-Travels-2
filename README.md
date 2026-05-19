@@ -1,4 +1,3 @@
-````md
 # ✈️ **Travel Booking Platform | Monorepo (Turborepo + Next.js)**
 
 A modern and scalable travel booking platform built with Turborepo, featuring a customer-facing travel website, booking management system, shared UI packages, and reusable utilities—designed for performance, modularity, and seamless developer collaboration.
@@ -64,7 +63,7 @@ A modern and scalable travel booking platform built with Turborepo, featuring a 
 
 ```bash
 git clone https://github.com/your-username/travel-booking-platform.git
-````
+
 
 ---
 
