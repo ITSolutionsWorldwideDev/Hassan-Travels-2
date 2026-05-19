@@ -8,34 +8,6 @@ declare global {
   var pgPool: Pool | undefined;
 }
 
-/*
-
-function ensureEnv() {
-  if (!process.env.DATABASE_URL) {
-    throw new Error("DATABASE_URL is missing");
-  }
-}
-
-// ensureEnv();
-
-// *
-//  * Shared PostgreSQL connection pool
-
-export const pool =
-  global.pgPool ??
-  new Pool({
-    connectionString: process.env.DATABASE_URL,
-
-    // Recommended production settings
-    max: 20,
-    idleTimeoutMillis: 30_000,
-    connectionTimeoutMillis: 2_000,
-  });
-
-if (process.env.NODE_ENV !== "production") {
-  global.pgPool = pool;
-} */
-
 // Pool should also be a singleton for Next.js dev mode
 
 function createPool() {
