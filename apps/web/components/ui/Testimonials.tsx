@@ -1,8 +1,23 @@
-const Testimonials = () => {
+type Props = {
+  bgImage?: string; // optional
+};
+
+const Testimonials = ({ bgImage }: Props) => {
   return (
-    <div>
-      {" "}
-      <section className="py-12 sm:py-20 px-4 sm:px-8 md:px-16 bg-white text-center">
+    <section className="relative py-12 sm:py-20 px-4 sm:px-8 md:px-16 text-center overflow-hidden">
+      
+      {/* ✅ Background Image (ONLY if passed) */}
+      {bgImage && (
+        <img
+          src={bgImage}
+          loading="lazy"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover opacity-35"
+        />
+      )}
+
+      {/* ✅ Content wrapper ABOVE image */}
+      <div className="relative z-10">
         <h2 className="text-2xl sm:text-3xl font-bold text-blue-600 mb-8 sm:mb-12">
           What Our Customers Say
         </h2>
@@ -49,8 +64,8 @@ const Testimonials = () => {
             </div>
           ))}
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };
 
