@@ -34,20 +34,12 @@ const iconsData: Props[] = [
 
 const CenterIconHeadingDesc = () => {
   return (
-    <section
-  className="relative w-full py-12 sm:py-20 bg-cover bg-center bg-no-repeat"
- style={{
-    backgroundImage:
-      "linear-gradient(rgba(77, 193, 243, 0.3), rgba(134, 229, 253, 0.75)), url('/assets/home/h1.webp')",
+   <section
+  className="relative w-full py-12 sm:py-20"
+  style={{
+    background: "linear-gradient(93.17deg, #E0F4FF 0%, #D8F2FF 97.6%)",
   }}
 >
-  {/* Lazy loader trigger */}
-  <img
-    src="/assets/home/h1.webp"
-    alt=""
-    loading="lazy"
-    className="hidden"
-  />
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 text-center px-4 sm:px-8 md:px-16">
         
         {iconsData.map((item, i) => (

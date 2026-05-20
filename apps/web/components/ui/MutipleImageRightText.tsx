@@ -10,19 +10,12 @@ export default function MutipleImageRightText({
   return (
     <section className="relative w-full py-12 sm:py-20 overflow-hidden">
 
-  {/* BACKGROUND IMAGE (LAZY LOAD) */}
   <img
-    src="/assets/bgimage/h2.webp"
-    loading="lazy"
-    alt=""
-    className="absolute inset-0 w-full h-full object-cover"
-  />
-
-  {/* GRADIENT (MAIN STYLE) */}
-  <div className="absolute inset-0 bg-gradient-to-b from-[rgba(207,234,246,0.6)] to-[rgba(85,178,218,0.6)]"></div>
-
-  {/* LIGHT OVERLAY (OPTIONAL - SAME AS YOUR CODE) */}
-  <div className="absolute inset-0 bg-white/30"></div>
+  src="/assets/bgimage/h2.webp"
+  loading="lazy"
+  alt=""
+  className="absolute inset-0 w-full h-full object-cover opacity-[0.18]"
+/>
 
       {/* CONTENT */}
       <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 ">

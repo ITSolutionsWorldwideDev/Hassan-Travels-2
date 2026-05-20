@@ -10,20 +10,16 @@ const airlines = [
 
 export default function AirlineSlider() {
   return (
-    <section
-        className="relative w-full py-12 sm:py-20 bg-cover bg-center bg-no-repeat"
-  style={{
-    backgroundImage:
-      "linear-gradient(rgba(85,178,218,0.5), rgba(85,178,218,0.5)), url('/bgimage/home/h1.webp')",
-  }}
->
-  {/* LAZY LOAD IMAGE (hidden preloader) */}
+    <section className="relative w-full py-12 sm:py-20 overflow-hidden">
+
+  {/* BACKGROUND IMAGE */}
   <img
-    src="/bgimage/home/h1.webp"
-    alt=""
+    src="/assets/bgimage/h1.webp"
+    alt="bg"
     loading="lazy"
-    className="hidden"
+    className="absolute inset-0 w-full h-full object-cover"
   />
+
       {/* CONTENT CONTAINER */}
       <div className="container mx-auto px-4 sm:px-8 md:px-16">
         

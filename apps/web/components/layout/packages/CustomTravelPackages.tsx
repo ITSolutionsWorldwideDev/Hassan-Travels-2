@@ -174,18 +174,14 @@ return (
   <section className="relative w-full py-12 sm:py-20 overflow-hidden flex items-center justify-center">
 
     {/* BACKGROUND IMAGE */}
-    <img
-      src="/assets/bgimage/h2.webp"
-      loading="lazy"
-      alt=""
-      className="absolute inset-0 w-full h-full object-cover"
-    />
+<img
+  src="/assets/bgimage/h2.webp"
+  loading="lazy"
+  alt=""
+  className="absolute inset-0 w-full h-full object-cover opacity-[0.18]"
+/>
 
-    {/* GRADIENT */}
-    <div className="absolute inset-0 bg-gradient-to-b from-[rgba(207,234,246,0.6)] to-[rgba(85,178,218,0.6)]"></div>
-
-    {/* LIGHT OVERLAY (FIXED LIGHTER) */}
-    <div className="absolute inset-0 bg-white/20"></div>
+    
 
     {/* CONTENT */}
     <div className="relative z-10 w-full max-w-5xl mx-auto px-4 font-sans">
@@ -278,22 +274,38 @@ return (
                 Travel Type
               </label>
               <div className="grid grid-cols-4 gap-3">
-                {travelTypes.map((t: TravelTypeOption) => (
-                  <button
-                    key={t.id}
-                    type="button"
-                    onClick={() => setTravelType(t.id)}
-                    className={`flex flex-col items-center justify-center gap-2 py-4 rounded-2xl border-2 text-sm font-semibold transition-all ${
-                      travelType === t.id
-                        ? "bg-sky-500 border-sky-500 text-white shadow-lg shadow-sky-200 scale-105"
-                        : "bg-white border-gray-200 text-gray-600 hover:border-sky-300 hover:bg-sky-50"
-                    }`}
-                  >
-                   <span className="text-2xl text-sky-500">{t.icon}</span>
-                    <span className="text-xs">{t.label}</span>
-                  </button>
-                ))}
-              </div>
+  {travelTypes.map((t: TravelTypeOption) => {
+    const active = travelType === t.id;
+
+    return (
+      <button
+        key={t.id}
+        type="button"
+        onClick={() => setTravelType(t.id)}
+        className={`flex flex-col items-center justify-center gap-2 py-4 rounded-2xl border-2 text-sm font-semibold transition-all
+        ${
+          active
+            ? "bg-[#058BD0] border-[#058BD0] text-white shadow-lg scale-105"
+            : "bg-white border-gray-200 text-gray-600 hover:border-[#058BD0] hover:bg-[#E6F4FB]"
+        }`}
+      >
+        {/* ICON FIX */}
+        <span
+          className={`text-2xl ${
+            active ? "text-white" : "text-[#058BD0]"
+          }`}
+        >
+          {t.icon}
+        </span>
+
+        {/* TEXT */}
+        <span className={`${active ? "text-white" : "text-gray-600"} text-xs`}>
+          {t.label}
+        </span>
+      </button>
+    );
+  })}
+</div>
             </div>
 
             {/* Duration */}

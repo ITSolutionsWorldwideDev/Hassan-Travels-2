@@ -8,20 +8,14 @@ const CommonHeader = ({
   desc?: string;
 }) => {
   return (
-    <section className="relative py-20 md:py-24 px-4 overflow-hidden">
-{/* BACKGROUND IMAGE (ORIGINAL) */}
-<img
-  src="/assets/bgimage/bg.webp"
-  alt=""
-  loading="lazy"
-  className="absolute inset-0 w-full h-full object-cover"
-/>
+   <section className="relative w-full max-w-[1920px] min-h-[349px] py-20 md:py-24 px-4 overflow-hidden mx-auto">
+  <img
+    src="/assets/bgimage/bg.webp"
+    alt=""
+    loading="lazy"
+    className="absolute inset-0 w-full h-full object-cover opacity-[0.51] z-0"
+  />
 
-{/* VERY LIGHT OVERLAY */}
-<div className="absolute inset-0 bg-[#dff4fb]/15"></div>
-
-{/* LIGHT GRADIENT */}
-<div className="absolute inset-0 bg-gradient-to-b from-[#dff4fb]/20 via-transparent to-transparent"></div>
 
       {/* CONTENT */}
       <div className="relative z-10 max-w-5xl mx-auto text-center">
