@@ -1,6 +1,12 @@
 {
   "$schema": "https://turborepo.dev/schema.json",
+<<<<<<< HEAD
   "ui": "stream",
+=======
+  "ui": "tui",
+
+  "globalEnv": ["DATABASE_URL", "JWT_SECRET"],
+>>>>>>> 48a964bb4df34b33f08e05f0588519ed826bb463
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
