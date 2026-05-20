@@ -26,11 +26,19 @@ function createPool() {
   });
 }
 
-export const pool = global.pgPool ?? createPool();
+export function getPool() {
+  if (!global.pgPool) {
+    global.pgPool = createPool();
+  }
 
-if (process.env.NODE_ENV !== "production") {
-  global.pgPool = pool;
+  return global.pgPool;
 }
+
+// export const pool = global.pgPool ?? createPool();
+
+// if (process.env.NODE_ENV !== "production") {
+//   global.pgPool = pool;
+// }
 
 /**
  * Generic SQL query helper
@@ -40,7 +48,7 @@ export async function runQuery<T extends QueryResultRow = any>(
   params: unknown[] = [],
 ): Promise<QueryResult<T>> {
   try {
-    return await pool.query<T>(text, params);
+    return await getPool().query<T>(text, params);
   } catch (error) {
     console.error("Database query error:", error);
 
@@ -54,7 +62,7 @@ export async function runQuery<T extends QueryResultRow = any>(
 export async function withTransaction<T>(
   callback: (client: Pool) => Promise<T>,
 ): Promise<T> {
-  const client = await pool.connect();
+  const client = await getPool().connect();
 
   try {
     await client.query("BEGIN");

@@ -6,10 +6,13 @@
 import { revalidatePath } from "next/cache";
 // import { requirePlatformAdminServer } from "@/lib/auth/server-guards";
 import bcrypt from "bcryptjs";
-import { pool } from "@repo/db";
+// import { pool } from "@repo/db";
+import { getPool } from "@repo/db";
 
 export async function getReferenceData() {
   // await requirePlatformAdminServer();
+
+  const pool = getPool();
 
   try {
     // 1. Fetch active stores
@@ -38,6 +41,8 @@ export async function getReferenceData() {
 }
 
 export async function saveUserAction(userId: string | null, formData: any) {
+
+  const pool = getPool();
   // const actor = await requirePlatformAdminServer();
   const client = await pool.connect();
 

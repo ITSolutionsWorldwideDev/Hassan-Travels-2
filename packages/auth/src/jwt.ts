@@ -8,7 +8,10 @@ import type { Role } from "@repo/types/roles";
 
 import type { Permission } from "@repo/types/permissions";
 
-const env = getEnv();
+// const env = getEnv();
+function env() {
+  return getEnv();
+}
 
 export type JwtPayload = {
   userId: string;
@@ -28,7 +31,7 @@ export function signToken(
 ) {
   return jwt.sign(
     payload,
-    env.JWT_SECRET,
+    env().JWT_SECRET,
     {
       expiresIn: "7d",
     }
@@ -43,7 +46,7 @@ export function verifyToken(
 ): JwtPayload {
   return jwt.verify(
     token,
-    env.JWT_SECRET
+    env().JWT_SECRET
   ) as JwtPayload;
 }
 
