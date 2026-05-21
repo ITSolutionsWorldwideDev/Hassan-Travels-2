@@ -24,7 +24,7 @@ const Map = () => {
             <iframe
               title="Hassaan Travel Rotterdam Location"
               src="https://www.google.com/maps?q=Dordtselaan+67D,+3081BG+Rotterdam,+Netherlands&output=embed"
-              className="rounded-xl shadow-lg w-full h-full min-h-[350px]"
+              className="rounded-xl shadow-lg w-full h-full min-h-87.5"
               loading="lazy"
             ></iframe>
           </div>

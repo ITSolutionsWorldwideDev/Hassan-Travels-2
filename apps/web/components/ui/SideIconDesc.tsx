@@ -24,9 +24,9 @@ const SideIconDesc = ({ data }: SideIconDescProps) => {
       </div>
       {/* CARDS */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex gap-6 sm:gap-8 px-0 sm:px-4 md:px-8">
-        {data.data.map((item, i) => (
+        {data.data.map((item, ind) => (
           <div
-            key={i}
+            key={ind}
             className="bg-white/40 backdrop-blur-lg border  border-white/40 rounded-2xl p-6 sm:p-8 shadow-md hover:shadow-lg transition"
           >
             {/* ICON */}

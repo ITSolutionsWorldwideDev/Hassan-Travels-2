@@ -304,7 +304,7 @@ const PopularTourPackages = () => {
   />
 
   {/* VERY SOFT GRADIENT */}
-  <div className="absolute inset-0 bg-gradient-to-b from-[rgba(207,234,246,0.15)] to-[rgba(85,178,218,0.25)]"></div>
+  <div className="absolute inset-0 bg-linear-to-b from-[rgba(207,234,246,0.15)] to-[rgba(85,178,218,0.25)]"></div>
 
   {/* LIGHT WASH */}
   <div className="absolute inset-0 bg-white/35"></div>

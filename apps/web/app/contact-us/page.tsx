@@ -22,7 +22,7 @@ export default function ContactPage() {
       {/* ✅ FAQ with BG */}
       <Faqs
         imagesLinks={imageLinks}
-        bgImage="/assets/about-us/3.webp"
+        // bgImage="/assets/about-us/3.webp"
       />
 
       {/* ✅ Testimonials with SAME BG */}
