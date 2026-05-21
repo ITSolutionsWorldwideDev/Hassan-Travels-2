@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import { IoLocationSharp } from 'react-icons/io5';
 import { BsFillAirplaneFill } from 'react-icons/bs';
+
 const destinations = [
   {
     name: "Makkah",
@@ -36,10 +37,25 @@ const destinations = [
     price: "€459",
   },
 ];
+
 const HeroSection = () => {
   return (
-    <section className="relative py-20 px-6 sm:px-12 md:px-16 bg-[#cfe3ec] container mx-auto">
+    // section ko full-width (w-full) kar diya taaki bg image full screen aaye
+    <section className="relative w-full py-20 px-6 sm:px-12 md:px-16 overflow-hidden">
+      
+      {/* Background Image - Ab ye bina kisi restriction ke poori screen cover karegi */}
+      <div className="absolute inset-0 -z-10 w-full h-full">
+        <Image
+          src="/assets/bgimage/h2.webp"
+          alt=""
+          fill
+          priority
+          className="object-cover opacity-[0.18]"
+        />
+      </div>
         
+      {/* Content Wrapper - Grid aur headings ko center aur align rakhne ke liye */}
+      <div className="container mx-auto">
         
         <div className="text-center mb-14 max-w-3xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight tracking-tight">
@@ -53,10 +69,8 @@ const HeroSection = () => {
           </p>
         </div>
 
-
-
-        {/* Wider layout with safe side breathing space */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 contianer mx-auto">
+        {/* Layout Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {destinations.map((item, index) => (
             <div
               key={index}
@@ -74,7 +88,6 @@ const HeroSection = () => {
                 <div className="absolute bottom-4 left-4 text-white">
                   <h3 className="text-xl font-bold mb-0.5">{item.name}</h3>
                   <div className="flex items-center gap-1 text-xs text-gray-200">
-                    {/* Image matching Red Pin Icon */}
                     <IoLocationSharp size={14} className="text-red-500" />
                     {item.country}
                   </div>
@@ -93,7 +106,6 @@ const HeroSection = () => {
 
                 <div className="flex justify-between items-center mb-4">
                   <div className="flex items-center gap-2 text-sm font-bold text-gray-700">
-                    {/* Image matching Blue Airplane Icon */}
                     <BsFillAirplaneFill
                       size={16}
                       className="text-sky-500 transform rotate-45"
@@ -117,11 +129,13 @@ const HeroSection = () => {
         </div>
 
         <div className="flex justify-center mt-12">
-          <button className="bg-white border border-blue-600 text-[#0F91D5] px-6 py-2 rounded-full font-medium transition hover:bg-blue-50 shadow-sm">
+          <button className="bg-white border border-blue-600 text-[#0F91D5] px-6 py-2 rounded-full font-medium transition hover:bg-blue-50 shadow-sm relative z-10">
             Explore All Destinations →
           </button>
         </div>
-      </section>
+
+      </div>
+    </section>
   )
 }
 

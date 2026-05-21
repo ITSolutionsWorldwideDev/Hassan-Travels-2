@@ -29,9 +29,9 @@ const MIssionAndVision = () => {
   return (
     <section className="relative w-full py-12 sm:py-20 overflow-hidden flex items-center justify-center bg-white">
 
-      {/* NEW BACKGROUND IMAGE */}
+      {/* ✅ UPDATED BACKGROUND IMAGE */}
       <img
-        src="/assets/bgimage/h2.webp"
+        src="/assets/about-us/3.webp"
         loading="lazy"
         alt=""
         className="absolute inset-0 w-full h-full object-cover opacity-[0.18] pointer-events-none z-0"
