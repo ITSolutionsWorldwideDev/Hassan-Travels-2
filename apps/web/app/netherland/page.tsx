@@ -13,23 +13,23 @@ const visaType = {
   head: "Which Visa Do You Need?",
   data: [
     {
-      title: "E-Visa Services",
-      desc: "Fast and easy processing of your Umrah visa through e-visa.",
+      title: "Tourist Visa",
+      desc: "Ideal for leisure travel and exploring the Netherlands.",
       icon: <ImCreditCard />,
     },
     {
-      title: "Document Assistance",
-      desc: "Help with collecting the necessary documents for a smooth visa application process.",
+      title: "Business Visa",
+      desc: "For meetings, events, and professional engagements.",
       icon: <LuHeadset />,
     },
     {
-      title: "Group & Family Visa Options",
-      desc: "Special services for families and groups traveling together.",
+      title: "Family Visit Visa",
+      desc: "Reunite with loved ones living in the Netherlands.",
       icon: <FaPassport />,
     },
     {
-      title: "Visa Tracking",
-      desc: "Track your Umrah visa status and get updates directly from Hassaan Travel.",
+      title: "Student Visa",
+      desc: "For academic or training opportunities (if applicable).",
       icon: <GiLaptop />,
     },
   ],
