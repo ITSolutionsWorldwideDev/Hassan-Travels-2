@@ -10,7 +10,7 @@ const CommonHeader = ({
 }) => {
   return (
     // max-w-[1920px] aur mx-auto hata diya taaki background har screen size par konon tak jaye
-    <section className="relative w-full min-h-[349px] py-20 md:py-24 px-4 overflow-hidden flex items-center justify-center">
+    <section className="relative w-full min-h-87.25 py-20 md:py-24 px-4 overflow-hidden flex items-center justify-center">
       
       {/* BACKGROUND IMAGE - Next.js optimized and edge-to-edge */}
       <div className="absolute inset-0 -z-10 w-full h-full">

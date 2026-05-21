@@ -16,7 +16,7 @@ import PopularTourPackages from "@/components/layout/packages/PopularTourPackage
 import StepsToApply from "@/components/layout/umrah/StepsToApply";
 import CustomTravelPackages from "@/components/ui/CustomTravelPackages";
 import MutipleImageRightText from "@/components/ui/MutipleImageRightText";
-import RequiredDocuments from "@/components/layout/umrah/RequiredDocuments";
+import RequiredDocuments from "@/components/ui/RequiredDocuments";
 
 const visaServices = {
   head: (
@@ -63,6 +63,10 @@ const faqImasgesLinks = [
   "/assets/umrah/faq3.webp",
   "/assets/umrah/faq4.webp",
 ];
+
+const documentRequired=[
+  'Online Saudi Umrah Visa Application','A Valid Passport','Passport-size Photo','Proof of Relationship','No-Objection Letter','Ticket'
+]
 const UmrahPage: React.FC = () => {
   return (
     <div className="bg-white ">
@@ -72,7 +76,7 @@ const UmrahPage: React.FC = () => {
       />
 
       <SideIconDesc data={visaServices} />
-      <RequiredDocuments />
+      <RequiredDocuments  documents={documentRequired} title='Umrah' rightImage="/assets/umrah/kaba.webp"/>
       <PopularTourPackages />
 
       <StepsToApply />
