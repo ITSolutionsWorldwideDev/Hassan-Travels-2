@@ -48,59 +48,58 @@ export default function HomeMain() {
     <main className="w-full text-gray-800">
       
       {/* HERO */}
-      <section className="relative flex flex-col items-center justify-center text-center text-white overflow-hidden min-h-150 md:min-h-170 pb-16">
+     <section className="relative flex flex-col items-center justify-center text-center text-white overflow-hidden min-h-150 md:min-h-170 pb-16">
         
-        {/* VIDEO */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/assets/videos/hero.mp4" type="video/mp4" />
-        </video>
+  {/* VIDEO */}
+  <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    preload="metadata"
+    className="absolute inset-0 w-full h-full object-cover"
+  >
+    <source src="/assets/videos/hero.mp4" type="video/mp4" />
+  </video>
 
-        {/* OVERLAY */}
-        <div className="absolute inset-0 bg-black/40"></div>
+  {/* OVERLAY */}
+  <div className="absolute inset-0 bg-black/40"></div>
 
-        {/* CONTENT */}
-        <div className="relative z-10 w-full max-w-225 mx-auto px-4 pt-24 md:pt-28">
-          
-          {/* BADGE */}
-          <div className="inline-flex items-center gap-2 border border-white/30 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full mb-5 text-xs sm:text-sm">
-            <Image
-              src="/assets/home/iata.webp"
-              alt="IATA Badge"
-              width={20}
-              height={20}
-              priority
-              className="h-4 w-auto object-contain"
-            />
-            <span>IATA AUTHORIZED • 17+ YEARS EXCELLENCE</span>
-          </div>
+  {/* CONTENT - Added negative top margins to pull everything one step up */}
+  <div className="relative z-10 w-full max-w-5xl mx-auto px-4 pt-24 md:pt-28 -mt-8 sm:-mt-12 md:-mt-16">
+    
+    {/* BADGE */}
+    <div className="inline-flex items-center gap-2 border border-white/30 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full mb-5 text-xs sm:text-sm">
+      <Image
+        src="/assets/home/iata.webp"
+        alt="IATA Badge"
+        width={20}
+        height={20}
+        priority
+        className="h-4 w-auto object-contain"
+      />
+      <span>IATA AUTHORIZED • 17+ YEARS EXCELLENCE</span>
+    </div>
 
-          {/* HEADING */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05]">
-            Fast Tickets. Smooth <span className="text-blue-400">Journeys</span>
-          </h1>
+    {/* HEADING BLOCK */}
+    <div className="w-full tracking-tight">
+      {/* 1st Line: Full width on desktop so it stays together */}
+      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold block whitespace-normal md:whitespace-nowrap">
+        Fast Tickets. Smooth <span className="text-blue-400">Journeys</span>
+      </h1>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-blue-400 mt-1">
-            From Booking to Boarding
-          </h2>
+      {/* 2nd Line: Automatically forced directly below it */}
+      <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-blue-400 mt-2 sm:mt-3 block">
+        From Booking to Boarding
+      </h2>
+    </div>
 
-          {/* DESC */}
-          <p className="mt-4 text-gray-200 text-sm md:text-lg">
-            Experience seamless, luxury travel with expert visa processing,
-            bespoke Umrah packages,
-          </p>
-
-          <p className="text-gray-200 text-sm md:text-lg">
-            and personalized guidance. Trusted by 10,000+ travelers.
-          </p>
-        </div>
-
+    {/* DESC */}
+    <p className="mt-6 text-gray-200 text-sm md:text-lg max-w-3xl mx-auto leading-relaxed">
+      Experience seamless, luxury travel with expert visa processing,
+      bespoke Umrah packages, and personalized guidance. Trusted by 10,000+ travelers.
+    </p>
+  </div>
         {/* SEARCH */}
         <BookingSearchForm />
       </section>

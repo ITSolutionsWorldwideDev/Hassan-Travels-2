@@ -20,9 +20,9 @@ const CommonHeader = ({
       {/* CONTENT */}
       <div className="relative z-10 max-w-5xl mx-auto text-center">
         {/* HEADING */}
-        <h1 className="mt-10 text-4xl md:text-4xl font-bold leading-tight text-black">
-          {heading}
-        </h1>
+     <h1 className="mt-10 text-4xl md:text-4xl font-bold leading-tight text-black whitespace-pre-line">
+  {heading}
+</h1>
 
         {/* DESCRIPTION */}
         <p className="mt-5 text-gray-700 text-sm md:text-lg max-w-3xl mx-auto">
