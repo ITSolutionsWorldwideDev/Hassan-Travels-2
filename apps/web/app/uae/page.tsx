@@ -1,6 +1,3 @@
-// import TestimonialsSection from "@/app/components/ui/TestimonialsSection";
-// import FaqSection from "../components/ui/FaqSection";
-// import HeroSection from "../components/ui/HeroSection";
 import VisaOptions from "@/components/layout/uae/VisaOptions";
 import CommonHeader from "@/components/ui/CommonHeader";
 import Faqs from "@/components/ui/Faqs";
@@ -15,11 +12,12 @@ const imageLinks = [
 ];
 
 const documentRequired = [
-'Valid passport with at least 6 months validity.',
-'Passport-size photos meeting UAE visa specifications.',
-'Flight details and proof of travel itinerary.',
-'Proof of accommodation or hotel booking in the UAE.',
-'Additional documents for business or family visas (if applicable).']
+  "Valid passport with at least 6 months validity.",
+  "Passport-size photos meeting UAE visa specifications.",
+  "Flight details and proof of travel itinerary.",
+  "Proof of accommodation or hotel booking in the UAE.",
+  "Additional documents for business or family visas (if applicable).",
+];
 export default function UAEPage() {
   return (
     <main className="w-full text-gray-800">
@@ -68,17 +66,21 @@ export default function UAEPage() {
           </div>
 
           {/* <div className="w-full bg-transparent py-12 px-4 flex flex-col items-center gap-10"> */}
-            {/* ================= SECTION 1: UAE Visa Services ================= */}
+          {/* ================= SECTION 1: UAE Visa Services ================= */}
 
-            <HeadDesImg
-              title="UAE Visa Services for Dutch Citizens:"
-              description="The Dutch citizens avail the benefit of no-visa travel status. When they enter the UAE, their passport is just stamped with a visit visa once they enter the UAE, which will be valid for a maximum time of 90 days."
-              imageSrc="/assets/uae/2.webp"
-            />
+          <HeadDesImg
+            title="UAE Visa Services for Dutch Citizens:"
+            description="The Dutch citizens avail the benefit of no-visa travel status. When they enter the UAE, their passport is just stamped with a visit visa once they enter the UAE, which will be valid for a maximum time of 90 days."
+            imageSrc="/assets/uae/2.webp"
+          />
 
-            {/* ================= SECTION 2: Documents Required ================= */}
-           <RequiredDocuments documents={documentRequired} rightImage="/assets/uae/doc.webp" title="UAE"/>
-            {/* </div> */}
+          {/* ================= SECTION 2: Documents Required ================= */}
+          <RequiredDocuments
+            documents={documentRequired}
+            rightImage="/assets/uae/doc.webp"
+            title="UAE"
+          />
+          {/* </div> */}
           {/* </div> */}
         </div>
       </section>
