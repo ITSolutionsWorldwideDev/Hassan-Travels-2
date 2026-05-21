@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, ChangeEvent } from "react";
+import Image from "next/image";
 import {
   FaPlane,
   FaUser,
@@ -106,8 +107,28 @@ const TicketRequestForm = () => {
   };
 
   return (
-    <section className="bg-[#cfe3ec] py-16 px-4 flex justify-center">
-      <div className="w-full max-w-5xl bg-white/70 backdrop-blur-md rounded-2xl shadow-xl p-8">
+    // Outer section updated with proper constraints to make image full screen edge-to-edge
+    <section className="relative w-full min-h-[70vh] py-12 sm:py-20 px-4 sm:px-8 md:px-16 overflow-hidden flex justify-center items-center">
+      
+      {/* 1. BACKGROUND IMAGE */}
+      <div className="absolute inset-0 -z-30 w-full h-full">
+        <Image
+          src="/assets/bgimage/h1.webp"
+          alt=""
+          fill
+          priority
+          className="object-cover"
+        />
+      </div>
+
+      {/* 2. LIGHT GRADIENT OVERLAY */}
+      <div className="absolute inset-0 -z-20 bg-gradient-to-b from-[rgba(207,234,246,0.15)] to-[rgba(85,178,218,0.25)]"></div>
+
+      {/* 3. LIGHT WHITE OVERLAY */}
+      <div className="absolute inset-0 -z-10 bg-white/35"></div>
+
+      {/* FORM CARD CONTAINER */}
+      <div className="w-full max-w-5xl bg-white/70 backdrop-blur-md rounded-2xl shadow-xl p-8 relative z-10">
         <div className="text-center mb-8">
           <h2 className="text-2xl font-bold">
             <span className="text-black">
@@ -185,7 +206,7 @@ const TicketRequestForm = () => {
                         formData[field.name] || ""
                       }
                       onChange={handleChange}
-                      className="w-full px-3 py-2 border rounded-md text-sm focus:border-blue-600 outline-none transition-colors"
+                      className="w-full px-3 py-2 border rounded-md text-sm focus:border-blue-600 outline-none transition-colors bg-white/80"
                     />
                   </div>
                 ))}
@@ -201,7 +222,7 @@ const TicketRequestForm = () => {
               Submit Request
             </button>
           </div>
-          <p className="text-[#666666] text-center mt-5">
+          <p className="text-[#666666] text-center mt-5 text-xs sm:text-sm">
             Our team will review your request and send you the best flight options within 24 hours
           </p>
         </form>

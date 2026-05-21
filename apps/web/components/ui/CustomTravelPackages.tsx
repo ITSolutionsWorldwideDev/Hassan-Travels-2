@@ -2,6 +2,7 @@
 import { JSX, useState } from "react";
 import { FaHotel, FaPlaneArrival, FaUserTie, FaUtensils } from "react-icons/fa";
 import { FaUsers, FaHeart, FaUser, FaUserFriends } from "react-icons/fa";
+
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 type CountryCode =
@@ -43,7 +44,6 @@ interface TravelerRowConfig {
   value: number;
   setter: React.Dispatch<React.SetStateAction<number>>;
   min: number;
-  subtitle: string;
 }
 
 interface QuotePayload {
@@ -160,320 +160,310 @@ export default function TravelBookingForm(): JSX.Element {
       value: adults,
       setter: setAdults,
       min: 1,
-      subtitle: "Age 13+",
     },
     {
       label: "Children",
       value: children,
       setter: setChildren,
       min: 0,
-      subtitle: "Ages 2–12",
     },
   ];
 
-return (
-  <section className="relative w-full py-12 sm:py-20 overflow-hidden flex items-center justify-center">
+  return (
+    <section className="relative w-full py-12 sm:py-20 overflow-hidden flex items-center justify-center">
+      {/* BACKGROUND IMAGE */}
+      <img
+        src="/assets/bgimage/h2.webp"
+        loading="lazy"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover opacity-[0.18]"
+      />
 
-    {/* BACKGROUND IMAGE */}
-<img
-  src="/assets/bgimage/h2.webp"
-  loading="lazy"
-  alt=""
-  className="absolute inset-0 w-full h-full object-cover opacity-[0.18]"
-/>
+      {/* CONTENT */}
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 font-sans">
+        {/* MAIN HEADING - FIXED TO MATCH YOUR POPULAR TOUR BLUE-600 */}
+        <div className="text-center mb-10">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
+            Make Your <span className="text-blue-600">Custom</span> Travel Package
+          </h2>
+          <p className="text-gray-700 max-w-2xl mx-auto">
+            Build your perfect journey tailored to your preferences. Choose your
+            destination, travel style, and let us create an unforgettable
+            experience.
+          </p>
+        </div>
 
-    
-
-    {/* CONTENT */}
-    <div className="relative z-10 w-full max-w-5xl mx-auto px-4 font-sans">
-
-      {/* 🔥 HEADING FIX */}
-      <div className="text-center mb-10">
-        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
-          Make Your Custom Travel Package
-        </h2>
-        <p className="text-gray-700 max-w-2xl mx-auto">
-          Build your perfect journey tailored to your preferences. Choose your destination,
-          travel style, and let us create an unforgettable experience.
-        </p>
-      </div>
-
-      {/* FORM CARD */}
-      <div className="w-full bg-white rounded-3xl shadow-2xl shadow-sky-100 overflow-hidden">
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 divide-y lg:divide-y-0 lg:divide-x divide-gray-100">
-          {/* ── LEFT PANEL ── */}
-          <div className="p-8 space-y-8">
-            {/* Destination Country */}
-            <div className="space-y-2">
-              <label className="heading text-sm font-semibold text-gray-700">
-                Destination Country
-              </label>
-              <select
-                value={country}
-                onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
-                  setCountry(e.target.value as CountryCode);
-                  setAirport("");
-                }}
-                className="select-arrow w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-700 font-medium focus:outline-none focus:border-sky-400 focus:bg-white transition-all"
-              >
-                {countries.map((c: Country) => (
-                  <option key={c.code} value={c.code}>
-                    {c.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* Airport */}
-            <div className="space-y-2">
-              <label className="heading text-sm font-semibold text-gray-700">
-                Airport
-              </label>
-              <select
-                value={airport}
-                onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-                  setAirport(e.target.value)
-                }
-                className="select-arrow w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-700 font-medium focus:outline-none focus:border-sky-400 focus:bg-white transition-all"
-              >
-                <option value="">Select Airport</option>
-                {(airportsByCountry[country] ?? []).map((a: string) => (
-                  <option key={a} value={a}>
-                    {a}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* Time Spam */}
-
-            {/* Preferred Time Span */}
-            <div className="space-y-2">
-              <label className="heading text-sm font-semibold text-gray-700">
-                Preferred Time Span
-              </label>
-              <select
-                value={timeSpan}
-                onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-                  setTimeSpan(e.target.value)
-                }
-                className="select-arrow w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-700 font-medium focus:outline-none focus:border-sky-400 focus:bg-white transition-all"
-              >
-                <option value="">Day/Night</option>
-                {(timeSpans ?? []).map((a: string) => (
-                  <option key={a} value={a}>
-                    {a}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* Travel Type */}
-            <div className="space-y-3">
-              <label className="heading text-sm font-semibold text-gray-700">
-                Travel Type
-              </label>
-              <div className="grid grid-cols-4 gap-3">
-  {travelTypes.map((t: TravelTypeOption) => {
-    const active = travelType === t.id;
-
-    return (
-      <button
-        key={t.id}
-        type="button"
-        onClick={() => setTravelType(t.id)}
-        className={`flex flex-col items-center justify-center gap-2 py-4 rounded-2xl border-2 text-sm font-semibold transition-all
-        ${
-          active
-            ? "bg-[#058BD0] border-[#058BD0] text-white shadow-lg scale-105"
-            : "bg-white border-gray-200 text-gray-600 hover:border-[#058BD0] hover:bg-[#E6F4FB]"
-        }`}
-      >
-        {/* ICON FIX */}
-        <span
-          className={`text-2xl ${
-            active ? "text-white" : "text-[#058BD0]"
-          }`}
-        >
-          {t.icon}
-        </span>
-
-        {/* TEXT */}
-        <span className={`${active ? "text-white" : "text-gray-600"} text-xs`}>
-          {t.label}
-        </span>
-      </button>
-    );
-  })}
-</div>
-            </div>
-
-            {/* Duration */}
-            <div className="space-y-3">
-              <label className="heading text-sm font-semibold text-gray-700">
-                Duration
-              </label>
-              <div className="flex flex-wrap gap-2">
-                {durations.map((d: DurationOption) => (
-                  <button
-                    key={d.id}
-                    type="button"
-                    onClick={() => setDuration(d.id)}
-                    className={`px-4 py-2.5 rounded-xl text-sm font-semibold border-2 transition-all ${
-                      duration === d.id
-                        ? "bg-sky-500 border-sky-500 text-white shadow-md shadow-sky-200"
-                        : "bg-white border-gray-200 text-gray-600 hover:border-sky-300"
-                    }`}
-                  >
-                    {d.label}
-                  </button>
-                ))}
+        {/* FORM CARD */}
+        <div className="w-full bg-white rounded-3xl shadow-2xl shadow-blue-100 overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 divide-y lg:divide-y-0 lg:divide-x divide-gray-100">
+            {/* ── LEFT PANEL ── */}
+            <div className="p-8 space-y-8">
+              {/* Destination Country */}
+              <div className="space-y-2">
+                <label className="heading text-sm font-semibold text-gray-700">
+                  Destination Country
+                </label>
+                <select
+                  value={country}
+                  onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+                    setCountry(e.target.value as CountryCode);
+                    setAirport("");
+                  }}
+                  className="select-arrow w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-700 font-medium focus:outline-none focus:border-blue-600 focus:bg-white transition-all"
+                >
+                  {countries.map((c: Country) => (
+                    <option key={c.code} value={c.code}>
+                      {c.name}
+                    </option>
+                  ))}
+                </select>
               </div>
-              {duration === "custom" && (
-                <input
-                  type="number"
-                  min={1}
-                  placeholder="Enter number of days"
-                  value={customDays}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                    setCustomDays(e.target.value)
-                  }
-                  className="w-full px-4 py-3 rounded-xl border-2 border-sky-300 bg-sky-50 text-gray-700 font-medium focus:outline-none focus:border-sky-500 transition-all"
-                />
-              )}
-            </div>
-          </div>
 
-          {/* ── RIGHT PANEL ── */}
-          <div className="p-8 space-y-8">
-            {/* Number of Travelers */}
-            <div className="space-y-3">
-              <label className="heading text-sm font-semibold text-gray-700">
-                Number of Travelers
-              </label>
+              {/* Airport */}
+              <div className="space-y-2">
+                <label className="heading text-sm font-semibold text-gray-700">
+                  Airport
+                </label>
+                <select
+                  value={airport}
+                  onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                    setAirport(e.target.value)
+                  }
+                  className="select-arrow w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-700 font-medium focus:outline-none focus:border-blue-600 focus:bg-white transition-all"
+                >
+                  <option value="">Select Airport</option>
+                  {(airportsByCountry[country] ?? []).map((a: string) => (
+                    <option key={a} value={a}>
+                      {a}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Preferred Time Span */}
+              <div className="space-y-2">
+                <label className="heading text-sm font-semibold text-gray-700">
+                  Preferred Time Span
+                </label>
+                <select
+                  value={timeSpan}
+                  onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                    setTimeSpan(e.target.value)
+                  }
+                  className="select-arrow w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-700 font-medium focus:outline-none focus:border-blue-600 focus:bg-white transition-all"
+                >
+                  <option value="">Day/Night</option>
+                  {(timeSpans ?? []).map((a: string) => (
+                    <option key={a} value={a}>
+                      {a}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Travel Type */}
               <div className="space-y-3">
-                {travelerRows.map(
-                  ({
-                    label,
-                    value,
-                    setter,
-                    min,
-                    subtitle,
-                  }: TravelerRowConfig) => (
-                    <div
-                      key={label}
-                      className="flex items-center justify-between bg-gray-50 rounded-2xl px-5 py-4"
-                    >
-                      <div>
-                        <p className="font-semibold text-gray-800 text-sm">
-                          {label}
-                        </p>
-                        <p className="text-xs text-gray-400">{subtitle}</p>
-                      </div>
-                      <div className="flex items-center gap-4">
-                        <button
-                          type="button"
-                          onClick={() =>
-                            setter((prev: number) => Math.max(min, prev - 1))
-                          }
-                          className="w-10 h-10 rounded-full border-2 border-sky-400 text-sky-500 text-xl font-bold flex items-center justify-center hover:bg-sky-500 hover:text-white transition-all"
-                          aria-label={`Decrease ${label}`}
+                <label className="heading text-sm font-semibold text-gray-700">
+                  Travel Type
+                </label>
+                <div className="grid grid-cols-4 gap-3">
+                  {travelTypes.map((t: TravelTypeOption) => {
+                    const active = travelType === t.id;
+
+                    return (
+                      <button
+                        key={t.id}
+                        type="button"
+                        onClick={() => setTravelType(t.id)}
+                        className={`flex flex-col items-center justify-center gap-2 py-4 rounded-2xl border-2 text-sm font-semibold transition-all
+                        ${
+                          active
+                            ? "bg-blue-600 border-blue-600 text-white shadow-lg scale-105"
+                            : "bg-white border-gray-200 text-gray-600 hover:border-blue-600 hover:bg-blue-50"
+                        }`}
+                      >
+                        {/* ICON COLOR - UPDATED TO BLUE-600 */}
+                        <span
+                          className={`text-2xl ${
+                            active ? "text-white" : "text-blue-600"
+                          }`}
                         >
-                          −
-                        </button>
-                        <span className="w-6 text-center text-lg font-bold text-gray-800">
-                          {value}
+                          {t.icon}
                         </span>
-                        <button
-                          type="button"
-                          onClick={() => setter((prev: number) => prev + 1)}
-                          className="w-10 h-10 rounded-full border-2 border-sky-400 text-sky-500 text-xl font-bold flex items-center justify-center hover:bg-sky-500 hover:text-white transition-all"
-                          aria-label={`Increase ${label}`}
+
+                        {/* TEXT */}
+                        <span
+                          className={`${
+                            active ? "text-white" : "text-gray-600"
+                          } text-xs`}
                         >
-                          +
-                        </button>
-                      </div>
-                    </div>
-                  ),
+                          {t.label}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Duration */}
+              <div className="space-y-3">
+                <label className="heading text-sm font-semibold text-gray-700">
+                  Duration
+                </label>
+                <div className="flex flex-wrap gap-2">
+                  {durations.map((d: DurationOption) => (
+                    <button
+                      key={d.id}
+                      type="button"
+                      onClick={() => setDuration(d.id)}
+                      className={`px-4 py-2.5 rounded-xl text-sm font-semibold border-2 transition-all ${
+                        duration === d.id
+                          ? "bg-blue-600 border-blue-600 text-white shadow-md shadow-blue-200"
+                          : "bg-white border-gray-200 text-gray-600 hover:border-blue-600"
+                      }`}
+                    >
+                      {d.label}
+                    </button>
+                  ))}
+                </div>
+                {duration === "custom" && (
+                  <input
+                    type="number"
+                    min={1}
+                    placeholder="Enter number of days"
+                    value={customDays}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                      setCustomDays(e.target.value)
+                    }
+                    className="w-full px-4 py-3 rounded-xl border-2 border-blue-600 bg-blue-50 text-gray-700 font-medium focus:outline-none focus:border-blue-600 transition-all"
+                  />
                 )}
               </div>
             </div>
 
-            {/* Additional Preferences */}
-            <div className="space-y-3">
-              <label className="heading text-sm font-semibold text-gray-700">
-                Additional Preferences
-              </label>
-              <div className="space-y-2.5">
-                {preferences.map((pref: PreferenceOption) => {
-                  const active: boolean = selectedPrefs.includes(pref.id);
-                  return (
-                    <button
-                      key={pref.id}
-                      type="button"
-                      onClick={() => togglePref(pref.id)}
-                      className={`w-full flex items-center gap-4 px-4 py-4 rounded-2xl border-2 text-left transition-all ${
-                        active
-                          ? "bg-sky-50 border-sky-400 shadow-sm shadow-sky-100"
-                          : "bg-gray-50 border-gray-200 hover:border-sky-200"
-                      }`}
-                    >
+            {/* ── RIGHT PANEL ── */}
+            <div className="p-8 space-y-8">
+              {/* Number of Travelers */}
+              <div className="space-y-3">
+                <label className="heading text-sm font-semibold text-gray-700">
+                  Number of Travelers
+                </label>
+                <div className="space-y-3">
+                  {travelerRows.map(
+                    ({ label, value, setter, min }: TravelerRowConfig) => (
                       <div
-                        className={`w-5 h-5 rounded-md border-2 flex items-center justify-center shrink-0 transition-all ${
-                          active
-                            ? "bg-sky-500 border-sky-500"
-                            : "border-gray-300"
-                        }`}
+                        key={label}
+                        className="flex items-center justify-between bg-gray-50 rounded-2xl px-5 py-4"
                       >
-                        {active && (
-                          <svg
-                            className="w-3 h-3 text-white"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            strokeWidth={3}
+                        <div>
+                          <p className="font-semibold text-gray-800 text-sm">
+                            {label}
+                          </p>
+                        </div>
+                        <div className="flex items-center gap-4">
+                          <button
+                            type="button"
+                            onClick={() =>
+                              setter((prev: number) => Math.max(min, prev - 1))
+                            }
+                            className="w-10 h-10 rounded-full border-2 border-blue-600 text-blue-600 text-xl font-bold flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all"
+                            aria-label={`Decrease ${label}`}
                           >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M5 13l4 4L19 7"
-                            />
-                          </svg>
-                        )}
+                            −
+                          </button>
+                          <span className="w-6 text-center text-lg font-bold text-gray-800">
+                            {value}
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => setter((prev: number) => prev + 1)}
+                            className="w-10 h-10 rounded-full border-2 border-blue-600 text-blue-600 text-xl font-bold flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all"
+                            aria-label={`Increase ${label}`}
+                          >
+                            +
+                          </button>
+                        </div>
                       </div>
-                      <span className="text-xl text-sky-500">{pref.icon}</span>
-                      <span
-                        className={`text-sm font-semibold ${
-                          active ? "text-sky-700" : "text-gray-700"
+                    )
+                  )}
+                </div>
+              </div>
+
+              {/* Additional Preferences */}
+              <div className="space-y-3">
+                <label className="heading text-sm font-semibold text-gray-700">
+                  Additional Preferences
+                </label>
+                <div className="space-y-2.5">
+                  {preferences.map((pref: PreferenceOption) => {
+                    const active: boolean = selectedPrefs.includes(pref.id);
+                    return (
+                      <button
+                        key={pref.id}
+                        type="button"
+                        onClick={() => togglePref(pref.id)}
+                        className={`w-full flex items-center gap-4 px-4 py-4 rounded-2xl border-2 text-left transition-all ${
+                          active
+                            ? "bg-blue-50 border-blue-600 shadow-sm shadow-blue-100"
+                            : "bg-gray-50 border-gray-200 hover:border-blue-200"
                         }`}
                       >
-                        {pref.label}
-                      </span>
-                    </button>
-                  );
-                })}
+                        <div
+                          className={`w-5 h-5 rounded-md border-2 flex items-center justify-center shrink-0 transition-all ${
+                            active
+                              ? "bg-blue-600 border-blue-600"
+                              : "border-gray-300"
+                          }`}
+                        >
+                          {active && (
+                            <svg
+                              className="w-3 h-3 text-white"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                              strokeWidth={3}
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M5 13l4 4L19 7"
+                              />
+                            </svg>
+                          )}
+                        </div>
+                        {/* PREFERENCE ICON COLOR - UPDATED */}
+                        <span className="text-xl text-blue-600">
+                          {pref.icon}
+                        </span>
+                        <span
+                          className={`text-sm font-semibold ${
+                            active ? "text-blue-900" : "text-gray-700"
+                          }`}
+                        >
+                          {pref.label}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
+
+              {/* Submit Button - GRADIENT UPDATED TO BLUE-600 */}
+              <button
+                type="button"
+                onClick={handleSubmit}
+                className={`w-full py-4 rounded-2xl font-bold text-white text-base transition-all duration-300 ${
+                  submitted
+                    ? "bg-green-500 shadow-lg shadow-green-200"
+                    : "bg-gradient-to-r from-blue-600 to-blue-500 shadow-lg shadow-blue-200 hover:shadow-xl hover:shadow-blue-300 hover:scale-[1.01]"
+                }`}
+              >
+                {submitted ? "✓ Quote Request Sent!" : "Get Your Custom Quote →"}
+              </button>
             </div>
-
-           
-
-            {/* Submit */}
-            <button
-              type="button"
-              onClick={handleSubmit}
-              className={`w-full py-4 rounded-2xl font-bold text-white text-base transition-all duration-300 ${
-                submitted
-                  ? "bg-green-500 shadow-lg shadow-green-200"
-                  : "bg-linear-to-r from-sky-500 to-cyan-400 shadow-lg shadow-sky-200 hover:shadow-xl hover:shadow-sky-300 hover:scale-[1.01]"
-              }`}
-            >
-              {submitted ? "✓ Quote Request Sent!" : "Get Your Custom Quote →"}
-            </button>
           </div>
         </div>
       </div>
-    </div>
     </section>
   );
 }
