@@ -8,7 +8,7 @@ const CommonHeader = ({
   desc?: string;
 }) => {
   return (
-   <section className="relative w-full max-w-[1920px] min-h-[349px] py-20 md:py-24 px-4 overflow-hidden mx-auto">
+   <section className="relative w-full max-w-480 min-h-87.25 py-20 md:py-24 px-4 overflow-hidden mx-auto">
   <img
     src="/assets/bgimage/bg.webp"
     alt=""
