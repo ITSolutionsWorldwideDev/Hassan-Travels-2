@@ -88,6 +88,7 @@ const UmrahPage: React.FC = () => {
 
       {/* <TestimonialsSection /> */}
       <Testimonials />
+     
     </div>
   );
 };
