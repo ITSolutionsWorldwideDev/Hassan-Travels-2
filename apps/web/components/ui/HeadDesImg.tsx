@@ -23,7 +23,7 @@ const HeadDesImg: React.FC<HeadDesImgProps> = ({
           {title}
         </h2>
 
-        <p className="text-gray-800 text-[14px] font-normal leading-[1.62] tracking-wide">
+        <p className="text-gray-800 text-[14px] font-normal  tracking-wide whitespace-pre-line">
           {description}
         </p>
       </div>
