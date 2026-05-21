@@ -9,8 +9,8 @@ const CommonHeader = ({
   desc?: string;
 }) => {
   return (
-    // Isko relative aur z-10 kiya taaki yeh page ke baki components se hamesha upar rahe
-    <section className="relative w-full min-h-[349px] py-20 md:py-24 px-4 overflow-hidden flex items-center justify-center z-10 bg-gray-50/30">
+    // max-w-[1920px] aur mx-auto hata diya taaki background har screen size par konon tak jaye
+    <section className="relative w-full min-h-87.25 py-20 md:py-24 px-4 overflow-hidden flex items-center justify-center">
       
       {/* BACKGROUND IMAGE - Handled with strict negative z-index stacking */}
       <div className="absolute inset-0 z-0 w-full h-full pointer-events-none">
