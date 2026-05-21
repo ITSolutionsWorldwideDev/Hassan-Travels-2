@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
+
 const faqs = [
   {
     question: "How can I apply for an Umrah visa from the Netherlands?",
@@ -24,7 +26,7 @@ const faqs = [
   },
 ];
 
-export default function Faqs(imagesLinks: { imagesLinks: string[] }) {
+export default function Faqs(imagesLinks: { imagesLinks: string[]  }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
   const toggle = (index: number) => {
@@ -37,23 +39,36 @@ export default function Faqs(imagesLinks: { imagesLinks: string[] }) {
         {/* LEFT SIDE */}
         <div className="flex flex-col justify-between h-auto md:h-130">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-            <img
-              src={imagesLinks.imagesLinks[0]}
-              alt="frequently asked question"
-              className="h-55 md:h-95 w-full object-cover rounded-2xl shadow-lg"
-            />
+            <div className="relative h-55 md:h-95 w-full rounded-2xl shadow-lg overflow-hidden">
+              <Image
+                src={imagesLinks.imagesLinks[0] || ""}
+                alt="frequently asked question"
+                fill
+                loading="lazy"
+                className="object-cover"
+              />
+            </div>
 
             <div className="flex flex-col gap-4 md:gap-6">
-              <img
-                src={imagesLinks.imagesLinks[1]}
-                alt="frequently asked question"
-                className="h-55 md:h-37.5 w-full object-cover rounded-2xl shadow-lg"
-              />
-              <img
-                src={imagesLinks.imagesLinks[2]}
-                alt="frequently asked question"
-                className="h-55 md:h-80 w-full object-cover rounded-2xl shadow-lg"
-              />
+              <div className="relative h-55 md:h-37.5 w-full rounded-2xl shadow-lg overflow-hidden">
+                <Image
+                  src={imagesLinks.imagesLinks[1] || ""}
+                  alt="frequently asked question"
+                  fill
+                  loading="lazy"
+                  className="object-cover"
+                />
+              </div>
+
+              <div className="relative h-55 md:h-80 w-full rounded-2xl shadow-lg overflow-hidden">
+                <Image
+                  src={imagesLinks.imagesLinks[2] || ""}
+                  alt="frequently asked question"
+                  fill
+                  loading="lazy"
+                  className="object-cover"
+                />
+              </div>
             </div>
           </div>
 
@@ -75,11 +90,16 @@ export default function Faqs(imagesLinks: { imagesLinks: string[] }) {
 "
           >
             <div className="flex items-center gap-3 mt-2">
-              <img
-                src={"/assets/Frame 1000009700.webp"}
-                alt="icon"
-                className="w-8 h-8 object-contain"
-              />
+              <div className="relative w-8 h-8">
+                <Image
+                  src={"/assets/Frame 1000009700.webp"}
+                  alt="icon"
+                  fill
+                  loading="lazy"
+                  className="object-contain"
+                />
+              </div>
+
               <span className="text-gray-700 text-sm font-medium">
                 Lets Explore!
               </span>

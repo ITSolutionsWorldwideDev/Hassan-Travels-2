@@ -1,6 +1,6 @@
 "use client";
 
-import CustomTravelPackages from "@/components/layout/packages/CustomTravelPackages";
+import CustomTravelPackages from "@/components/ui/CustomTravelPackages";
 import PopularTourPackages from "@/components/layout/packages/PopularTourPackages";
 import BlueBgHeadAndDesc from "@/components/ui/BlueBgHeadAndDesc";
 import CommonHeader from "@/components/ui/CommonHeader";
