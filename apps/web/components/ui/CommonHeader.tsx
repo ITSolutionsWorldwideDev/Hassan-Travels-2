@@ -9,21 +9,23 @@ const CommonHeader = ({
   desc?: string;
 }) => {
   return (
-    // max-w-[1920px] aur mx-auto hata diya taaki background har screen size par konon tak jaye
-    <section className="relative w-full min-h-[349px] py-20 md:py-24 px-4 overflow-hidden flex items-center justify-center">
+    // Isko relative aur z-10 kiya taaki yeh page ke baki components se hamesha upar rahe
+    <section className="relative w-full min-h-[349px] py-20 md:py-24 px-4 overflow-hidden flex items-center justify-center z-10 bg-gray-50/30">
       
-      {/* BACKGROUND IMAGE - Next.js optimized and edge-to-edge */}
-      <div className="absolute inset-0 -z-10 w-full h-full">
+      {/* BACKGROUND IMAGE - Handled with strict negative z-index stacking */}
+      <div className="absolute inset-0 z-0 w-full h-full pointer-events-none">
         <Image
           src="/assets/bgimage/bg.webp"
-          alt=""
+          alt="Header Background"
           fill
           priority
-          className="object-cover opacity-[0.51]"
+          className="object-cover opacity-60" 
         />
+        {/* Halki si overlay taaki text readable rahe aur image white out na ho */}
+        <div className="absolute inset-0 bg-white/20 backdrop-blur-[1px]" />
       </div>
 
-      {/* CONTENT */}
+      {/* CONTENT - Higher z-index to stay on top of image */}
       <div className="relative z-10 max-w-5xl mx-auto text-center w-full">
         {/* HEADING */}
         <h1 className="mt-10 text-4xl md:text-4xl font-bold leading-tight text-black whitespace-pre-line">
@@ -36,17 +38,6 @@ const CommonHeader = ({
             {desc}
           </p>
         )}
-
-        {/* BUTTONS */}
-        {/* <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
-            <button className="bg-blue-500 hover:bg-blue-600 transition text-white px-8 py-4 rounded-xl font-semibold">
-              Apply for Your Visa Online
-            </button>
-
-            <button className="bg-blue-500 hover:bg-blue-600 transition text-white px-8 py-4 rounded-xl font-semibold">
-              Explore Our Visa Services
-            </button>
-          </div> */}
       </div>
     </section>
   );
