@@ -18,14 +18,19 @@ const hotelQualities = [
 ];
 const LuxurayAccommodation = () => {
   return (
- <section className="relative w-full py-12 sm:py-20 overflow-hidden">
+ <section className="relative w-full py-12 sm:py-20 overflow-hidden bg-white">
   
-  {/* BACKGROUND (separate layer) */}
+  {/* BACKGROUND WITH LOW OPACITY */}
   <div
-    className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+    className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15 z-0"
     style={{ backgroundImage: "url('/assets/bgimage/h1.webp')" }}
   />
 
+ {/* VERY SOFT GRADIENT */}
+      <div className="absolute inset-0 bg-linear-to-b from-[rgba(207,234,246,0.15)] to-[rgba(85,178,218,0.25)] z-0"></div>
+
+      {/* LIGHT WASH */}
+      <div className="absolute inset-0 bg-white/35 z-0"></div>
   {/* CONTENT */}
   <div className="relative z-10 container mx-auto px-4 sm:px-8 md:px-16">
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">

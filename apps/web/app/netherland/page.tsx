@@ -45,9 +45,9 @@ export default function NetherlandsPage() {
   return (
     <main className="w-full overflow-x-hidden bg-gray-50/30">
       <CommonHeader
-  heading={"Netherlands Visa Services for Pakistani & UAE \n Citizens"} // <-- Standard string with break
-  desc="Expert Visa Services for Pakistani and UAE Travelers."
-/>
+        heading={"Netherlands Visa Services for Pakistani & UAE \n Citizens"}
+        desc="Expert Visa Services for Pakistani and UAE Travelers."
+      />
 
       {/* ================= HERO SECTION WITH CUSTOM OVERLAY ================= */}
       <section className="relative py-16 px-6 overflow-hidden min-h-[500px] flex items-center justify-center w-full">
@@ -57,12 +57,11 @@ export default function NetherlandsPage() {
           style={{ backgroundImage: "url('/assets/about-us/3.webp')" }}
         />
         
-
         {/* CONTENT CONTAINER */}
-        <div className="relative z-10 max-w-7xl mx-auto w-full flex flex-col items-center gap-7 py-12 px-4">
+        <div className="relative z-10 max-w-7xl mx-auto w-full px-4 flex flex-col gap-14">
           
           {/* ================= SECTION 1 ================= */}
-          <div className="w-full bg-gray-100/40 backdrop-blur-sm rounded-2xl p-4 md:p-6 shadow-sm">
+          <div className="w-full">
             <HeadDesImg
               title={
                 <>
@@ -121,8 +120,8 @@ export default function NetherlandsPage() {
             />
           </div>
 
-          {/* ================= VISA TYPES (FIXED: Card background removed, completely transparent on image) ================= */}
-          <div className="w-full">
+          {/* ================= VISA TYPES (MAXIMUM STRETCH OUTWARD) ================= */}
+          <div className="w-full -mx-4 md:-mx-6 px-4 md:px-6 lg:max-w-none lg:w-auto">
             <SideIconDesc data={visaType} />
           </div>
         </div>

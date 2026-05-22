@@ -7,11 +7,13 @@ import {
   InfoTooltip,
   MonthCalendar,
 } from "./DatePicker";
+
 type Mode = "specific" | "flexible";
 interface DateRange {
   start: Date | null;
   end: Date | null;
 }
+
 export const DatePickerDialog = ({ onClose }: { onClose: () => void }) => {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
@@ -32,6 +34,7 @@ export const DatePickerDialog = ({ onClose }: { onClose: () => void }) => {
       setLeftYear((y) => y - 1);
     } else setLeftMonth((m) => m - 1);
   }
+  
   function nextMonth() {
     if (leftMonth === 11) {
       setLeftMonth(0);
@@ -51,7 +54,6 @@ export const DatePickerDialog = ({ onClose }: { onClose: () => void }) => {
     }
   }
 
-  
   function toggleFlex(key: string) {
     setFlexSelected((prev) =>
       prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key],
@@ -63,31 +65,35 @@ export const DatePickerDialog = ({ onClose }: { onClose: () => void }) => {
 
   return (
     <div
-      className="fixed inset-0 bg-black/40 flex items-center justify-center z-1000 backdrop-blur-sm"
+      className="fixed inset-0 bg-black/40 flex items-center justify-center z-[1000] backdrop-blur-sm p-4"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
     >
       <div
-        className="bg-white rounded-2xl px-8 pt-7 pb-6 w-[min(1080px,96vw)] max-h-[90vh] overflow-y-auto shadow-2xl"
+        className="bg-white rounded-2xl px-4 py-5 sm:p-6 md:p-8 w-[min(1080px,96vw)] max-h-[90vh] overflow-y-auto shadow-2xl flex flex-col justify-between"
         style={{ fontFamily: "'DM Sans', sans-serif" }}
       >
         {/* Header row */}
-        <div className="flex items-center justify-between mb-6">
-          {/* Trip type pill */}
-          <TripType />
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+          <div className="flex items-center justify-between sm:justify-start gap-4 w-full sm:w-auto">
+            <TripType />
+            <div className="sm:hidden">
+              <InfoTooltip />
+            </div>
+          </div>
 
           {/* Mode toggle */}
-          <div className="flex bg-gray-100 rounded-xl p-0.5">
+          <div className="flex bg-gray-100 rounded-xl p-0.5 w-full sm:w-auto justify-center">
             {(["specific", "flexible"] as Mode[]).map((m) => (
               <button
                 key={m}
                 onClick={() => setMode(m)}
                 type="button"
                 className={[
-                  "px-5 py-1.5 rounded-lg border-none cursor-pointer text-sm font-semibold transition-all duration-200",
+                  "flex-1 sm:flex-none text-center px-5 py-1.5 rounded-lg border-none cursor-pointer text-sm font-semibold transition-all duration-200",
                   mode === m
-                    ? "bg-[#1e3a5f] text-white"
+                    ? "bg-[#1e3a5f] text-white shadow-sm"
                     : "bg-transparent text-gray-500",
                 ].join(" ")}
               >
@@ -96,71 +102,91 @@ export const DatePickerDialog = ({ onClose }: { onClose: () => void }) => {
             ))}
           </div>
 
-          <InfoTooltip />
+          <div className="hidden sm:block">
+            <InfoTooltip />
+          </div>
         </div>
 
         {/* Body */}
-        {mode === "specific" ? (
-          <div className="flex items-center gap-6 mb-2">
-            <button
-            type="button"
-              onClick={prevMonth}
-              className="w-9 h-9 rounded-full border border-gray-200 bg-white cursor-pointer text-xl text-gray-700 flex items-center justify-center shrink-0"
-            >
-              ‹
-            </button>
-            <div className="flex gap-10 flex-1">
-              <MonthCalendar
-                year={leftYear}
-                month={leftMonth}
-                range={range}
-                hovered={hovered}
-                onDayClick={handleDayClick}
-                onDayHover={setHovered}
-                minDate={today}
-              />
-              <div className="w-px bg-gray-200 shrink-0" />
-              <MonthCalendar
-                year={rightYear}
-                month={rightMonth}
-                range={range}
-                hovered={hovered}
-                onDayClick={handleDayClick}
-                onDayHover={setHovered}
-                minDate={today}
-              />
+        <div className="flex-1 min-h-0 w-full my-auto">
+          {mode === "specific" ? (
+            <div className="flex items-center gap-2 sm:gap-6 mb-2">
+              <button
+                type="button"
+                onClick={prevMonth}
+                className="w-9 h-9 rounded-full border border-gray-200 bg-white cursor-pointer text-xl text-gray-700 flex items-center justify-center shrink-0 hover:bg-gray-50 transition-colors"
+              >
+                ‹
+              </button>
+
+              <div className="flex flex-col md:flex-row gap-6 md:gap-10 flex-1 w-full overflow-hidden">
+                <div className="flex-1 w-full min-w-[260px]">
+                  <MonthCalendar
+                    year={leftYear}
+                    month={leftMonth}
+                    range={range}
+                    hovered={hovered}
+                    onDayClick={handleDayClick}
+                    onDayHover={setHovered}
+                    minDate={today}
+                  />
+                </div>
+                
+                <div className="hidden md:block w-px bg-gray-200 shrink-0 self-stretch" />
+                
+                <div className="flex-1 w-full min-w-[260px] hidden sm:block">
+                  <MonthCalendar
+                    year={rightYear}
+                    month={rightMonth}
+                    range={range}
+                    hovered={hovered}
+                    onDayClick={handleDayClick}
+                    onDayHover={setHovered}
+                    minDate={today}
+                  />
+                </div>
+              </div>
+
+              <button
+                type="button"
+                onClick={nextMonth}
+                className="w-9 h-9 rounded-full border border-gray-200 bg-white cursor-pointer text-xl text-gray-700 flex items-center justify-center shrink-0 hover:bg-gray-50 transition-colors"
+              >
+                ›
+              </button>
             </div>
-            <button
-              onClick={nextMonth}
-              className="w-9 h-9 rounded-full border border-gray-200 bg-white cursor-pointer text-xl text-gray-700 flex items-center justify-center shrink-0" type="button"
-            >
-              ›
-            </button>
-          </div>
-        ) : (
-          <FlexibleMonthGrid selected={flexSelected} onToggle={toggleFlex} />
-        )}
+          ) : (
+            /* FIXED: Scrollable Container with exact width triggers */
+            <div className="w-full overflow-x-auto pb-4 pt-1 clear-both block touch-pan-x">
+              <div className="min-w-[550px] md:min-w-0 w-full w-max md:w-auto">
+                <FlexibleMonthGrid selected={flexSelected} onToggle={toggleFlex} />
+              </div>
+            </div>
+          )}
+        </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-between mt-7 pt-5 border-t border-gray-200">
-          <span className="text-gray-500 text-sm">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-7 pt-5 border-t border-gray-200">
+          <span className="text-gray-500 text-sm text-center sm:text-left">
             {mode === "specific"
               ? range.start
-                ? `${formatDate(range.start)}${range.end ? " → " + formatDate(range.end) : " — pick return"}`
+                ? `${formatDate(range.start)}${range.end ? " → " + formatDate(range.end) : " — pick return date"}`
                 : "Add a return date"
               : flexSelected.length > 0
                 ? `${flexSelected.length} month${flexSelected.length > 1 ? "s" : ""} selected`
                 : "Add a return date"}
           </span>
+          
           <button
             disabled={!hasSelection}
             onClick={onClose}
+            type="button"
             className={[
-              "text-white border-none rounded-xl px-8 py-3 text-[15px] font-bold transition-colors duration-200",
+              "w-full sm:w-auto text-white border-none rounded-xl px-8 py-3 text-[15px] font-bold transition-colors duration-200 text-center",
               hasSelection
                 ? "bg-blue-600 cursor-pointer"
                 : "bg-blue-300 cursor-not-allowed",
-            ].join(" ")}  type="button"
+            ].join(" ")}
           >
             Apply
           </button>

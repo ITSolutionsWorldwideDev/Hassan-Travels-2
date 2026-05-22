@@ -171,13 +171,7 @@ export default function TravelBookingForm(): JSX.Element {
 
   return (
     <section className="relative w-full py-12 sm:py-20 overflow-hidden flex items-center justify-center">
-      {/* BACKGROUND IMAGE */}
-      <img
-        src="/assets/bgimage/h2.webp"
-        loading="lazy"
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover opacity-[0.18]"
-      />
+      
 
       {/* CONTENT */}
       <div className="relative z-10 w-full max-w-5xl mx-auto px-4 font-sans">

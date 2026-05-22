@@ -21,9 +21,11 @@ import RequiredDocuments from "@/components/ui/RequiredDocuments";
 const visaServices = {
   head: (
     <>
-      Complete Umrah Visa Services
-      <span className="text-blue-600"> for Performers</span>
-    </>
+  <div className="text-center text-black">
+    <div>Complete Umrah Visa Services</div>
+    <div>for Performers</div>
+  </div>
+</>
   ),
 
   data: [
@@ -64,21 +66,35 @@ const faqImasgesLinks = [
   "/assets/umrah/faq4.webp",
 ];
 
-const documentRequired=[
-  'Online Saudi Umrah Visa Application','A Valid Passport','Passport-size Photo','Proof of Relationship','No-Objection Letter','Ticket'
-]
+const documentRequired = [
+  'Online Saudi Umrah Visa Application', 'A Valid Passport', 'Passport-size Photo', 'Proof of Relationship', 'No-Objection Letter', 'Ticket'
+];
+
 const UmrahPage: React.FC = () => {
   return (
-    <div className="bg-white ">
-      <CommonHeader
-        heading=" Apply for Your Umrah Visa Online with Hassaan  Travel"
-        desc="Fast, Easy, and Reliable Umrah Visa Services for Performers from the Netherlands."
-      />
+    <div className="bg-white">
+      {/* BACKGROUND SECTION: Yeh sirf PopularTourPackages tak hi chalega */}
+      <div className="relative w-full">
+        {/* BACKGROUND LAYER WITH OPACITY */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15 z-0"
+          style={{ backgroundImage: "url('/assets/bgimage/h1.webp')" }}
+        />
 
-      <SideIconDesc data={visaServices} />
-      <RequiredDocuments  documents={documentRequired} title='Umrah' rightImage="/assets/umrah/kaba.webp"/>
-      <PopularTourPackages />
+        {/* CONTENT LAYER (z-10 taaki text background ke upar sahi dikhe) */}
+        <div className="relative z-10">
+          <CommonHeader
+            heading=" Apply for Your Umrah Visa Online with Hassaan Travel"
+            desc="Fast, Easy, and Reliable Umrah Visa Services for Performers from the Netherlands."
+          />
 
+          <SideIconDesc data={visaServices} />
+          <RequiredDocuments documents={documentRequired} title='Umrah' rightImage="/assets/umrah/kaba.webp" />
+          <PopularTourPackages />
+        </div>
+      </div>
+
+      {/* OUTSIDE BACKGROUND SECTION: Yahan se normal white background shuru ho jayega */}
       <StepsToApply />
 
       <CustomTravelPackages />
@@ -92,7 +108,6 @@ const UmrahPage: React.FC = () => {
 
       {/* <TestimonialsSection /> */}
       <Testimonials />
-     
     </div>
   );
 };

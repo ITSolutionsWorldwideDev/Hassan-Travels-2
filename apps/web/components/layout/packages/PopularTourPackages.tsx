@@ -293,24 +293,21 @@ const PopularTourPackages = () => {
   };
 
   return (
-  <section className="relative py-16 overflow-hidden">
+    <section className="relative py-16 overflow-hidden">
+      {/* SEPARATE BACKGROUND LAYER WITH OPACITY-15 */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15 z-0"
+        style={{ backgroundImage: "url('/assets/bgimage/h1.webp')" }}
+      />
 
-  {/* IMAGE */}
-  <img
-    src="/assets/bgimage/h1.webp"
-    alt=""
-    loading="lazy"
-    className="absolute inset-0 w-full h-full object-cover"
-  />
+      {/* VERY SOFT GRADIENT */}
+      <div className="absolute inset-0 bg-linear-to-b from-[rgba(207,234,246,0.15)] to-[rgba(85,178,218,0.25)] z-0"></div>
 
-  {/* VERY SOFT GRADIENT */}
-  <div className="absolute inset-0 bg-linear-to-b from-[rgba(207,234,246,0.15)] to-[rgba(85,178,218,0.25)]"></div>
+      {/* LIGHT WASH */}
+      <div className="absolute inset-0 bg-white/35 z-0"></div>
 
-  {/* LIGHT WASH */}
-  <div className="absolute inset-0 bg-white/35"></div>
-
-  {/* ✅ CONTENT */}
-  <div className="container relative z-10 max-w-7xl mx-auto px-4">
+      {/* ✅ CONTENT LAYER */}
+      <div className="container relative z-10 max-w-7xl mx-auto px-4">
         {/* ===== HEADING ===== */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-blue-600">
@@ -362,15 +359,15 @@ const PopularTourPackages = () => {
                   📍 {item.location} • 🕒 {item.duration}
                 </p>
 
-                <div className="bg-[#F8F9FA] p-5 rounded-lg  text-xs mb-3">
+                <div className="bg-[#F8F9FA] p-5 rounded-lg text-xs mb-3">
                   <div className="flex gap-1">
                     <Hotel className="text-[#058BD0]" />
                     <div>
                       <h2 className="font-bold flex">
                         {item.stay.name}{" "}
                         {Array.from({ length: 5 }).map((_, index) => (
-                          <Star className="fill-yellow-400 text-yellow-400 size-4" />
-                        ))}{" "}
+                          <Star key={index} className="fill-yellow-400 text-yellow-400 size-4" />
+                        ))}
                       </h2>
                       <div className="font-normal">{item.stay.room}</div>
                     </div>
@@ -381,14 +378,10 @@ const PopularTourPackages = () => {
 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {item.experice.map((exp, ind) => (
-                    <p className="bg-[#E3F2FD] text-[#0F91D5] text-[10px] px-2 py-1 rounded-xl">
+                    <p key={ind} className="bg-[#E3F2FD] text-[#0F91D5] text-[10px] px-2 py-1 rounded-xl">
                       {exp}
                     </p>
                   ))}
-
-                  {/* <span className="bg-blue-100 text-blue-600 text-[10px] px-2 py-1 rounded">
-                    Activities
-                  </span> */}
                 </div>
 
                 <div className="flex justify-between text-xs mb-3">
