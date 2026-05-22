@@ -50,7 +50,7 @@ export default function NetherlandsPage() {
       />
 
       {/* ================= HERO SECTION WITH CUSTOM OVERLAY ================= */}
-      <section className="relative py-16 px-6 overflow-hidden min-h-[500px] flex items-center justify-center w-full">
+      <section className="relative py-16 px-6 overflow-hidden min-h-125 flex items-center justify-center w-full">
         {/* BACKGROUND IMAGE OVERLAY */}
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-[0.22] pointer-events-none z-0"

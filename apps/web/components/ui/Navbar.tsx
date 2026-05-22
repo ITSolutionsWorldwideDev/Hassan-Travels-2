@@ -139,22 +139,22 @@ export default function Navbar() {
             {visaOpen && (
               <div className="flex flex-col items-center gap-3 mt-2">
                 <Link
-                  href="/visa/pakistan"
-                  className="text-sm text-gray-600 hover:text-blue-600"
+                  href="/pakistan"
+                  className="text-sm text-gray-600 hover:text-blue-600" onClick={() => setOpen(!open)}
                 >
                   Pakistan Visa
                 </Link>
 
                 <Link
-                  href="/visa/netherlands"
-                  className="text-sm text-gray-600 hover:text-blue-600"
+                  href="/netherland"
+                  className="text-sm text-gray-600 hover:text-blue-600" onClick={() => setOpen(!open)}
                 >
                   Netherlands Visa
                 </Link>
 
                 <Link
-                  href="/visa/uae"
-                  className="text-sm text-gray-600 hover:text-blue-600"
+                  href="/uae"
+                  className="text-sm text-gray-600 hover:text-blue-600" onClick={() => setOpen(!open)}
                 >
                   UAE Visa
                 </Link>
