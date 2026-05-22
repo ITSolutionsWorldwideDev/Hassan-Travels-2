@@ -14,7 +14,7 @@ const SideIconDesc = ({ data }: SideIconDescProps) => {
   return (
     <section
       className="py-12 sm:py-20 px-4 sm:px-8 md:px-16 bg-cover bg-center bg-no-repeat relative container mx-auto"
-      style={{ backgroundImage: "url('/images/tour.jpg')" }}
+      style={{ backgroundImage: "url('/assets/tour.jpg')" }}
     >
       <div className=" text-center">
         {/* TITLE */}

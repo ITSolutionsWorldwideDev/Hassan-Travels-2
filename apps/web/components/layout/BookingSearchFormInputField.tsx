@@ -15,7 +15,7 @@ export const BookingSearchFormInputField = ({
   onChange,
 }: Props) => {
   return (
-    <div className="h-[85px] flex flex-col justify-center px-5 bg-white rounded-xl shadow-sm">
+    <div className="h-21.25 flex flex-col justify-center px-5 bg-white rounded-xl shadow-sm">
 
       {/* LABEL */}
      <span className="text-gray-800 font-bold text-sm mb-1 text-left">
@@ -27,7 +27,7 @@ export const BookingSearchFormInputField = ({
         type="text"
         placeholder={placeHolder}
         value={value || ""}
-        onChange={onChange}
+        onChange={onChange ?? (() => {})}
         className="
           bg-transparent
           outline-none
