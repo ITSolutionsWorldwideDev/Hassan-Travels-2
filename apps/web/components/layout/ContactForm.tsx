@@ -80,7 +80,7 @@ const Map = () => {
 
               <button
                 type="submit"
-                className="bg-blue-500 text-white px-6 py-2 rounded-lg text-sm w-full sm:w-auto"
+                className="bg-[#0F91D5] text-white px-6 py-2 rounded-lg text-sm w-full sm:w-auto"
               >
                 Send Now
               </button>
@@ -88,7 +88,7 @@ const Map = () => {
 
             {/* PHONE */}
             <article className="bg-white/70 backdrop-blur-md p-4 sm:p-5 rounded-xl shadow flex items-center gap-4">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center bg-blue-500 text-white rounded-lg">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center bg-[#0F91D5] text-white rounded-lg">
                 <Phone />
               </div>
 
@@ -102,7 +102,7 @@ const Map = () => {
 
             {/* EMAIL */}
             <article className="bg-white/70 backdrop-blur-md p-4 sm:p-5 rounded-xl shadow flex items-center gap-4">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center bg-blue-500 text-white rounded-lg">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center bg-[#0F91D5] text-white rounded-lg">
                 <Mail />
               </div>
 

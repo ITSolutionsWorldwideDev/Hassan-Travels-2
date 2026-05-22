@@ -310,7 +310,7 @@ const PopularTourPackages = () => {
       <div className="container relative z-10 max-w-7xl mx-auto px-4">
         {/* ===== HEADING ===== */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-600">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0F91D5]">
             Popular Tour Packages{" "}
             <span className="text-black">From Netherlands</span>
           </h2>
@@ -342,7 +342,7 @@ const PopularTourPackages = () => {
                   {item.category}
                 </span>
 
-                <div className="absolute top-3 right-3 bg-white px-3 py-1 rounded-xl shadow text-blue-600 font-semibold text-sm">
+                <div className="absolute top-3 right-3 bg-white px-3 py-1 rounded-xl shadow text-[#0F91D5] font-semibold text-sm">
                   €{item.price}
                   <div className="text-[10px] text-gray-400">per person</div>
                 </div>
@@ -401,56 +401,56 @@ const PopularTourPackages = () => {
           ))}
         </div>
 
-        {/* ===== PAGINATION ===== */}
-        <div className="flex justify-center items-center flex-wrap mt-12 gap-3 text-sm font-medium">
-          {/* Previous */}
-          <button
-            onClick={() => handlePageChange(Math.max(currentPage - 1, 1))}
-            disabled={currentPage === 1}
-            className={`px-4 py-2 rounded-lg transition ${
-              currentPage === 1
-                ? "bg-gray-200 text-gray-400 cursor-not-allowed"
-                : "bg-gray-300 text-black hover:bg-gray-400"
-            }`}
-          >
-            Previous
-          </button>
+      {/* ===== PAGINATION ===== */}
+<div className="flex justify-center items-center flex-wrap mt-12 gap-3 text-sm font-medium">
+  {/* Previous Button */}
+  <button
+    type="button"
+    onClick={() => handlePageChange(Math.max(currentPage - 1, 1))}
+    disabled={currentPage === 1}
+    className={`px-4 py-2 rounded-lg transition ${
+      currentPage === 1
+        ? "bg-gray-100 text-gray-400 cursor-not-allowed"
+        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+    }`}
+  >
+    Previous
+  </button>
 
-          {/* Page Numbers */}
-          {Array.from({ length: totalPages }, (_, index) => {
-            const page = index + 1;
+  {/* Page Numbers */}
+  {Array.from({ length: totalPages }, (_, index) => {
+    const page = index + 1;
 
-            return (
-              <button
-                key={page}
-                type="button"
-                onClick={() => handlePageChange(page)}
-                className={`px-4 py-2 rounded-lg transition ${
-                  currentPage === page
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-300 text-black hover:bg-gray-400"
-                }`}
-              >
-                {page}
-              </button>
-            );
-          })}
+    return (
+      <button
+        key={page}
+        type="button"
+        onClick={() => handlePageChange(page)}
+        className={`px-4 py-2 rounded-lg transition ${
+          currentPage === page
+            ? "bg-[#0F91D5] text-white shadow-md shadow-blue-500/20"
+            : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+        }`}
+      >
+        {page}
+      </button>
+    );
+  })}
 
-          {/* Next */}
-          <button
-            onClick={() =>
-              handlePageChange(Math.min(currentPage + 1, totalPages))
-            }
-            disabled={currentPage === totalPages}
-            className={`px-4 py-2 rounded-lg transition ${
-              currentPage === totalPages
-                ? "bg-gray-200 text-gray-400 cursor-not-allowed"
-                : "bg-gray-300 text-black hover:bg-gray-400"
-            }`}
-          >
-            Next
-          </button>
-        </div>
+  {/* Next Button */}
+  <button
+    type="button"
+    onClick={() => handlePageChange(Math.min(currentPage + 1, totalPages))}
+    disabled={currentPage === totalPages}
+    className={`px-4 py-2 rounded-lg transition ${
+      currentPage === totalPages
+        ? "bg-gray-100 text-gray-400 cursor-not-allowed"
+        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+    }`}
+  >
+    Next
+  </button>
+</div>
       </div>
     </section>
   );

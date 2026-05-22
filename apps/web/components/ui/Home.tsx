@@ -14,7 +14,7 @@ import Map from "./Map";
 const visaSolution = {
   head: (
     <>
-      Expert Visa <span className="text-blue-600">Solutions</span>
+      Expert Visa <span className="text-[#0F91D5]">Solutions</span>
     </>
   ),
   details:

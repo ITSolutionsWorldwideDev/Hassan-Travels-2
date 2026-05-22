@@ -97,7 +97,7 @@ export default function MutipleImageRightText({
           </div>
 
           <Link href="/contact">
-            <button className="mt-10 bg-blue-500 hover:bg-blue-600 transition text-white px-8 py-4 rounded-xl font-semibold shadow-lg">
+            <button className="mt-10 bg-[#0F91D5] hover:bg-blue-600 transition text-white px-8 py-4 rounded-xl font-semibold shadow-lg">
               Contact Us Today
             </button>
           </Link>
@@ -111,7 +111,7 @@ export default function MutipleImageRightText({
 function Feature({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
     <div className="flex items-start gap-4">
-      <div className="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center text-white text-sm">
+      <div className="w-8 h-8 rounded-lg bg-[#0F91D5] flex items-center justify-center text-white text-sm">
         {icon}
       </div>
       <p className="text-gray-700 leading-relaxed">{text}</p>

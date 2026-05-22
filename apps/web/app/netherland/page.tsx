@@ -65,8 +65,8 @@ export default function NetherlandsPage() {
             <HeadDesImg
               title={
                 <>
-                  Simplifying Your <span className="text-blue-600">Netherlands</span>
-                  <span className="text-blue-600 block mt-1">Visa Process</span>
+                  Simplifying Your <span className="text-[#0F91D5]">Netherlands</span>
+                  <span className="text-[#0F91D5] block mt-1">Visa Process</span>
                 </>
               }
               description="Citizens of the UAE can travel to the Netherlands without a visa for short stays, typically up to 90 days within a 180-day period, for tourism or business purposes."
@@ -74,10 +74,10 @@ export default function NetherlandsPage() {
             />
           </div>
 
-          {/* ================= NOTE ================= */}
-          <div className="max-w-210 w-full bg-gray-200/60 backdrop-blur-md border border-white/40 rounded-2xl shadow-sm py-3.5 px-6 text-center mt-4">
+          {/* ================= NOTE (ORIGINAL SIZE, PERFECTLY CENTERED) ================= */}
+          <div className="max-w-210 w-full bg-gray-200/60 backdrop-blur-md border border-white/40 rounded-2xl shadow-sm py-3.5 px-6 text-center mt-4 mx-auto">
             {/* Line 1: Main Rule */}
-            <p className="font-bold text-blue-600 text-[10.5px] tracking-tight whitespace-nowrap overflow-x-auto max-w-full">
+            <p className="font-bold text-[#0F91D5] text-[10.5px] tracking-tight whitespace-nowrap overflow-x-auto max-w-full">
               If your visa application is canceled, the visa costs and service costs are not returned
             </p>
 
@@ -111,8 +111,8 @@ export default function NetherlandsPage() {
             <HeadDesImg
               title={
                 <>
-                  Visa-Free Travel for <span className="text-blue-600">UAE</span>
-                  <span className="text-blue-600 block mt-1">Citizens</span>
+                  Visa-Free Travel for <span className="text-[#0F91D5]">UAE</span>
+                  <span className="text-[#0F91D5] block mt-1">Citizens</span>
                 </>
               }
               description="UAE citizens can travel to the Netherlands for tourism and business purposes without having a visa if they have an Emirati passport. The Netherlands allows them to stay for a short period of time, for up to 90 days"

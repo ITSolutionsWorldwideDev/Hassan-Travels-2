@@ -11,7 +11,7 @@ const visaOptionsData = {
     {
       title: (
         <>
-          <span className="text-blue-600">Long-term visas</span>{" "}
+          <span className="text-[#0F91D5]">Long-term visas</span>{" "}
           <span className="text-gray-900 font-bold">for business or family stays.</span>
         </>
       ),
@@ -21,9 +21,9 @@ const visaOptionsData = {
     {
       title: (
         <>
-          <span className="text-blue-600">Transit visas</span>{" "}
+          <span className="text-[#0F91D5]">Transit visas</span>{" "}
           <span className="text-gray-900 font-bold">for travelers</span>{" "}
-          <span className="text-blue-600">passing through the UAE</span>
+          <span className="text-[#0F91D5]">passing through the UAE</span>
         </>
       ),
       description:
@@ -33,9 +33,9 @@ const visaOptionsData = {
       title: (
         <>
           <span className="text-gray-900 font-bold">Visit</span>{" "}
-          <span className="text-blue-600">visas</span>{" "}
+          <span className="text-[#0F91D5]">visas</span>{" "}
           <span className="text-gray-900 font-bold">for</span>{" "}
-          <span className="text-blue-600">family reunions or business meetings</span>
+          <span className="text-[#0F91D5]">family reunions or business meetings</span>
         </>
       ),
       description:
@@ -63,7 +63,7 @@ const VisaOptions = () => {
         <div className="text-center w-full max-w-5xl">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">
             {visaOptionsData.heading.text}{" "}
-            <span className="text-blue-600">
+            <span className="text-[#0F91D5]">
               {visaOptionsData.heading.highlight}
             </span>
           </h2>

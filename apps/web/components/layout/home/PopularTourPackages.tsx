@@ -103,7 +103,7 @@ const PopularTourPackages = () => {
           id="popular-tour-packages"
           className="text-2xl sm:text-3xl font-bold mb-3"
         >
-          <span className="text-blue-600">Popular Tour Packages</span>{" "}
+          <span className="text-[#0F91D5]">Popular Tour Packages</span>{" "}
           <span className="text-black">From Netherlands</span>
         </h2>
 
@@ -125,7 +125,7 @@ const PopularTourPackages = () => {
                 
                 ${
                   selectedCategory === category
-                    ? "bg-blue-500 text-white"
+                    ? "bg-[#0F91D5] text-white"
                     : "bg-gray-200 text-black"
                 }
               `}
@@ -167,7 +167,7 @@ const PopularTourPackages = () => {
 
                 <div className="mt-4">
                   <p className="text-sm text-gray-500">Retour vanaf</p>
-                  <p className="text-blue-600 text-xl font-bold">
+                  <p className="text-[#0F91D5] text-xl font-bold">
                     {item.price}
                   </p>
                 </div>

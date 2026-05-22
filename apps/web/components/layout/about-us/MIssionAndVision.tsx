@@ -5,7 +5,7 @@ import React from "react";
 const data = {
   head: (
     <span className="text-black">
-      Mission, Vision & <span className="text-blue-600">Values</span>
+      Mission, Vision & <span className="text-[#0F91D5]">Values</span>
     </span>
   ),
   details:

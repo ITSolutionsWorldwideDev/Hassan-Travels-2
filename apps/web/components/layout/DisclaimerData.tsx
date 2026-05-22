@@ -17,7 +17,7 @@ const DisclaimerData = () => {
         {/* TITLE */}
         <h2 className="text-2xl sm:text-4xl font-bold mb-12">
           Disclaimer{" "}
-          <span className="text-blue-600">Hassaan Travel</span>
+          <span className="text-[#0F91D5]">Hassaan Travel</span>
         </h2>
 
         {/* TOP TEXT */}

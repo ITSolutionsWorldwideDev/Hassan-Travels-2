@@ -175,10 +175,10 @@ export default function TravelBookingForm(): JSX.Element {
 
       {/* CONTENT */}
       <div className="relative z-10 w-full max-w-5xl mx-auto px-4 font-sans">
-        {/* MAIN HEADING - FIXED TO MATCH YOUR POPULAR TOUR BLUE-600 */}
+        {/* MAIN HEADING */}
         <div className="text-center mb-10">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
-            Make Your <span className="text-blue-600">Custom</span> Travel Package
+            Make Your <span className="text-[#0F91D5]">Custom</span> Travel Package
           </h2>
           <p className="text-gray-700 max-w-2xl mx-auto">
             Build your perfect journey tailored to your preferences. Choose your
@@ -203,7 +203,7 @@ export default function TravelBookingForm(): JSX.Element {
                     setCountry(e.target.value as CountryCode);
                     setAirport("");
                   }}
-                  className="select-arrow w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-700 font-medium focus:outline-none focus:border-blue-600 focus:bg-white transition-all"
+                  className="select-arrow w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-700 font-medium focus:outline-none focus:border-[#0F91D5] focus:bg-white transition-all"
                 >
                   {countries.map((c: Country) => (
                     <option key={c.code} value={c.code}>
@@ -223,7 +223,7 @@ export default function TravelBookingForm(): JSX.Element {
                   onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
                     setAirport(e.target.value)
                   }
-                  className="select-arrow w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-700 font-medium focus:outline-none focus:border-blue-600 focus:bg-white transition-all"
+                  className="select-arrow w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-700 font-medium focus:outline-none focus:border-[#0F91D5] focus:bg-white transition-all"
                 >
                   <option value="">Select Airport</option>
                   {(airportsByCountry[country] ?? []).map((a: string) => (
@@ -244,7 +244,7 @@ export default function TravelBookingForm(): JSX.Element {
                   onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
                     setTimeSpan(e.target.value)
                   }
-                  className="select-arrow w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-700 font-medium focus:outline-none focus:border-blue-600 focus:bg-white transition-all"
+                  className="select-arrow w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-700 font-medium focus:outline-none focus:border-[#0F91D5] focus:bg-white transition-all"
                 >
                   <option value="">Day/Night</option>
                   {(timeSpans ?? []).map((a: string) => (
@@ -272,14 +272,14 @@ export default function TravelBookingForm(): JSX.Element {
                         className={`flex flex-col items-center justify-center gap-2 py-4 rounded-2xl border-2 text-sm font-semibold transition-all
                         ${
                           active
-                            ? "bg-blue-600 border-blue-600 text-white shadow-lg scale-105"
-                            : "bg-white border-gray-200 text-gray-600 hover:border-blue-600 hover:bg-blue-50"
+                            ? "bg-[#0F91D5] border-[#0F91D5] text-white shadow-lg scale-105"
+                            : "bg-white border-gray-200 text-gray-600 hover:border-[#0F91D5] hover:bg-blue-50"
                         }`}
                       >
-                        {/* ICON COLOR - UPDATED TO BLUE-600 */}
+                        {/* ICON COLOR */}
                         <span
                           className={`text-2xl ${
-                            active ? "text-white" : "text-blue-600"
+                            active ? "text-white" : "text-[#0F91D5]"
                           }`}
                         >
                           {t.icon}
@@ -312,8 +312,8 @@ export default function TravelBookingForm(): JSX.Element {
                       onClick={() => setDuration(d.id)}
                       className={`px-4 py-2.5 rounded-xl text-sm font-semibold border-2 transition-all ${
                         duration === d.id
-                          ? "bg-blue-600 border-blue-600 text-white shadow-md shadow-blue-200"
-                          : "bg-white border-gray-200 text-gray-600 hover:border-blue-600"
+                          ? "bg-[#0F91D5] border-[#0F91D5] text-white shadow-md"
+                          : "bg-white border-gray-200 text-gray-600 hover:border-[#0F91D5]"
                       }`}
                     >
                       {d.label}
@@ -329,7 +329,7 @@ export default function TravelBookingForm(): JSX.Element {
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       setCustomDays(e.target.value)
                     }
-                    className="w-full px-4 py-3 rounded-xl border-2 border-blue-600 bg-blue-50 text-gray-700 font-medium focus:outline-none focus:border-blue-600 transition-all"
+                    className="w-full px-4 py-3 rounded-xl border-2 border-[#0F91D5] bg-blue-50 text-gray-700 font-medium focus:outline-none focus:border-[#0F91D5] transition-all"
                   />
                 )}
               </div>
@@ -360,7 +360,7 @@ export default function TravelBookingForm(): JSX.Element {
                             onClick={() =>
                               setter((prev: number) => Math.max(min, prev - 1))
                             }
-                            className="w-10 h-10 rounded-full border-2 border-blue-600 text-blue-600 text-xl font-bold flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all"
+                            className="w-10 h-10 rounded-full border-2 border-[#0F91D5] text-[#0F91D5] text-xl font-bold flex items-center justify-center hover:bg-[#0F91D5] hover:text-white transition-all"
                             aria-label={`Decrease ${label}`}
                           >
                             −
@@ -371,7 +371,7 @@ export default function TravelBookingForm(): JSX.Element {
                           <button
                             type="button"
                             onClick={() => setter((prev: number) => prev + 1)}
-                            className="w-10 h-10 rounded-full border-2 border-blue-600 text-blue-600 text-xl font-bold flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all"
+                            className="w-10 h-10 rounded-full border-2 border-[#0F91D5] text-[#0F91D5] text-xl font-bold flex items-center justify-center hover:bg-[#0F91D5] hover:text-white transition-all"
                             aria-label={`Increase ${label}`}
                           >
                             +
@@ -398,14 +398,14 @@ export default function TravelBookingForm(): JSX.Element {
                         onClick={() => togglePref(pref.id)}
                         className={`w-full flex items-center gap-4 px-4 py-4 rounded-2xl border-2 text-left transition-all ${
                           active
-                            ? "bg-blue-50 border-blue-600 shadow-sm shadow-blue-100"
+                            ? "bg-blue-50 border-[#0F91D5] shadow-sm"
                             : "bg-gray-50 border-gray-200 hover:border-blue-200"
                         }`}
                       >
                         <div
                           className={`w-5 h-5 rounded-md border-2 flex items-center justify-center shrink-0 transition-all ${
                             active
-                              ? "bg-blue-600 border-blue-600"
+                              ? "bg-[#0F91D5] border-[#0F91D5]"
                               : "border-gray-300"
                           }`}
                         >
@@ -425,8 +425,8 @@ export default function TravelBookingForm(): JSX.Element {
                             </svg>
                           )}
                         </div>
-                        {/* PREFERENCE ICON COLOR - UPDATED */}
-                        <span className="text-xl text-blue-600">
+                        {/* PREFERENCE ICON COLOR */}
+                        <span className="text-xl text-[#0F91D5]">
                           {pref.icon}
                         </span>
                         <span
@@ -442,14 +442,14 @@ export default function TravelBookingForm(): JSX.Element {
                 </div>
               </div>
 
-              {/* Submit Button - GRADIENT UPDATED TO BLUE-600 */}
+              {/* Submit Button */}
               <button
                 type="button"
                 onClick={handleSubmit}
                 className={`w-full py-4 rounded-2xl font-bold text-white text-base transition-all duration-300 ${
                   submitted
                     ? "bg-green-500 shadow-lg shadow-green-200"
-                    : "bg-gradient-to-r from-blue-600 to-blue-500 shadow-lg shadow-blue-200 hover:shadow-xl hover:shadow-blue-300 hover:scale-[1.01]"
+                    : "bg-[#0F91D5] shadow-lg shadow-blue-100 hover:shadow-xl hover:scale-[1.01]"
                 }`}
               >
                 {submitted ? "✓ Quote Request Sent!" : "Get Your Custom Quote →"}

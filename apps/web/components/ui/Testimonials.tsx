@@ -18,7 +18,7 @@ const Testimonials = ({ bgImage }: Props) => {
 
       {/* ✅ Content wrapper ABOVE image */}
       <div className="relative z-10">
-        <h2 className="text-2xl sm:text-3xl font-bold text-blue-600 mb-8 sm:mb-12">
+        <h2 className="text-2xl sm:text-3xl font-bold text-[#0F91D5] mb-8 sm:mb-12">
           What Our Customers Say
         </h2>
 
@@ -45,7 +45,7 @@ const Testimonials = ({ bgImage }: Props) => {
               key={i}
               className={`p-6 rounded-xl shadow ${
                 item.highlight
-                  ? "bg-blue-500 text-white"
+                  ? "bg-[#0F91D5] text-white"
                   : "bg-gray-100 text-gray-800"
               }`}
             >

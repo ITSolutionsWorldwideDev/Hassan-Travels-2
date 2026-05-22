@@ -182,7 +182,7 @@ export default function UsersListComponent() {
                       <div className="flex justify-end gap-2">
                         <Link
                           href={`/users/${u.id}`}
-                          className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition"
+                          className="p-2 text-gray-400 hover:text-[#0F91D5] hover:bg-blue-50 rounded-lg transition"
                         >
                           <TbEdit size={20} />
                         </Link>

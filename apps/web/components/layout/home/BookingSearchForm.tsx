@@ -109,7 +109,7 @@ const BookingSearchForm = () => {
         <button
           type="submit"
           className="
-            bg-blue-500 hover:bg-blue-600
+            bg-[#0F91D5] hover:bg-blue-600
             text-white
             w-full
             h-[52px] lg:h-full
