@@ -7,9 +7,14 @@ import { DatePickerDialog } from "./DatePIckerDialog";
 export default function DateInputField({
   label,
   placeHolder,
+  value,
+  handleChange,
 }: {
   label: string;
   placeHolder: string;
+  value: string;
+
+  handleChange: (name: string, value: any) => void;
 }) {
   const [open, setOpen] = useState(false);
 
@@ -28,11 +33,19 @@ export default function DateInputField({
           <BookingSearchFormInputField
             label={label}
             placeHolder={placeHolder}
+            value={value}
+            handleChange={handleChange}
+            // onChange={(value) => handleChange("depart", value)}
           />
         </div>
       </div>
 
-      {open && <DatePickerDialog onClose={() => setOpen(false)} />}
+      {open && (
+        <DatePickerDialog
+          onClose={() => setOpen(false)}
+          onApply={(data) => handleChange("depart", data)}
+        />
+      )}
     </>
   );
 }

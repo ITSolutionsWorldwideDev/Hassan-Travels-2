@@ -4,34 +4,32 @@ import { MapPin, Phone, Mail } from "lucide-react";
 const Map = () => {
   return (
     <section
-  className="relative w-full py-12 sm:py-20 overflow-hidden"
-  aria-labelledby="contact-section"
->
-  {/* 1. ACTUAL BACKGROUND IMAGE (With 18% Opacity & Lazy Loading) */}
-  <img
-    src="/assets/bgimage/h2.webp"
-    loading="lazy"
-    alt="contact section background image"
-    className="absolute inset-0 w-full h-full object-cover opacity-[0.21] z-0"
-  />
+      className="relative w-full py-12 sm:py-20 overflow-hidden"
+      aria-labelledby="contact-section"
+    >
+      {/* 1. ACTUAL BACKGROUND IMAGE (With 18% Opacity & Lazy Loading) */}
+      <img
+        src="/assets/bgimage/h2.webp"
+        loading="lazy"
+        alt="contact section background image"
+        className="absolute inset-0 w-full h-full object-cover opacity-[0.21] z-0"
+      />
 
       {/* CONTENT WRAPPER (IMPORTANT FIX) */}
       <div className="relative z-10 container mx-auto px-4 sm:px-8 md:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-stretch">
-          
           {/* MAP */}
           <div className="order-last lg:order-first h-full">
             <iframe
               title="Hassaan Travel Rotterdam Location"
               src="https://www.google.com/maps?q=Dordtselaan+67D,+3081BG+Rotterdam,+Netherlands&output=embed"
-              className="rounded-xl shadow-lg w-full h-full min-h-[350px]"
+              className="rounded-xl shadow-lg w-full h-full min-h-87.5"
               loading="lazy"
             ></iframe>
           </div>
 
           {/* RIGHT SIDE */}
           <div className="space-y-4 sm:space-y-6 h-full flex flex-col justify-between">
-            
             {/* LOCATION CARD */}
             <article className="bg-white/70 backdrop-blur-md p-4 sm:p-6 rounded-xl shadow flex gap-4 items-start">
               <MapPin className="text-green-500" />
@@ -42,7 +40,14 @@ const Map = () => {
                 </h2>
 
                 <address className="text-sm text-gray-500 not-italic">
-                  Dordtselaan 67D, 3081BG Rotterdam, Netherlands
+                  <a
+                    href="https://www.google.com/maps?q=Dordtselaan+67D,+3081BG+Rotterdam,+Netherlands"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline"
+                  >
+                    Dordtselaan 67D, 3081BG Rotterdam, Netherlands
+                  </a>
                 </address>
 
                 <p className="text-sm text-gray-500">We are available:</p>
@@ -116,7 +121,6 @@ const Map = () => {
                 </a>
               </div>
             </article>
-
           </div>
         </div>
       </div>

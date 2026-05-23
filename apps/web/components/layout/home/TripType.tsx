@@ -2,15 +2,16 @@
 import { useState } from "react";
 import { ArrowRight, RotateCcw } from "lucide-react";
 
-export default function TripTypeDropdown() {
-  const [tripType, setTripType] = useState("Return");
+export default function TripTypeDropdown({value, onChange}: {value: string, onChange: (value: "oneWay" | "return") => void}) {
+  const [tripType, setTripType] = useState(value || "return");
   const [open, setOpen] = useState(false);
 
-  const handleSelect = (type: "Return" | "One way booking") => {
+  const handleSelect = (type: "oneWay" | "return") => {
     setTripType(type);
     setOpen(false);
+    onChange(type);
 
-    if (type === "One way booking") {
+    if (type === "oneWay") {
       // 👉 your custom action here
       console.log("One way booking selected");
     }
@@ -32,14 +33,14 @@ export default function TripTypeDropdown() {
       {open && (
         <div className="absolute mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-md z-10">
           <button
-            onClick={() => handleSelect("Return")}
+            onClick={() => handleSelect("return")}
             className="w-full text-left px-3 py-2 text-sm hover:bg-gray-100 text-black flex items-center gap-4 font-bold"
           >
             <RotateCcw className="size-6" /> Return
           </button>
 
           <button
-            onClick={() => handleSelect("One way booking")}
+            onClick={() => handleSelect("oneWay")}
             className="w-full text-left px-3 py-2 text-sm hover:bg-gray-100 text-black flex items-center font-bold gap-4"
           >
             <ArrowRight className="size-6" /> One way booking

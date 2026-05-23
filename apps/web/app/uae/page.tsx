@@ -13,11 +13,11 @@ const imageLinks = [
 ];
 
 const documentRequired = [
-  'Valid passport with at least 6 months validity.',
-  'Passport-size photos meeting UAE visa specifications.',
-  'Flight details and proof of travel itinerary.',
-  'Proof of accommodation or hotel booking in the UAE.',
-  'Additional documents for business or family visas (if applicable).'
+  "Valid passport with at least 6 months validity.",
+  "Passport-size photos meeting UAE visa specifications.",
+  "Flight details and proof of travel itinerary.",
+  "Proof of accommodation or hotel booking in the UAE.",
+  "Additional documents for business or family visas (if applicable).",
 ];
 
 export default function UAEPage() {
@@ -33,25 +33,24 @@ export default function UAEPage() {
 
       {/* ================= EXPLORE UAE SECTION ================= */}
       <section className="relative py-16 px-4 sm:px-8 md:px-16 bg-[#eaf4fb] text-center overflow-hidden">
-        
         {/* BACKGROUND IMAGE: Standard Cloud Pattern */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center opacity-[0.22] pointer-events-none z-0"
           style={{ backgroundImage: "url('/assets/about-us/3.webp')" }}
         />
-        
+
         {/* LIGHT OVERLAY */}
         <div className="absolute inset-0 bg-white/10 backdrop-blur-[0.5px] z-0"></div>
 
         {/* CONTENT */}
         <div className="relative z-10 max-w-7xl mx-auto flex flex-col items-center">
           <div className="w-full bg-transparent py-12 flex flex-col items-center gap-7">
-            
             {/* MAIN HERO CONTAINER */}
             <HeadDesImg
               title={
                 <>
-                  <span className="text-blue-600">Explore the UAE</span> with Hassaan 
+                  <span className="text-blue-600">Explore the UAE</span> with
+                  Hassaan
                   <br /> Travel
                 </>
               }
@@ -64,22 +63,23 @@ export default function UAEPage() {
             <div className="max-w-7xl w-full mt-5 bg-slate-200/80 backdrop-blur-md border border-white/40 rounded-[2.5rem] shadow-xl shadow-slate-300/30 py-6 px-8 text-center">
               {/* Line 1: Main Rule */}
               <p className="font-bold text-blue-600 text-[11px] sm:text-xs tracking-tight md:whitespace-nowrap max-w-full">
-                If your visa application is canceled, the visa costs and service costs are not returned
+                If your visa application is canceled, the visa costs and service
+                costs are not returned
               </p>
 
               {/* Line 2: Details */}
               <p className="text-gray-800 text-[10px] sm:text-xs font-medium mt-1.5 md:whitespace-nowrap max-w-full">
-                For short-term tourist single-entry visa, it is valid for 30 days and with no extension. The visa processing fee will be 250 AED.
+                For short-term tourist single-entry visa, it is valid for 30
+                days and with no extension. The visa processing fee will be 250
+                AED.
               </p>
             </div>
-
           </div>
         </div>
       </section>
 
       {/* ================= DUTCH CITIZENS & DOCUMENTS SECTION ================= */}
       <section className="relative w-full py-20 px-6 sm:px-12 md:px-16 overflow-hidden bg-[#eaf4fb]">
-        
         {/* BACKGROUND IMAGE: H2 Custom Background */}
         <div className="absolute inset-0 z-0 w-full h-full pointer-events-none">
           <Image
@@ -90,33 +90,32 @@ export default function UAEPage() {
             className="object-cover opacity-[0.18]"
           />
         </div>
-        
+
         {/* SAME LIGHT OVERLAY FOR CONSISTENCY */}
         <div className="absolute inset-0 bg-white/10 backdrop-blur-[0.5px] z-0"></div>
 
         {/* CONTENT WRAPPER */}
         <div className="relative z-10 max-w-7xl mx-auto flex flex-col items-center gap-16">
           <div className="w-full bg-transparent py-6 flex flex-col items-center">
-            
             {/* SECTION 1: UAE Visa Services for Dutch */}
             <HeadDesImg
               title={
                 <>
-                  UAE Visa Services <span className="text-blue-600">for Dutch</span> 
+                  UAE Visa Services{" "}
+                  <span className="text-blue-600">for Dutch</span>
                   <br /> <span className="text-blue-600">Citizens:</span>
                 </>
               }
               description="The Dutch citizens avail the benefit of no-visa travel status. When they enter the UAE, their passport is just stamped with a visit visa once they enter the UAE, which will be valid for a maximum time of 90 days."
               imageSrc="/assets/uae/2.webp"
             />
-
           </div>
 
           {/* SECTION 2: Documents Required */}
           <div className="w-full">
-            <RequiredDocuments 
-              documents={documentRequired} 
-              rightImage="/assets/uae/doc.webp" 
+            <RequiredDocuments
+              documents={documentRequired}
+              rightImage="/assets/uae/doc.webp"
               title="UAE"
             />
           </div>

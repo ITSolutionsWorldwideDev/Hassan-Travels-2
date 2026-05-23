@@ -8,37 +8,62 @@ import DateInputField from "./DateInputField";
 import { HiOutlineSwitchHorizontal } from "react-icons/hi";
 
 const BookingSearchForm = () => {
-  const [from, setFrom] = React.useState("");
-  const [to, setTo] = React.useState("");
+  const [formData, setFormData] = React.useState({
+    from: "",
+    to: "",
+    depart: [],
+    returnDate: "",
+    travellers: "",
+  });
 
+  console.log(formData)
+  // HANDLE INPUT CHANGE
+  const handleChange = (name: string, value: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  // SWAP FROM & TO
   const handleSwap = () => {
-    setFrom(to);
-    setTo(from);
+    setFormData((prev) => ({
+      ...prev,
+      from: prev.to,
+      to: prev.from,
+    }));
+  };
+
+  // FORM SUBMIT
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    console.log(formData);
+
+    // API CALL / ROUTER PUSH / SEARCH LOGIC HERE
   };
 
   return (
     <section className="relative z-10 w-full max-w-5xl md:max-w-7xl mx-auto px-4 mt-10">
-      
       <form
+        onSubmit={handleSubmit}
         className="
           grid grid-cols-1
           sm:grid-cols-2
-          {/* ✅ Total 11 columns banaye hain perfect proportions ke liye */}
           lg:grid-cols-11
-
           gap-1 md:gap-1.5
-
           items-stretch
           w-full
         "
       >
-        {/* 1. FROM BOX - lg:col-span-2 (Bada aur baki fields ke barabar) */}
+        {/* FROM */}
         <div className="relative w-full min-w-0 lg:col-span-2">
           <BookingSearchFormInputField
             label="From"
             placeHolder="Country, city or airport"
-            value={from}
-            onChange={(e) => setFrom(e.target.value)}
+            value={formData.from}
+            handleChange={handleChange}
+            // onChange={(e) => handleChange("from", e.target.value)}
           />
 
           {/* SWAP BUTTON */}
@@ -50,7 +75,7 @@ const BookingSearchForm = () => {
               lg:flex
               absolute
               top-1/2
-              -right-[13px]
+              -right-3.25
               -translate-y-1/2
               w-6
               h-6
@@ -71,48 +96,60 @@ const BookingSearchForm = () => {
           </button>
         </div>
 
-        {/* 2. TO BOX - lg:col-span-2 */}
+        {/* TO */}
         <div className="w-full min-w-0 lg:col-span-2">
           <BookingSearchFormInputField
             label="To"
             placeHolder="Country, city or airport"
-            value={to}
-            onChange={(e) => setTo(e.target.value)}
+            value={formData.to}
+            handleChange={handleChange}
+            // onChange={(e) => handleChange("to", e.target.value)}
           />
         </div>
 
-        {/* 3. DEPART BOX - lg:col-span-2 */}
+        {/* DEPART */}
         <div className="w-full min-w-0 lg:col-span-2">
           <DateInputField
             label="Depart"
             placeHolder="Add Date"
+            value={formData.depart}
+            handleChange={handleChange}
+            // onChange={(value) => handleChange("depart", value)}
           />
         </div>
 
-        {/* 4. RETURN BOX - lg:col-span-2 */}
+        {/* RETURN */}
         <div className="w-full min-w-0 lg:col-span-2">
           <DateInputField
             label="Return"
             placeHolder="Add Date"
+            value={formData.returnDate}
+            handleChange={handleChange}
+            // onChange={(value) => handleChange("returnDate", value)}
           />
         </div>
 
-        {/* 5. TRAVELLERS BOX - lg:col-span-2 (Ab yeh bhi baqi inputs jitna bada ho gaya) */}
+        {/* TRAVELLERS */}
         <div className="w-full min-w-0 lg:col-span-2">
           <BookingSearchFormInputField
             label="Travellers & Cabin"
             placeHolder="1 Adult, Economy"
+            value={formData.travellers}
+            handleChange={handleChange}
+            onChange={(e) =>
+              handleChange("travellers", e.target.value)
+            }
           />
         </div>
-          
-        {/* 6. SEARCH BUTTON - lg:col-span-1 (Strictly half size of any input field) */}
+
+        {/* SEARCH BUTTON */}
         <button
           type="submit"
           className="
             bg-blue-500 hover:bg-blue-600
             text-white
             w-full
-            h-[52px] lg:h-full
+            h-13 lg:h-full
             lg:col-span-1
             rounded-xl
             font-semibold
@@ -123,7 +160,6 @@ const BookingSearchForm = () => {
         >
           Search
         </button>
-
       </form>
     </section>
   );
