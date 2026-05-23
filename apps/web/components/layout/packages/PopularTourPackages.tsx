@@ -2,7 +2,6 @@
 
 import React, { useMemo, useState } from "react";
 import { Hotel, Star, PlaneTakeoff } from "lucide-react";
-import { FaToggleOff } from "react-icons/fa";
 import { PackagesBenefits } from "./PackagesBenefits";
 
 const packages = [
@@ -124,8 +123,6 @@ const packages = [
     ],
     nextDeparture: "June 1, 2026",
   },
-
-  // Extra dummy cards for pagination testing
   {
     id: 5,
     image: "/assets/home/dubai.webp",
@@ -242,7 +239,6 @@ const packages = [
     ],
     nextDeparture: "June 1, 2026",
   },
-
   {
     id: 9,
     image: "/assets/home/dubai.webp",
@@ -292,6 +288,29 @@ const PopularTourPackages = () => {
     setCurrentPage(page);
   };
 
+  // 🛠️ Dynamic WhatsApp Message Handler
+  const handleBooking = (item: typeof packages[0]) => {
+    const phoneNumber = "31104857673"; // +31 104857673 without spacing or signs
+    
+    // Line breaks and bold markdown (\n and *) for clean WhatsApp layout
+    const rawMessage = `Assalam-o-Alaikum, I am interested in booking a package. Here are the details:
+
+🌟 *Package Name:* ${item.title}
+📍 *Location:* ${item.location}
+🕒 *Duration:* ${item.duration}
+💶 *Price:* €${item.price} per person
+🛫 *Next Departure:* ${item.nextDeparture}
+
+Please provide me with more details regarding availability and booking requirements. Thank you!`;
+
+    // URL safe dynamic formatting
+    const encodedMessage = encodeURIComponent(rawMessage);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    // Redirect user to WhatsApp window
+    window.open(whatsappUrl, "_blank");
+  };
+
   return (
     <section className="relative py-16 overflow-hidden">
       {/* SEPARATE BACKGROUND LAYER WITH OPACITY-15 */}
@@ -306,7 +325,7 @@ const PopularTourPackages = () => {
       {/* LIGHT WASH */}
       <div className="absolute inset-0 bg-white/35 z-0"></div>
 
-      {/* ✅ CONTENT LAYER */}
+      {/* CONTENT LAYER */}
       <div className="container relative z-10 max-w-7xl mx-auto px-4">
         {/* ===== HEADING ===== */}
         <div className="text-center mb-12">
@@ -393,7 +412,11 @@ const PopularTourPackages = () => {
                   <span className="font-medium">{item.nextDeparture}</span>
                 </div>
 
-                <button className="w-full bg-[#0F91D5] font-bold text-white py-2 rounded-lg text-sm hover:bg-blue-700">
+                {/* ✅ Click Handler Attached */}
+                <button 
+                  onClick={() => handleBooking(item)}
+                  className="w-full bg-[#0F91D5] font-bold text-white py-2 rounded-lg text-sm hover:bg-blue-700"
+                >
                   Book Now
                 </button>
               </div>
@@ -401,56 +424,56 @@ const PopularTourPackages = () => {
           ))}
         </div>
 
-      {/* ===== PAGINATION ===== */}
-<div className="flex justify-center items-center flex-wrap mt-12 gap-3 text-sm font-medium">
-  {/* Previous Button */}
-  <button
-    type="button"
-    onClick={() => handlePageChange(Math.max(currentPage - 1, 1))}
-    disabled={currentPage === 1}
-    className={`px-4 py-2 rounded-lg transition ${
-      currentPage === 1
-        ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-    }`}
-  >
-    Previous
-  </button>
+        {/* ===== PAGINATION ===== */}
+        <div className="flex justify-center items-center flex-wrap mt-12 gap-3 text-sm font-medium">
+          {/* Previous Button */}
+          <button
+            type="button"
+            onClick={() => handlePageChange(Math.max(currentPage - 1, 1))}
+            disabled={currentPage === 1}
+            className={`px-4 py-2 rounded-lg transition ${
+              currentPage === 1
+                ? "bg-gray-100 text-gray-400 cursor-not-allowed"
+                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+            }`}
+          >
+            Previous
+          </button>
 
-  {/* Page Numbers */}
-  {Array.from({ length: totalPages }, (_, index) => {
-    const page = index + 1;
+          {/* Page Numbers */}
+          {Array.from({ length: totalPages }, (_, index) => {
+            const page = index + 1;
 
-    return (
-      <button
-        key={page}
-        type="button"
-        onClick={() => handlePageChange(page)}
-        className={`px-4 py-2 rounded-lg transition ${
-          currentPage === page
-            ? "bg-[#0F91D5] text-white shadow-md shadow-blue-500/20"
-            : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-        }`}
-      >
-        {page}
-      </button>
-    );
-  })}
+            return (
+              <button
+                key={page}
+                type="button"
+                onClick={() => handlePageChange(page)}
+                className={`px-4 py-2 rounded-lg transition ${
+                  currentPage === page
+                    ? "bg-[#0F91D5] text-white shadow-md shadow-blue-500/20"
+                    : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                }`}
+              >
+                {page}
+              </button>
+            );
+          })}
 
-  {/* Next Button */}
-  <button
-    type="button"
-    onClick={() => handlePageChange(Math.min(currentPage + 1, totalPages))}
-    disabled={currentPage === totalPages}
-    className={`px-4 py-2 rounded-lg transition ${
-      currentPage === totalPages
-        ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-    }`}
-  >
-    Next
-  </button>
-</div>
+          {/* Next Button */}
+          <button
+            type="button"
+            onClick={() => handlePageChange(Math.min(currentPage + 1, totalPages))}
+            disabled={currentPage === totalPages}
+            className={`px-4 py-2 rounded-lg transition ${
+              currentPage === totalPages
+                ? "bg-gray-100 text-gray-400 cursor-not-allowed"
+                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+            }`}
+          >
+            Next
+          </button>
+        </div>
       </div>
     </section>
   );

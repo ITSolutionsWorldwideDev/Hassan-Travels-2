@@ -1,12 +1,29 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 type Props = {
   bgImage?: string; // optional
 };
 
 const Testimonials = ({ bgImage }: Props) => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+
+    const existingScript = document.querySelector('script[src="https://elfsightcdn.com/platform.js"]');
+    if (!existingScript) {
+      const script = document.createElement("script");
+      script.src = "https://elfsightcdn.com/platform.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
+
   return (
     <section className="relative py-12 sm:py-20 px-4 sm:px-8 md:px-16 text-center overflow-hidden">
-      
-      {/* ✅ Background Image (ONLY if passed) */}
+      {/* ✅ Background Image */}
       {bgImage && (
         <img
           src={bgImage}
@@ -16,53 +33,29 @@ const Testimonials = ({ bgImage }: Props) => {
         />
       )}
 
-      {/* ✅ Content wrapper ABOVE image */}
-      <div className="relative z-10">
+      {/* ✅ Content wrapper */}
+      <div className="relative z-10 max-w-6xl mx-auto">
         <h2 className="text-2xl sm:text-3xl font-bold text-[#0F91D5] mb-8 sm:mb-12">
           What Our Customers Say
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            {
-              name: "Maria Silva",
-              time: "3 Days ago",
-              text: "Authentic Portuguese products, fast delivery, and excellent quality. Highly recommended!",
-            },
-            {
-              name: "Maria Silva",
-              time: "6 Days ago",
-              text: "Great quality Portuguese products with quick delivery. Very satisfied!",
-              highlight: true,
-            },
-            {
-              name: "Ana Ferreira",
-              time: "5 Days ago",
-              text: "Finally authentic items, delivered fast and in perfect condition!",
-            },
-          ].map((item, i) => (
-            <div
-              key={i}
-              className={`p-6 rounded-xl shadow ${
-                item.highlight
-                  ? "bg-[#0F91D5] text-white"
-                  : "bg-gray-100 text-gray-800"
-              }`}
-            >
-              {/* AVATAR */}
-              <div className="w-10 h-10 rounded-full bg-gray-300 mx-auto mb-3"></div>
+        {/* ✅ Elfsight Live Reviews Widget Container */}
+        <div className="relative">
+          
+          {isMounted && (
+            <div 
+              key="elfsight-widget"
+              className="elfsight-app-2faf357a-3cbd-419c-a632-7f18e70909bc" 
+              data-elfsight-app-lazy 
+            />
+          )}
 
-              {/* NAME */}
-              <h3 className="font-semibold text-sm">{item.name}</h3>
-              <p className="text-xs opacity-70">{item.time}</p>
+          {/* ✋ Solid Shield Layer (Hover Block karne ke liye) */}
+          {/* Humne pointer-events-auto lagaya hai taake mouse ka hover is patti par hi block ho jaye, niche na jaye */}
+          <div 
+            className="absolute bottom-[-2px] left-1/2 -translate-x-1/2 w-[240px] h-[45px] bg-white z-50 pointer-events-auto cursor-default" 
+          />
 
-              {/* STARS */}
-              <div className="text-yellow-400 my-2">★★★★★</div>
-
-              {/* TEXT */}
-              <p className="text-sm">{item.text}</p>
-            </div>
-          ))}
         </div>
       </div>
     </section>
