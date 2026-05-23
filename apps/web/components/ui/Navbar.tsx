@@ -149,7 +149,7 @@ export default function Navbar() {
             </div>
 
             <Link className="text-gray-700 font-medium py-2" href="/packages">
-              Packages
+              Package
             </Link>
 
             <Link className="text-gray-700 font-medium py-2" href="/about-us">
