@@ -43,29 +43,30 @@ export default function Navbar() {
               <ChevronDown size={16} />
             </button>
 
-            {/* SUBMENU */}
-            <div className="absolute top-full left-0 mt-3 w-52 bg-white shadow-lg rounded-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-              <Link
-                href="/pakistan"
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#0F91D5]"
-              >
-                Pakistan 
-              </Link>
+            {visaOpen && (
+              <div className="flex flex-col items-center gap-3 mt-2">
+                <Link
+                  href="/pakistan"
+                  className="text-sm text-gray-600 hover:text-blue-600" onClick={() => setOpen(!open)}
+                >
+                  Pakistan Visa
+                </Link>
 
-              <Link
-                href="/netherland"
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#0F91D5]"
-              >
-                Netherlands 
-              </Link>
+                <Link
+                  href="/netherland"
+                  className="text-sm text-gray-600 hover:text-blue-600" onClick={() => setOpen(!open)}
+                >
+                  Netherlands Visa
+                </Link>
 
-              <Link
-                href="/uae"
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#0F91D5]"
-              >
-                UAE 
-              </Link>
-            </div>
+                <Link
+                  href="/uae"
+                  className="text-sm text-gray-600 hover:text-blue-600" onClick={() => setOpen(!open)}
+                >
+                  UAE Visa
+                </Link>
+              </div>
+            )}
           </div>
 
           <Link href="/packages" className="hover:text-[#0F91D5] transition">

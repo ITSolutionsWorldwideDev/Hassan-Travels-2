@@ -44,7 +44,7 @@ export default function Pakistan() {
       />
 
       {/* ================= CARD 1 SECTION WITH FULL BG OVERLAY ================= */}
-      <section className="relative py-16 px-6 overflow-hidden min-h-[500px] flex items-center justify-center w-full">
+      <section className="relative py-16 px-6 overflow-hidden min-h-125 flex items-center justify-center w-full">
         {/* BACKGROUND IMAGE OVERLAY */}
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-[0.22] pointer-events-none z-0"
@@ -108,16 +108,16 @@ export default function Pakistan() {
               </h2>
               <ol className="space-y-3 text-slate-600 text-[14.5px] leading-relaxed list-none pl-0">
                 <li className="flex items-start gap-2">
-                  <span className="font-bold text-slate-800 min-w-[18px]">1.</span>
+                  <span className="font-bold text-slate-800 min-w-4.5">1.</span>
                   <span>Passport (Valid for at least 6 months)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="font-bold text-slate-800 min-w-[18px]">2.</span>
+                  <span className="font-bold text-slate-800 min-w-4.5">2.</span>
                   <span>Recent passport photo (passport photo must not be older than 6 months)</span>
                 </li>
                 <li className="flex items-start gap-2 flex-col">
                   <div className="flex items-start gap-2">
-                    <span className="font-bold text-slate-800 min-w-[18px]">3.</span>
+                    <span className="font-bold text-slate-800 min-w-4.5">3.</span>
                     <span>If you are of Pakistani origin or married to a Pakistani origin, one of the following combinations:</span>
                   </div>
                   <ul className="w-full pl-6 mt-1.5 space-y-1.5 list-disc marker:text-slate-400">
@@ -133,7 +133,7 @@ export default function Pakistan() {
                   </ul>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="font-bold text-slate-800 min-w-[18px]">4.</span>
+                  <span className="font-bold text-slate-800 min-w-4.5">4.</span>
                   <span>For children under the age of 17, a &ldquo;Parents Consent Form&rdquo; is required and it must be completed and signed by both parents.</span>
                 </li>
               </ol>
