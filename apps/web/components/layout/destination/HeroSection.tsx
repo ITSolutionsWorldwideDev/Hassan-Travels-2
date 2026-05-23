@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react'
 import Image from 'next/image'
 import { IoLocationSharp } from 'react-icons/io5';
@@ -39,11 +41,33 @@ const destinations = [
 ];
 
 const HeroSection = () => {
+
+  // 🛠️ Dynamic WhatsApp Handler for Destinations
+  const handleDestinationBooking = (item: typeof destinations[0]) => {
+    const phoneNumber = "31104857673"; // +31 104857673 without formatting signs
+    
+    // WhatsApp Markdown structured layout
+    const rawMessage = `Assalam-o-Alaikum, I want to book a flight to this destination:
+
+✈️ *Destination:* ${item.name}
+🌍 *Country:* ${item.country}
+🕒 *Flight Duration:* ${item.time}
+💶 *Starting Price:* ${item.price}
+
+Please let me know about the flight details, ticket availability, and booking options. Thanks!`;
+
+    // Make message URL-safe
+    const encodedMessage = encodeURIComponent(rawMessage);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    // Redirect to a new tab
+    window.open(whatsappUrl, "_blank");
+  };
+
   return (
-    // section ko full-width (w-full) kar diya taaki bg image full screen aaye
     <section className="relative w-full py-20 px-6 sm:px-12 md:px-16 overflow-hidden">
       
-      {/* Background Image - Ab ye bina kisi restriction ke poori screen cover karegi */}
+      {/* Background Image */}
       <div className="absolute inset-0 -z-10 w-full h-full">
         <Image
           src="/assets/bgimage/h2.webp"
@@ -54,7 +78,7 @@ const HeroSection = () => {
         />
       </div>
         
-      {/* Content Wrapper - Grid aur headings ko center aur align rakhne ke liye */}
+      {/* Content Wrapper */}
       <div className="container mx-auto">
         
         <div className="text-center mb-14 max-w-3xl mx-auto">
@@ -120,8 +144,12 @@ const HeroSection = () => {
 
                 <hr className="mb-4" />
 
-                <button className="w-full bg-[#0F91D5] text-white py-2 rounded-xl font-medium shadow-sm hover:shadow-md transition-all">
-                  View Flights →
+                {/* ✅ Click Handler Attached */}
+                <button 
+                  onClick={() => handleDestinationBooking(item)}
+                  className="w-full bg-[#0F91D5] text-white py-2 rounded-xl font-medium shadow-sm hover:shadow-md transition-all"
+                >
+                  Book Now
                 </button>
               </div>
             </div>
@@ -139,4 +167,4 @@ const HeroSection = () => {
   )
 }
 
-export default HeroSection
+export default HeroSection;

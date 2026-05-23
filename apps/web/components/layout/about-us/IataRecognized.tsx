@@ -1,11 +1,16 @@
-import React from "react";
+"use client"; // Required for handling state/clicks in Next.js App Router
 
+import React, { useState } from "react";
 import { FaPhoneAlt, FaCalendarAlt, FaStar } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { BsClockFill } from "react-icons/bs";
+import BookingModal from "@/components/ui/BookingModal"; // Update this path based on where your BookingModal is stored
+
 const IataRecognized = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
-    <section className="py-20 px-6 bg-[#1e88c8] text-center text-white">
+    <section className="py-20 px-6 bg-[#1e88c8] text-center text-white relative">
       {/* TOP BADGE */}
       <div className="mb-6">
         <span className="inline-flex items-center gap-2 bg-white/20 text-white text-xs px-4 py-1.5 rounded-full">
@@ -29,36 +34,48 @@ const IataRecognized = () => {
 
       {/* BUTTONS */}
       <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-        {/* CALL NOW */}
-        <button className="bg-[#d4e157] text-black px-6 py-3 rounded-lg font-medium shadow-md hover:opacity-90 transition flex items-center gap-2 justify-center">
-          <FaPhoneAlt />
+        {/* CALL NOW - Converted to an anchor link with tel: schema */}
+        <a 
+          href="tel:+31104857673"
+          className="bg-[#d4e157] text-black px-6 py-3 rounded-lg font-medium shadow-md hover:opacity-90 transition flex items-center gap-2 justify-center"
+        >
+          <FaPhoneAlt size={14} />
           Call Now
-        </button>
+        </a>
 
-        {/* BOOK NOW */}
-        <button className="bg-white text-[#1e88c8] px-6 py-3 rounded-lg font-medium shadow-md hover:bg-gray-100 transition flex items-center gap-2 justify-center">
-          <FaCalendarAlt />
+        {/* BOOK NOW - Triggers state management click */}
+        <button 
+          onClick={() => setIsModalOpen(true)}
+          className="bg-white text-[#1e88c8] px-6 py-3 rounded-lg font-medium shadow-md hover:bg-gray-100 transition flex items-center gap-2 justify-center cursor-pointer"
+        >
+          <FaCalendarAlt size={14} />
           Book Now
         </button>
       </div>
 
       {/* CONTACT INFO */}
       <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8 text-white/90 text-xs">
-        <div className="flex items-center gap-2">
+        <a href="tel:+31104857673" className="flex items-center gap-2 hover:underline">
           <FaPhoneAlt />
           +31 104857673
-        </div>
+        </a>
 
-        <div className="flex items-center gap-2">
+        <a href="mailto:info@hassaantravel.nl" className="flex items-center gap-2 hover:underline">
           <MdEmail />
           info@hassaantravel.nl
-        </div>
+        </a>
 
         <div className="flex items-center gap-2">
           <BsClockFill />
           Mon-Sat 09:00 – 18:00
         </div>
       </div>
+
+      {/* BOOKING MODAL COMPONENT */}
+      <BookingModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </section>
   );
 };
