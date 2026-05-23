@@ -49,8 +49,7 @@ export default function UAEPage() {
             <HeadDesImg
               title={
                 <>
-                  <span className="text-blue-600">Explore the UAE</span> with
-                  Hassaan
+                  <span className="text-[#0F91D5]">Explore the UAE</span> with Hassaan 
                   <br /> Travel
                 </>
               }
@@ -62,9 +61,8 @@ export default function UAEPage() {
             {/* 🌟 FIXED: Background updated to slightly darker grey tint (bg-slate-200/80) */}
             <div className="max-w-7xl w-full mt-5 bg-slate-200/80 backdrop-blur-md border border-white/40 rounded-[2.5rem] shadow-xl shadow-slate-300/30 py-6 px-8 text-center">
               {/* Line 1: Main Rule */}
-              <p className="font-bold text-blue-600 text-[11px] sm:text-xs tracking-tight md:whitespace-nowrap max-w-full">
-                If your visa application is canceled, the visa costs and service
-                costs are not returned
+              <p className="font-bold text-[#0F91D5] text-[11px] sm:text-xs tracking-tight md:whitespace-nowrap max-w-full">
+                If your visa application is canceled, the visa costs and service costs are not returned
               </p>
 
               {/* Line 2: Details */}
@@ -101,9 +99,8 @@ export default function UAEPage() {
             <HeadDesImg
               title={
                 <>
-                  UAE Visa Services{" "}
-                  <span className="text-blue-600">for Dutch</span>
-                  <br /> <span className="text-blue-600">Citizens:</span>
+                  UAE Visa Services <span className="text-[#0F91D5]">for Dutch</span> 
+                  <br /> <span className="text-[#0F91D5]">Citizens:</span>
                 </>
               }
               description="The Dutch citizens avail the benefit of no-visa travel status. When they enter the UAE, their passport is just stamped with a visit visa once they enter the UAE, which will be valid for a maximum time of 90 days."

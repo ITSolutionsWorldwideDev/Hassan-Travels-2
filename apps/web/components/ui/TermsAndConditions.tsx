@@ -174,9 +174,9 @@ const TermsAndConditions = () => {
         <div className="relative z-10 max-w-6xl mx-auto bg-white/50 backdrop-blur-md rounded-2xl p-8 shadow-lg border border-white/40">
         <h2 className="text-4xl font-bold mb-3">
   Privacy Statement{" "}
-  <span className="text-blue-600">Hassaan</span>
+  <span className="text-[#0F91D5]">Hassaan</span>
   <br />
-  <span className="text-blue-600">
+  <span className="text-[#0F91D5]">
     {termsData.hero.title.highlight}
   </span>
 </h2>
@@ -190,7 +190,7 @@ const TermsAndConditions = () => {
             <div>
               {termsData.sections.slice(0, 2).map((section: Section) => (
                 <div key={section.id} className="mb-6">
-                  <h3 className="text-blue-600 font-bold">
+                  <h3 className="text-[#0F91D5] font-bold">
                     {section.id}. {section.title}
                   </h3>
 
@@ -232,7 +232,7 @@ const TermsAndConditions = () => {
               .slice(2)
               .map((section: Section) => (
                 <section key={section.id}>
-                  <h3 className="text-blue-600 font-bold text-lg">
+                  <h3 className="text-[#0F91D5] font-bold text-lg">
                     {section.id}. {section.title}
                   </h3>
 
@@ -256,7 +256,7 @@ const TermsAndConditions = () => {
                   {section.email && (
                     <p className="text-sm text-gray-700 mt-2">
                       Mail ons dan op{" "}
-                      <span className="font-semibold text-blue-600 underline cursor-pointer">
+                      <span className="font-semibold text-[#0F91D5] underline cursor-pointer">
                         {section.email}
                       </span>
                     </p>

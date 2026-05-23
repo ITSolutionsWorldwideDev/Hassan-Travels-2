@@ -110,7 +110,7 @@ export default function UserForm({
 
           <Link
             href="/users"
-            className="flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-blue-600 transition"
+            className="flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-[#0F91D5] transition"
           >
             <ArrowLeft size={16} />
 

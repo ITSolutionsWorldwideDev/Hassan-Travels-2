@@ -45,7 +45,7 @@ const CenterIconHeadingDesc = () => {
         {iconsData.map((item, i) => (
           <article key={i} className="flex flex-col items-center">
 
-            <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center bg-blue-500 rounded-2xl shadow-lg -mt-8 mb-2 sm:mb-3">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center bg-[#0F91D5] rounded-2xl shadow-lg -mt-8 mb-2 sm:mb-3">
               
               {item.img ? (
                 <Image

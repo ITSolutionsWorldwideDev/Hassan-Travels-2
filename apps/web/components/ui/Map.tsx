@@ -1,5 +1,6 @@
 import React from "react";
 import { MapPin, Phone, Mail } from "lucide-react";
+import MapForm from "../layout/home/MapForm";
 
 const Map = () => {
   return (
@@ -59,41 +60,11 @@ const Map = () => {
             </article>
 
             {/* FORM */}
-            <form
-              className="bg-white/70 backdrop-blur-md p-4 sm:p-6 rounded-xl shadow space-y-4"
-              aria-label="Contact Form"
-            >
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  className="border-2 border-gray-300 p-3 rounded-lg text-sm w-full"
-                />
-
-                <input
-                  type="email"
-                  placeholder="your@email.com"
-                  className="p-3 rounded-lg text-sm w-full border-2 border-gray-300"
-                />
-              </div>
-
-              <textarea
-                placeholder="Tell us about your travel plans..."
-                className="p-3 rounded-lg text-sm w-full border-2 border-gray-300"
-                rows={3}
-              ></textarea>
-
-              <button
-                type="submit"
-                className="bg-blue-500 text-white px-6 py-2 rounded-lg text-sm w-full sm:w-auto"
-              >
-                Send Now
-              </button>
-            </form>
+            <MapForm/>
 
             {/* PHONE */}
             <article className="bg-white/70 backdrop-blur-md p-4 sm:p-5 rounded-xl shadow flex items-center gap-4">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center bg-blue-500 text-white rounded-lg">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center bg-[#0F91D5] text-white rounded-lg">
                 <Phone />
               </div>
 
@@ -107,7 +78,7 @@ const Map = () => {
 
             {/* EMAIL */}
             <article className="bg-white/70 backdrop-blur-md p-4 sm:p-5 rounded-xl shadow flex items-center gap-4">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center bg-blue-500 text-white rounded-lg">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center bg-[#0F91D5] text-white rounded-lg">
                 <Mail />
               </div>
 

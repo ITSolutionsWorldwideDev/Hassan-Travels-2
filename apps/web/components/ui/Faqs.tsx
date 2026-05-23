@@ -121,10 +121,10 @@ export default function Faqs(imagesLinks: { imagesLinks: string[]  }) {
                 onClick={() => toggle(index)}
               >
                 <div className="flex justify-between items-center">
-                  <h4 className="text-blue-600 font-semibold text-sm md:text-base">
+                  <h4 className="text-[#0F91D5] font-semibold text-sm md:text-base">
                     {faq.question}
                   </h4>
-                  <span className="text-blue-600 text-xl">
+                  <span className="text-[#0F91D5] text-xl">
                     {activeIndex === index ? "−" : "+"}
                   </span>
                 </div>

@@ -60,7 +60,7 @@ const HeroSection = () => {
         <div className="text-center mb-14 max-w-3xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight tracking-tight">
             Fly to Your{" "}
-            <span className="font-bold text-blue-600">Dream Destination</span>
+            <span className="font-bold text-[#0F91D5]">Dream Destination</span>
           </h2>
 
           <p className="mt-4 text-gray-600 text-sm sm:text-base">
@@ -120,7 +120,7 @@ const HeroSection = () => {
 
                 <hr className="mb-4" />
 
-                <button className="w-full bg-linear-to-r from-blue-600 to-blue-700 text-white py-2 rounded-xl font-medium shadow-sm hover:shadow-md transition-all">
+                <button className="w-full bg-[#0F91D5] text-white py-2 rounded-xl font-medium shadow-sm hover:shadow-md transition-all">
                   View Flights →
                 </button>
               </div>

@@ -57,8 +57,8 @@ export default function Pakistan() {
           <div className="w-full bg-gray-100/40 backdrop-blur-sm rounded-2xl p-6 md:p-10 shadow-sm border border-white/40 flex flex-col-reverse md:flex-row items-center justify-between gap-10">
             <div className="w-full md:w-[62%] flex flex-col justify-center">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 leading-snug mb-4">
-                What is a <span className="text-blue-600">Pakistani Family</span>
-                <span className="text-blue-600 block mt-1">Visa?</span>
+                What is a <span className="text-[#0F91D5]">Pakistani Family</span>
+                <span className="text-[#0F91D5] block mt-1">Visa?</span>
               </h2>
               <div className="space-y-3 text-slate-600 text-[15px] leading-relaxed">
                 <p>
@@ -103,7 +103,7 @@ export default function Pakistan() {
           <div className="w-full bg-gray-100/40 backdrop-blur-sm rounded-2xl p-6 md:p-10 shadow-sm border border-white/40 flex flex-col-reverse md:flex-row items-stretch justify-between gap-10">
             <div className="w-full md:w-[62%] flex flex-col justify-center">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 leading-snug mb-5">
-                The <span className="text-blue-600">Required Documents</span> for
+                The <span className="text-[#0F91D5]">Required Documents</span> for
                 <span className="block mt-1">Pakistan Family Visa:</span>
               </h2>
               <ol className="space-y-3 text-slate-600 text-[14.5px] leading-relaxed list-none pl-0">

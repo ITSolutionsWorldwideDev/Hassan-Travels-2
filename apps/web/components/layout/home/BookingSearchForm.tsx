@@ -11,7 +11,7 @@ const BookingSearchForm = () => {
   const [formData, setFormData] = React.useState({
     from: "",
     to: "",
-    depart: [],
+    depart: "",
     returnDate: "",
     travellers: "",
   });
@@ -146,7 +146,7 @@ const BookingSearchForm = () => {
         <button
           type="submit"
           className="
-            bg-blue-500 hover:bg-blue-600
+            bg-[#0F91D5] hover:bg-blue-600
             text-white
             w-full
             h-13 lg:h-full

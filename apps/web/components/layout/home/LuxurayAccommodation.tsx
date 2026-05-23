@@ -52,7 +52,7 @@ const LuxurayAccommodation = () => {
               key={i}
               className="flex items-start gap-4 bg-white p-4 sm:p-5 rounded-xl shadow-md"
             >
-              <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center bg-blue-500 text-white rounded-lg">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center bg-[#0F91D5] text-white rounded-lg">
                 <CircleCheck />
               </div>
 

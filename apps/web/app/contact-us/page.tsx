@@ -1,7 +1,7 @@
 import Faqs from "@/components/ui/Faqs";
 import Testimonials from "@/components/ui/Testimonials";
 import CommonHeader from "@/components/ui/CommonHeader";
-import ContactForm from "@/components/layout/ContactForm";
+import Map from "@/components/ui/Map";
 
 const imageLinks = [
   "/assets/contact-us/1.webp",
@@ -17,7 +17,8 @@ export default function ContactPage() {
         desc="Expert Visa Services for Pakistani and UAE Travelers."
       />
 
-      <ContactForm />
+      {/* <ContactForm /> */}
+      <Map />
 
       {/* ✅ FAQ with BG */}
       <Faqs

@@ -130,7 +130,7 @@ export default function Footer() {
 
               {/* SOCIAL */}
               <div className="flex gap-2 pt-2">
-                <div className="w-8 h-8 flex items-center justify-center bg-white/5 rounded-md hover:bg-blue-500 transition cursor-pointer">
+                <div className="w-8 h-8 flex items-center justify-center bg-white/5 rounded-md hover:bg-[#0F91D5] transition cursor-pointer">
                   <Link
                     href="https://www.facebook.com/p/Hassaan-Travel-100070189773851/"
                     target="_blank"
@@ -139,7 +139,7 @@ export default function Footer() {
                   </Link>
                 </div>
 
-                <div className="w-8 h-8 flex items-center justify-center bg-white/5 rounded-md hover:bg-blue-500 transition cursor-pointer">
+                <div className="w-8 h-8 flex items-center justify-center bg-white/5 rounded-md hover:bg-[#0F91D5] transition cursor-pointer">
                   <Link
                     href="https://www.instagram.com/hassaantravel/?hl=en"
                     target="_blank"
@@ -148,7 +148,7 @@ export default function Footer() {
                   </Link>
                 </div>
 
-                <div className="w-8 h-8 flex items-center justify-center bg-white/5 rounded-md hover:bg-blue-500 transition cursor-pointer">
+                <div className="w-8 h-8 flex items-center justify-center bg-white/5 rounded-md hover:bg-[#0F91D5] transition cursor-pointer">
                   <Link
                     href="https://www.tiktok.com/@hassaantravel?_t=ZS-8zp97hXxrwG&_r=1"
                     target="_blank"

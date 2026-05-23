@@ -30,7 +30,7 @@ const OurCommitment = () => {
               <Star className="fill-blue-500" />
             </span>
             <div>
-              <p className="text-blue-600 font-bold text-sm">4.9</p>
+              <p className="text-[#0F91D5] font-bold text-sm">4.9</p>
               <p className="text-gray-500 text-[11px]">Customer Rating</p>
             </div>
           </div>

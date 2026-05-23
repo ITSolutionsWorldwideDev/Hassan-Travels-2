@@ -21,11 +21,11 @@ import RequiredDocuments from "@/components/ui/RequiredDocuments";
 const visaServices = {
   head: (
     <>
-  <div className="text-center text-black">
-    <div>Complete Umrah Visa Services</div>
-    <div>for Performers</div>
-  </div>
-</>
+      <div className="text-center text-black">
+        <div>Complete Umrah Visa Services</div>
+        <div>for Performers</div>
+      </div>
+    </>
   ),
 
   data: [
@@ -73,18 +73,18 @@ const documentRequired = [
 const UmrahPage: React.FC = () => {
   return (
     <div className="bg-white">
-      {/* BACKGROUND SECTION: Yeh sirf PopularTourPackages tak hi chalega */}
+      {/* BACKGROUND SECTION: Yeh sirf h1.webp ko dikhayega */}
       <div className="relative w-full">
-        {/* BACKGROUND LAYER WITH OPACITY */}
+        {/* ONLY ONE BACKGROUND LAYER */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15 z-0"
           style={{ backgroundImage: "url('/assets/bgimage/h1.webp')" }}
         />
 
-        {/* CONTENT LAYER (z-10 taaki text background ke upar sahi dikhe) */}
+        {/* CONTENT LAYER */}
         <div className="relative z-10">
           <CommonHeader
-            heading=" Apply for Your Umrah Visa Online with Hassaan Travel"
+            heading="Apply for Your Umrah Visa Online with Hassaan Travel"
             desc="Fast, Easy, and Reliable Umrah Visa Services for Performers from the Netherlands."
           />
 
@@ -94,7 +94,7 @@ const UmrahPage: React.FC = () => {
         </div>
       </div>
 
-      {/* OUTSIDE BACKGROUND SECTION: Yahan se normal white background shuru ho jayega */}
+      {/* OUTSIDE BACKGROUND SECTION */}
       <StepsToApply />
 
       <CustomTravelPackages />

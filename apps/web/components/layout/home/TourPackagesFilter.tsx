@@ -63,7 +63,7 @@ export default function TourCategories() {
               
               ${
                 selectedCategory === category.name
-                  ? "bg-blue-500 text-white"
+                  ? "bg-[#0F91D5] text-white"
                   : "bg-gray-200 text-black"
               }
             `}

@@ -1,7 +1,7 @@
 import React from "react";
 
 const stepsData = {
-  heading: "How to Apply for Your Umrah Visa Online",
+  // Heading ko JSX ke andar hi custom handle kiya hai niche text structuring ke liye
   steps: [
     {
       id: 1,
@@ -26,10 +26,11 @@ const stepsData = {
 
 const StepsToApply = () => {
   return (
-    <div className="relative  mx-auto px-4 text-center py-10 bg-linear-to-br from-[#E0F4FF] to-[#D8F2FF]">
-      {/* SECOND HEADING */}
-      <h2 className="text-3xl font-bold text-black mb-14">
-        {stepsData.heading}
+    <div className="relative mx-auto px-4 text-center py-10 bg-linear-to-br from-[#E0F4FF] to-[#D8F2FF]">
+      {/* SECOND HEADING: Forcefully broken down into two distinct centered lines */}
+      <h2 className="text-3xl font-bold text-black mb-14 text-center">
+        <div>How to Apply for Your Umrah Visa</div>
+        <div> Online</div>
       </h2>
 
       {/* STEPS */}

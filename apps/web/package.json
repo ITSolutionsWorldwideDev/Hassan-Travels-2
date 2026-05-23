@@ -11,9 +11,9 @@
     "check-types": "next typegen && tsc --noEmit"
   },
   "dependencies": {
-    "@repo/ui": "*",
-    "@repo/db": "*",
     "@repo/config": "*",
+    "@repo/db": "*",
+    "@repo/ui": "*",
     "next": "16.2.0",
     "react": "19.2.6",
     "react-dom": "19.2.6"
@@ -22,6 +22,7 @@
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
     "@types/node": "^22.15.3",
+    "@types/nodemailer": "^8.0.0",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
     "eslint": "^9.39.1",

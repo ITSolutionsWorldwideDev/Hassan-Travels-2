@@ -19,7 +19,7 @@ const OurStory = () => {
 
         {/* LEFT SIDE */}
         <div>
-          <span className="inline-block bg-blue-100 text-blue-600 text-xs px-3 py-1 rounded-full mb-4">
+          <span className="inline-block bg-blue-100 text-[#0F91D5] text-xs px-3 py-1 rounded-full mb-4">
             OUR STORY
           </span>
 
@@ -104,7 +104,7 @@ const OurStory = () => {
           />
 
           <div className="absolute bottom-[-15] left-[-15] bg-white border-2 border-blue-200 rounded-xl p-5 shadow-lg w-55">
-            <h3 className="text-blue-600 text-2xl font-bold">
+            <h3 className="text-[#0F91D5] text-2xl font-bold">
               Since <br /> 2009
             </h3>
             <p className="text-gray-500 text-xs mt-2">
