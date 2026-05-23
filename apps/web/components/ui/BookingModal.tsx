@@ -8,8 +8,8 @@ const formFieldsConfig = [
     id: "row-1",
     isRow: true,
     fields: [
-      { label: "Name", name: "name", type: "text", placeholder: "Uw naam", required: true },
-      { label: "E-mail", name: "email", type: "email", placeholder: "uw@email.nl", required: true }
+      { label: "Name", name: "name", type: "text", placeholder: "Your Name", required: true },
+      { label: "E-mail", name: "email", type: "email", placeholder: "your@email.com", required: true }
     ]
   },
   {
@@ -35,7 +35,7 @@ const formFieldsConfig = [
     label: "Additional wishes",
     name: "additionalWishes",
     type: "textarea",
-    placeholder: "Vertel ons over uw reisplannen...",
+    placeholder: "Tell us about your travel plans…",
     required: false,
     rows: 4,
   }

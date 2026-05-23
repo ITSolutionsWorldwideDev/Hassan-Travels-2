@@ -93,13 +93,17 @@ const VisaOptions = () => {
           ))}
         </div>
 
-        {/* SUBMIT/ACTION BUTTON */}
-        <div className="mt-14 w-full">
-          <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-10 py-4 rounded-2xl shadow-xl shadow-blue-300/60 text-base transition-all duration-300 tracking-wide">
-            {visaOptionsData.buttonText}
-          </button>
-        </div>
-
+       {/* SUBMIT/ACTION BUTTON */}
+<div className="mt-14 w-full">
+  <a
+    href="https://wa.me/31104857673?text=Hello%20Hassaan%20Travel,%20I%20want%20information%20about%20UAE%20Visa"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-block bg-[#0F91D5] hover:bg-[#0d7fbf] text-white font-bold px-10 py-4 rounded-2xl shadow-xl shadow-sky-300/60 text-base transition-all duration-300 tracking-wide"
+  >
+    {visaOptionsData.buttonText}
+  </a>
+</div>
       </div>
     </section>
   );

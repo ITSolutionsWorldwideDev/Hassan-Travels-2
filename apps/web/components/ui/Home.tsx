@@ -1,7 +1,7 @@
 import Image, { type ImageProps } from "next/image";
 import { Plane, Bed, ScrollText } from "lucide-react";
 import { MdOutlineSupportAgent } from "react-icons/md";
-
+import Link from "next/link"; // Ensure this is imported at the top
 import Testimonials from "./Testimonials";
 import SideIconDesc from "./SideIconDesc";
 import BookingSearchForm from "../layout/home/BookingSearchForm";
@@ -151,20 +151,26 @@ export default function HomeMain() {
       >
         <div className="absolute inset-0 bg-[rgba(15,145,213,0.8)]"></div>
 
-        <div className="relative z-10">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3">
-            Ready to Start Your Journey?
-          </h2>
+<div className="relative z-10">
+  <h2 className="text-2xl sm:text-3xl font-bold mb-3">
+    Ready to Start Your Journey?
+  </h2>
 
-          <p className="text-sm text-white/80 mb-6 max-w-xl mx-auto">
-            Contact us today for a free consultation and discover how we can
-            make your travel dreams a reality.
-          </p>
+  <p className="text-sm text-white/80 mb-6 max-w-xl mx-auto">
+    Contact us today for a free consultation and discover how we can
+    make your travel dreams a reality.
+  </p>
 
-          <button className="bg-lime-400 text-black px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm font-semibold">
-            Request a Free Quote →
-          </button>
-        </div>
+  {/* Button converted to Link for WhatsApp redirection */}
+  <Link 
+    href="https://wa.me/31104857673?text=Hello,%20I%20would%20like%20to%20request%20a%20free%20quote%20for%20my%20travel%20plans." 
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-block bg-lime-400 text-black px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm font-semibold hover:bg-lime-500 transition-colors"
+  >
+    Request a Free Quote →
+  </Link>
+</div>
       </section>
 
     </main>

@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+
+import { useEffect, useState } from "react";
 import TripType from "./TripType";
 import {
   FlexibleMonthGrid,
@@ -9,6 +10,7 @@ import {
 } from "./DatePicker";
 
 type Mode = "specific" | "flexible";
+
 interface DateRange {
   start: Date | null;
   end: Date | null;
@@ -25,6 +27,15 @@ export const DatePickerDialog = ({ onClose }: { onClose: () => void }) => {
   const [hovered, setHovered] = useState<Date | null>(null);
   const [flexSelected, setFlexSelected] = useState<string[]>([]);
 
+  // ✅ FIX 1: Lock body scroll when modal opens
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
+
   const rightMonth = (leftMonth + 1) % 12;
   const rightYear = leftMonth === 11 ? leftYear + 1 : leftYear;
 
@@ -34,7 +45,7 @@ export const DatePickerDialog = ({ onClose }: { onClose: () => void }) => {
       setLeftYear((y) => y - 1);
     } else setLeftMonth((m) => m - 1);
   }
-  
+
   function nextMonth() {
     if (leftMonth === 11) {
       setLeftMonth(0);
@@ -65,7 +76,7 @@ export const DatePickerDialog = ({ onClose }: { onClose: () => void }) => {
 
   return (
     <div
-      className="fixed inset-0 bg-black/40 flex items-center justify-center z-[1000] backdrop-blur-sm p-4"
+      className="fixed inset-0 bg-black/40 flex items-center justify-center z-[9999] backdrop-blur-sm p-4"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
@@ -74,7 +85,7 @@ export const DatePickerDialog = ({ onClose }: { onClose: () => void }) => {
         className="bg-white rounded-2xl px-4 py-5 sm:p-6 md:p-8 w-[min(1080px,96vw)] max-h-[90vh] overflow-y-auto shadow-2xl flex flex-col justify-between"
         style={{ fontFamily: "'DM Sans', sans-serif" }}
       >
-        {/* Header row */}
+        {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
           <div className="flex items-center justify-between sm:justify-start gap-4 w-full sm:w-auto">
             <TripType />
@@ -131,9 +142,9 @@ export const DatePickerDialog = ({ onClose }: { onClose: () => void }) => {
                     minDate={today}
                   />
                 </div>
-                
+
                 <div className="hidden md:block w-px bg-gray-200 shrink-0 self-stretch" />
-                
+
                 <div className="flex-1 w-full min-w-[260px] hidden sm:block">
                   <MonthCalendar
                     year={rightYear}
@@ -156,10 +167,12 @@ export const DatePickerDialog = ({ onClose }: { onClose: () => void }) => {
               </button>
             </div>
           ) : (
-            /* FIXED: Scrollable Container with exact width triggers */
             <div className="w-full overflow-x-auto pb-4 pt-1 clear-both block touch-pan-x">
               <div className="min-w-[550px] md:min-w-0 w-full w-max md:w-auto">
-                <FlexibleMonthGrid selected={flexSelected} onToggle={toggleFlex} />
+                <FlexibleMonthGrid
+                  selected={flexSelected}
+                  onToggle={toggleFlex}
+                />
               </div>
             </div>
           )}
@@ -170,13 +183,17 @@ export const DatePickerDialog = ({ onClose }: { onClose: () => void }) => {
           <span className="text-gray-500 text-sm text-center sm:text-left">
             {mode === "specific"
               ? range.start
-                ? `${formatDate(range.start)}${range.end ? " → " + formatDate(range.end) : " — pick return date"}`
+                ? `${formatDate(range.start)}${
+                    range.end ? " → " + formatDate(range.end) : " — pick return date"
+                  }`
                 : "Add a return date"
               : flexSelected.length > 0
-                ? `${flexSelected.length} month${flexSelected.length > 1 ? "s" : ""} selected`
-                : "Add a return date"}
+              ? `${flexSelected.length} month${
+                  flexSelected.length > 1 ? "s" : ""
+                } selected`
+              : "Add a return date"}
           </span>
-          
+
           <button
             disabled={!hasSelection}
             onClick={onClose}
