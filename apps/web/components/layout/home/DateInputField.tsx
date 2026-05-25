@@ -14,7 +14,7 @@ export default function DateInputField({
   placeHolder: string;
   value: string;
 
-  handleChange: (name: string, value: any) => void;
+  handleChange: ( value: any) => void;
 }) {
   const [open, setOpen] = useState(false);
 
@@ -43,7 +43,7 @@ export default function DateInputField({
       {open && (
         <DatePickerDialog
           onClose={() => setOpen(false)}
-          onApply={(data) => handleChange("depart", data)}
+          onApply={(data) => handleChange( data)}
         />
       )}
     </>

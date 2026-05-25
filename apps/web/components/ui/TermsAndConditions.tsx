@@ -162,13 +162,13 @@ const termsData: TermsData = {
 };
 const TermsAndConditions = () => {
   return (
-    <section className="relative py-16 px-6 overflow-hidden min-h-[500px] flex items-center justify-center w-full">
+    <section className="relative py-16 px-6 overflow-hidden min-h-125 flex items-center justify-center w-full">
         {/* BACKGROUND IMAGE OVERLAY */}
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-[0.22] pointer-events-none z-0"
           style={{ backgroundImage: "url('/assets/about-us/3.webp')" }}
         />
-       
+        
 
         {/* CARD */}
         <div className="relative z-10 max-w-6xl mx-auto bg-white/50 backdrop-blur-md rounded-2xl p-8 shadow-lg border border-white/40">

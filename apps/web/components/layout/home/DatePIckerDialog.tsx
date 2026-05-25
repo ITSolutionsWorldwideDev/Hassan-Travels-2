@@ -33,7 +33,7 @@ export const DatePickerDialog = ({
  
 }: {
   onClose: () => void;
-  onApply: (data: DatePickerValue) => void;
+  onApply: ( data: DatePickerValue) => void;
   
 }) => {
   const today = new Date();

@@ -1,23 +1,14 @@
-import nodemailer from "nodemailer";
+import { MailtrapClient } from "mailtrap";
 
-if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
-  throw new Error(
-    "Missing email configuration. Please set GMAIL_USER and GMAIL_APP_PASSWORD environment variables."
-  );
-}
-
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  secure: true,
-  host: "smtp.gmail.com",
-  port: 465,
-  auth: {
-    user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_APP_PASSWORD,
-  },
+const client = new MailtrapClient({
+  token: 'b4eb49f00efcca07e8618eb067991515' as string,
 });
 
-export default transporter;
+export const sender = {
+  email: "hello@demomailtrap.co",
+  name: "My Travel App",
+};
 
-// nodemailer
-// tfei szzu yswi hpim
+export default client;
+
+// 
