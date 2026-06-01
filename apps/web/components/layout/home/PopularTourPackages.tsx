@@ -83,18 +83,15 @@ const PopularTourPackages = () => {
     (tour) => tour.category === selectedCategory,
   );
   return (
-   <section
-  className="relative w-full min-h-[70vh] py-12 sm:py-20 px-4 sm:px-8 md:px-16 overflow-hidden bg-white"
-  aria-labelledby="popular-tour-packages"
->
-      {/* BACKGROUND IMAGE WITH LOW OPACITY */}
+    /* FIXED: Removed mt-3 sm:mt-5 and combined it into padding-top to eliminate the white gap above the background */
+    <section className="relative pb-8 sm:pb-12 pt-11 sm:pt-17 px-4 sm:px-8 md:px-16 overflow-hidden">      {/* BACKGROUND IMAGE WITH LOW OPACITY */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15 z-0"
         style={{ backgroundImage: "url('/assets/bgimage/h1.webp')" }}
       />
 
       {/* LINEAR GRADIENT OVERLAY */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[rgba(207,234,246,0.3)] to-[rgba(85,178,218,0.4)] z-0" />
+      <div className="absolute inset-0 bg-linear-to-b from-[rgba(207,234,246,0.3)] to-[rgba(85,178,218,0.4)] z-0" />
 
       {/* CONTENT WRAPPER */}
       <div className="relative z-10">
@@ -107,10 +104,9 @@ const PopularTourPackages = () => {
           <span className="text-black">From Netherlands</span>
         </h2>
 
-        <p className="text-gray-500 mb-6 max-w-2xl text-sm sm:text-base">
-          Embark on unforgettable journeys to popular destinations such as Makkah,
-          Madinah, Dubai, and more with our exclusive tour packages.
-        </p>
+     <p className="text-gray-500 mb-6 w-full max-w-none lg:max-w-7xl whitespace-normal text-sm sm:text-base">
+  Embark on unforgettable journeys to popular destinations such as Makkah, Madinah, Dubai, and more with our exclusive tour packages.
+</p>
 
         {/* CATEGORY BUTTONS */}
         <div
@@ -121,7 +117,7 @@ const PopularTourPackages = () => {
             <button
               key={ind}
               onClick={() => setSelectedCategory(category)}
-              className={`px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm transition cursor-pointer
+              className={`px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm transition cursor-pointer capitalize
                 
                 ${
                   selectedCategory === category
@@ -143,7 +139,7 @@ const PopularTourPackages = () => {
               className="group flex bg-white rounded-2xl shadow-md overflow-hidden transition-all duration-500 hover:shadow-2xl"
             >
               {/* IMAGE SIDE */}
-              <div className="w-1/2 h-[170px] overflow-hidden">
+              <div className="w-1/2 h-42.5 overflow-hidden">
                 <Image
                   src={`/assets/home/${item.img}`}
                   alt={`${item.name} - ${item.country} tour package`}

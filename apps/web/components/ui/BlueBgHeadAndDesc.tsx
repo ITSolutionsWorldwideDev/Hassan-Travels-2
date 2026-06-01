@@ -25,7 +25,7 @@ const BlueBgHeadAndDesc = ({
           {/* WhatsApp Button */}
           <a
             href="https://wa.me/31104857673?text=Hello%20Hassaan%20Travel,%20I%20want%20to%20book%20a%20flight"
-            target="_blank"
+            target="whatsapp_tab" 
             rel="noopener noreferrer"
             className="inline-block mt-6 bg-white text-[#0f91d5] font-semibold px-8 py-3.5 rounded-2xl shadow-lg hover:bg-gray-100 transition-all active:scale-95"
           >
