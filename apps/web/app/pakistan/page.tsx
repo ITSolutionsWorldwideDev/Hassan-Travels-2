@@ -1,7 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 import Testimonials from "@/components/ui/Testimonials";
 import Faqs from "@/components/ui/Faqs";
 import CommonHeader from "@/components/ui/CommonHeader";
-import HeadDesImg from "@/components/ui/HeadDesImg";
 import { ImCreditCard } from "react-icons/im";
 import { LuHeadset } from "react-icons/lu";
 import { FaPassport } from "react-icons/fa";
@@ -128,7 +128,7 @@ export default function Pakistan() {
                       Children under the age of 17 must provide valid passports from both parents, at least one Pakistani ID of the father or mother)
                     </li>
                     <li className="pl-1">
-                      Marriage certificate, Marriage book, Nikkahnama or BRP extract with mention of your partner in combination with your partner's Pakistani ID (NIC, MNIC, NICOP, or POC) or your Pakistani passport.
+                      Marriage certificate, Marriage book, Nikkahnama or BRP extract with mention of your partner in combination with your partner&apos;s Pakistani ID (NIC, MNIC, NICOP, or POC) or your Pakistani passport.
                     </li>
                   </ul>
                 </li>

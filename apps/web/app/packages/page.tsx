@@ -1,19 +1,19 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import CustomTravelPackages from "@/components/ui/CustomTravelPackages";
 import PopularTourPackages from "@/components/layout/packages/PopularTourPackages";
 import BlueBgHeadAndDesc from "@/components/ui/BlueBgHeadAndDesc";
 import CommonHeader from "@/components/ui/CommonHeader";
-import HeadingAndDesc from "@/components/ui/HeadingAndDesc";
 
 export default function packages() {
   return (
     <>
-      {/* HERO SECTION */}
-      <CommonHeader
-        heading="Pakistani Family & Tousist Visa Services | Hassaan Travel - Simple & Fast Processing"
-        desc="Apply online for a Pakistani Family & Tourist visa today! Simple application process, fast approvals, and expert assistance"
-      />
+     {/* HERO SECTION */}
+<CommonHeader
+  heading={"Pakistani Family & Tourist Visa Services |\nHassaan Travel - Simple & Fast Processing"}
+  desc="Apply online for a Pakistani Family & Tourist visa today! Simple application process, fast approvals, and expert assistance"
+/>
 
       {/* ====== SECTION WRAPPER WITH BG ====== */}
       <PopularTourPackages />

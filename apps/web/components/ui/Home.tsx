@@ -107,8 +107,7 @@ export default function HomeMain() {
       <PopularTourPackages />
 
       {/* ✅ EXPERT VISA SOLUTIONS (UPDATED WITH BG + OVERLAY + LAZY IMAGE) */}
-      <section className="relative py-12 sm:py-20 px-4 sm:px-8 md:px-16 overflow-hidden">
-        {/* BACKGROUND IMAGE (LAZY LOAD) */}
+<section className="relative py-8 sm:py-12 px-4 sm:px-8 md:px-16 overflow-hidden">        {/* BACKGROUND IMAGE (LAZY LOAD) */}
         {/* 1. ACTUAL BACKGROUND IMAGE (With 18% Opacity & Lazy Loading) */}
         <img
           src="/assets/bgimage/h2.webp"
@@ -118,9 +117,9 @@ export default function HomeMain() {
         />
 
         {/* CONTENT */}
-        <div className="relative z-10">
-          <SideIconDesc data={visaSolution} />
-        </div>
+       <div className="relative z-10 -mt-8 sm:-mt-10">
+  <SideIconDesc data={visaSolution} />
+</div>
       </section>
 
       {/* PARTNERS */}
