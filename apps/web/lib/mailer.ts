@@ -1,7 +1,7 @@
 import { MailtrapClient } from "mailtrap";
 
 const client = new MailtrapClient({
-  token: 'b4eb49f00efcca07e8618eb067991515' as string,
+  token: '4778193a0c806cfa540fd8cd93659e22' as string,
 });
 
 export const sender = {

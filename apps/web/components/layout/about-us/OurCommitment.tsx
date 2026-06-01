@@ -3,16 +3,14 @@ import { Star } from "lucide-react";
 
 const OurCommitment = () => {
   return (
-     <section className="relative w-full py-12 sm:py-20 overflow-hidden flex items-center justify-center">
-
-    {/* BACKGROUND IMAGE */}
-<img
-  src="/assets/bgimage/h2.webp"
-  loading="lazy"
-  alt=""
-  className="absolute inset-0 w-full h-full object-cover opacity-[0.18]"
-/>
-
+    <section className="relative w-full py-12 sm:py-20 overflow-hidden flex items-center justify-center">
+      {/* BACKGROUND IMAGE */}
+      <img
+        src="/assets/bgimage/h2.webp"
+        loading="lazy"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover opacity-[0.18]"
+      />
 
       <div className="relative max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center z-20">
         {/* LEFT IMAGE */}

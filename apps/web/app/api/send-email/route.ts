@@ -31,7 +31,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
     await client.send({
       from: sender,
-      to: [{ email: "maviasajjad78@gmail.com" }],
+      to: [{ email: "maviasajjadabbasi@gmail.com" }],
       subject,
       text,
       html,

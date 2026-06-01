@@ -37,13 +37,48 @@ const formatDate = (date: string | Date) => {
   return new Date(date).toLocaleDateString("en-GB");
 };
 
+const MONTH_NAMES = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+const formatFlexibleMonths = (months: string[]) => {
+  return months
+    .map((monthKey) => {
+      const [year, month] = monthKey.split("-");
+      const monthIndex = Number(month);
+
+      if (!Number.isNaN(monthIndex) && monthIndex >= 0 && monthIndex <= 11) {
+        return MONTH_NAMES[monthIndex];
+      }
+
+      const parsed = new Date(monthKey);
+      if (!Number.isNaN(parsed.getTime())) {
+        return MONTH_NAMES[parsed.getMonth()];
+      }
+
+      return monthKey;
+    })
+    .join(", ");
+};
+
 const formatDateField = (value: DateFieldValue | string): string => {
   if (typeof value === "string") {
     return value || "Not specified";
   }
 
   if (value.mode === "flexible" && value.flexibleMonths?.length > 0) {
-    return `Flexible — Months: ${value.flexibleMonths.join(", ")}`;
+    return formatFlexibleMonths(value.flexibleMonths);
   }
 
   const { start, end } = value.range ?? {};
@@ -97,8 +132,8 @@ const BookingSearchForm = () => {
           returnDate: formatDateField(formData.returnDate),
           travellers: formData.travellers,
           // raw objects also sent for your backend logs
-          departRaw: JSON.stringify(formData.depart),
-          returnDateRaw: JSON.stringify(formData.returnDate),
+          // departRaw: JSON.stringify(formData.depart),
+          // returnDateRaw: JSON.stringify(formData.returnDate),
         }),
       });
 
@@ -121,7 +156,7 @@ const BookingSearchForm = () => {
   };
 
   return (
-    <section className="relative z-10 w-full max-w-5xl md:max-w-7xl mx-auto px-4 mt-10">
+    <section className="relative  z-10 w-full max-w-5xl md:max-w-7xl mx-auto px-4 mt-10">
       <form
         onSubmit={handleSubmit}
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-11 gap-1 md:gap-1.5 items-stretch w-full"
@@ -211,8 +246,8 @@ const BookingSearchForm = () => {
 
       {/* STATUS MESSAGES */}
       {status === "success" && (
-        <p className="text-green-600 text-sm text-center mt-3">
-          ✅ Search request sent successfully!
+        <p className="text-green-600 text-xl text-center mt-3">
+          ✅ Request sent successfully! We will get back to you soon.
         </p>
       )}
       {status === "error" && (

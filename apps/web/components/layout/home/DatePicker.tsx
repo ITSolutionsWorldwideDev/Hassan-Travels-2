@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { X } from 'lucide-react';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -213,7 +214,7 @@ export function InfoTooltip() {
         onClick={() => setShow((s) => !s)}
         className="w-7 h-7 rounded-full border border-gray-400 bg-white cursor-pointer text-sm font-bold text-gray-500 flex items-center justify-center"
       >
-        i
+        <X/>
       </button>
       {show && (
         <div className="absolute right-0 top-9 w-56 bg-[#1e3a5f] text-white rounded-xl p-3 text-[13px] leading-relaxed z-50 shadow-2xl">

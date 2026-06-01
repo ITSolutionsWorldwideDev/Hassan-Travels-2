@@ -6,9 +6,9 @@ const HeadingAndDesc = ({head,desc}:{head:string | React.ReactNode,desc:string |
         <h2 className="text-3xl md:text-4xl font-bold ">
           {head}
         </h2>
-        <p className=" mt-2 text-sm max-w-xl mx-auto lg:text-lg  whitespace-pre-line">
-       {desc}
-        </p>
+        <div className=" mt-2 text-sm max-w-xl mx-auto lg:text-lg  whitespace-pre-line">
+          {desc}
+        </div>
       </div>
     </section>
   );

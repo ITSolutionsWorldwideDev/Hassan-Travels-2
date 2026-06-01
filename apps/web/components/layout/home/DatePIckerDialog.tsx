@@ -1,7 +1,9 @@
 "use client";
+import { X } from "lucide-react";
 
 import { useEffect, useState } from "react";
 import TripType from "./TripType";
+
 import {
   FlexibleMonthGrid,
   formatDate,
@@ -30,11 +32,9 @@ interface DateRange {
 export const DatePickerDialog = ({
   onClose,
   onApply,
- 
 }: {
   onClose: () => void;
-  onApply: ( data: DatePickerValue) => void;
-  
+  onApply: (data: DatePickerValue) => void;
 }) => {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
@@ -44,7 +44,7 @@ export const DatePickerDialog = ({
   const [mode, setMode] = useState<Mode>("specific");
   const [leftYear, setLeftYear] = useState(today.getFullYear());
   const [leftMonth, setLeftMonth] = useState(today.getMonth());
-
+  const [show, setShow] = useState(false);
   const [range, setRange] = useState<DateRange>({
     start: null,
     end: null,
@@ -91,19 +91,15 @@ export const DatePickerDialog = ({
     }
   }
 
-  console.log(range)
+  console.log(range);
   function toggleFlex(key: string) {
     setFlexSelected((prev) =>
-      prev.includes(key)
-        ? prev.filter((k) => k !== key)
-        : [...prev, key]
+      prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key],
     );
   }
 
   const hasSelection =
-    mode === "specific"
-      ? range.start !== null
-      : flexSelected.length > 0;
+    mode === "specific" ? range.start !== null : flexSelected.length > 0;
 
   function handleApply() {
     onApply({
@@ -132,9 +128,13 @@ export const DatePickerDialog = ({
           <div className="flex items-center justify-between sm:justify-start gap-4 w-full sm:w-auto">
             <TripType value={tripType} onChange={setTripType} />
 
-            <div className="sm:hidden">
-              <InfoTooltip />
-            </div>
+            <button
+              onClick={onClose}
+              type="button"
+              className="sm:hidden w-6 h-6 cursor-pointer"
+            >
+              <X />
+            </button>
           </div>
 
           <div className="flex bg-gray-100 rounded-xl p-0.5 w-full sm:w-auto justify-center">
@@ -150,15 +150,19 @@ export const DatePickerDialog = ({
                     : "bg-transparent text-gray-500",
                 ].join(" ")}
               >
-                {m === "specific"
-                  ? "Specific dates"
-                  : "Flexible dates"}
+                {m === "specific" ? "Specific dates" : "Flexible dates"}
               </button>
             ))}
           </div>
 
           <div className="hidden sm:block">
-            <InfoTooltip />
+            <button
+              type="button"
+              onClick={onClose}
+              className="w-7 h-7 rounded-full border border-gray-400 bg-white cursor-pointer text-sm font-bold text-gray-500 flex items-center justify-center"
+            >
+              <X />
+            </button>
           </div>
         </div>
 
@@ -166,7 +170,10 @@ export const DatePickerDialog = ({
         <div className="flex-1 min-h-0 w-full my-auto">
           {mode === "specific" ? (
             <div className="flex items-center gap-2 sm:gap-6 mb-2">
-              <button onClick={prevMonth} className="w-9 h-9 rounded-full border">
+              <button
+                onClick={prevMonth}
+                className="w-9 h-9 rounded-full border text-black"
+              >
                 ‹
               </button>
 
@@ -198,7 +205,10 @@ export const DatePickerDialog = ({
                 </div>
               </div>
 
-              <button onClick={nextMonth} className="w-9 h-9 rounded-full border">
+              <button
+                onClick={nextMonth}
+                className="w-9 h-9 rounded-full border text-black"
+              >
                 ›
               </button>
             </div>
@@ -215,19 +225,21 @@ export const DatePickerDialog = ({
         </div>
 
         {/* FOOTER */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-7 pt-5 border-t">
+        <div className="  flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-7 pt-5 border-t">
           <span className="text-gray-500 text-sm">
             {mode === "specific"
               ? range.start
                 ? `${formatDate(range.start)}${
-                    range.end ? " → " + formatDate(range.end) : " — pick return date"
+                    range.end
+                      ? " → " + formatDate(range.end)
+                      : " — pick return date"
                   }`
                 : "Add a return date"
               : flexSelected.length > 0
-              ? `${flexSelected.length} month${
-                  flexSelected.length > 1 ? "s" : ""
-                } selected`
-              : "Add a return date"}
+                ? `${flexSelected.length} month${
+                    flexSelected.length > 1 ? "s" : ""
+                  } selected`
+                : "Add a return date"}
           </span>
 
           <button
