@@ -14,7 +14,7 @@ const visaType = {
   data: [
     {
       title: "Tourist Visa",
-      desc: "Ideal for leisure travel and exploring the Netherlands.",
+      desc: "Ideal for leisure travel and exploring Saudi Arabia.",
       icon: <ImCreditCard />,
     },
     {
@@ -24,7 +24,7 @@ const visaType = {
     },
     {
       title: "Family Visit Visa",
-      desc: "Reunite with loved ones living in the Netherlands.",
+      desc: "Reunite with loved ones living in Saudi Arabia.",
       icon: <FaPassport />,
     },
     {
@@ -41,11 +41,11 @@ const imageLinks = [
   "/assets/netherland/travel-3.webp",
 ];
 
-export default function NetherlandsPage() {
+export default function SaudiArabiaPage() {
   return (
     <main className="w-full overflow-x-hidden bg-gray-50/30">
       <CommonHeader
-        heading={"Netherlands Visa Services for Pakistani & UAE \n Citizens"}
+        heading={"Saudi Arabia Visa Services for Pakistani & UAE \n Citizens"}
         desc="Expert Visa Services for Pakistani and UAE Travelers."
       />
 
@@ -65,12 +65,12 @@ export default function NetherlandsPage() {
             <HeadDesImg
               title={
                 <>
-                  Simplifying Your <span className="text-[#0F91D5]">Netherlands</span>
+                  Simplifying Your <span className="text-[#0F91D5]">Saudi Arabia</span>
                   <span className="text-[#0F91D5] block mt-1">Visa Process</span>
                 </>
               }
-              description="Citizens of the UAE can travel to the Netherlands without a visa for short stays, typically up to 90 days within a 180-day period, for tourism or business purposes."
-              imageSrc="/assets/netherland/net1.webp"
+              description="Citizens of the UAE can travel to Saudi Arabia without a visa for short stays, typically up to 90 days within a 180-day period, for tourism or business purposes."
+              imageSrc="/assets/umrah/kaba.webp"
             />
           </div>
 
@@ -115,7 +115,7 @@ export default function NetherlandsPage() {
                   <span className="text-[#0F91D5] block mt-1">Citizens</span>
                 </>
               }
-              description="UAE citizens can travel to the Netherlands for tourism and business purposes without having a visa if they have an Emirati passport. The Netherlands allows them to stay for a short period of time, for up to 90 days"
+              description="UAE citizens can travel to Saudi Arabia for tourism and business purposes without having a visa if they have an Emirati passport. Saudi Arabia allows them to stay for a short period of time, for up to 90 days"
               imageSrc="/assets/netherland/net2.webp"
             />
           </div>

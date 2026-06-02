@@ -24,7 +24,7 @@ const servicesData = [
     img: "/assets/visa/why-1.webp",
     alt: "Mount Arafat crowd pilgrimage during Hajj",
     btnText: "Apply for a Saudia Visa",
-    link: "/saudia",
+    link: "/saudi-arabia", // Updated route to match your new page
   },
   {
     title: "UAE Visa Services",
