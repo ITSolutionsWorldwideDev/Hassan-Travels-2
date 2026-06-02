@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa";
 import { HiOutlineLocationMarker } from "react-icons/hi";
@@ -45,6 +46,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                {/* FIXED: Link set directly to /visa */}
                 <Link href="/visa" className="hover:text-white transition-colors block py-0.5">
                   Visa Services
                 </Link>
@@ -126,7 +128,7 @@ export default function Footer() {
                 <span>+31 104857673</span>
               </a>
 
-              {/* SOCIAL - Fixed clickable areas */}
+              {/* SOCIAL */}
               <div className="flex gap-2 pt-2">
                 <Link
                   href="https://www.facebook.com/p/Hassaan-Travel-100070189773851/"

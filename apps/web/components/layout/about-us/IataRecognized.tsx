@@ -71,11 +71,16 @@ const IataRecognized = () => {
         </div>
       </div>
 
-      {/* BOOKING MODAL COMPONENT */}
-      <BookingModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-      />
+      {/* FIX: Screen wrapper to override the parent 'relative' positioning constraint */}
+      <div className="fixed inset-0 pointer-events-none z-[9999]">
+        <div className="pointer-events-auto">
+          {/* BOOKING MODAL COMPONENT */}
+          <BookingModal 
+            isOpen={isModalOpen} 
+            onClose={() => setIsModalOpen(false)} 
+          />
+        </div>
+      </div>
     </section>
   );
 };
