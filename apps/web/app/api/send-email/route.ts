@@ -1,8 +1,10 @@
-import client, { sender } from "@/lib/mailer";
+import { sendMail, sender } from "@/lib/mailer";
 import { templates } from "@/lib/templates/emailTemplates";
-import { EmailTemplate, FormDataMap, FormType } from "@/lib/types/form.types";
+import { EmailTemplate, FormType } from "@/lib/types/form.types";
 import { NextRequest, NextResponse } from "next/server";
 export {templates} from "@/lib/templates/emailTemplates";
+
+const defaultRecipient = process.env.EMAIL_TO ?? "maviasajjadabbasi@gmail.com";
 
 // ─── Templates ───────────────────────────────────────────────────────────────
 
@@ -16,9 +18,8 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       string,
       unknown
     >;
-    console.log(body);
-    const { formType, email, ...data } = body;
-    console.log(email);
+
+    const { formType, ...data } = body;
 
     if (!formType || !(formType in templates)) {
       return NextResponse.json({ error: "Invalid form type" }, { status: 400 });
@@ -29,13 +30,12 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     ) => EmailTemplate;
     const { subject, text, html } = templateFn(data);
 
-    await client.send({
-      from: sender,
-      to: [{ email: "maviasajjadabbasi@gmail.com" }],
+    await sendMail({
+      from: `"${sender.name}" <${sender.email}>`,
+      to: defaultRecipient,
       subject,
       text,
       html,
-      category: formType, // shows up in Mailtrap dashboard per form type
     });
 
     return NextResponse.json({ success: true });

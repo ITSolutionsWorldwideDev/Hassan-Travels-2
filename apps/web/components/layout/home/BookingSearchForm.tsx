@@ -28,6 +28,7 @@ interface FormData {
   depart: DateFieldValue | string;
   returnDate: DateFieldValue | string;
   travellers: string;
+  contactNumber: string;
 }
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -103,6 +104,7 @@ const BookingSearchForm = () => {
     depart: "",
     returnDate: "",
     travellers: "",
+    contactNumber: "",
   });
 
   const [status, setStatus] = React.useState<SubmitStatus>("idle");
@@ -145,6 +147,7 @@ const BookingSearchForm = () => {
           depart: "",
           returnDate: "",
           travellers: "",
+          contactNumber: "",
         });
         setTimeout(() => setStatus("idle"), 3000);
       } else {
@@ -231,6 +234,18 @@ const BookingSearchForm = () => {
               handleChange("travellers", value)
             }
             onChange={(e) => handleChange("travellers", e.target.value)}
+          />
+        </div>
+
+        <div className="w-full min-w-0 lg:col-span-2">
+          <BookingSearchFormInputField
+            label="Contact Number"
+            placeHolder="Phone number"
+            value={formData.contactNumber}
+            handleChange={(name: string, value: string) =>
+              handleChange("contactNumber", value)
+            }
+            onChange={(e) => handleChange("contactNumber", e.target.value)}
           />
         </div>
 
