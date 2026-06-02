@@ -1,83 +1,97 @@
 import React from "react";
+import Link from "next/link";
 
 const servicesData = [
   {
-    title: "Saudia Visa Services",
-    desc: "Our easy and fast platform ensures hassle-free visa application.",
+    title: "Umrah Visa Services",
+    desc: "With years of experience, we offer customized Umrah packages and excellent customer support and guidance.",
     img: "/assets/visa/why-1.webp",
-    alt: "Saudi Arabia visa service for Umrah and tourist travel",
+    alt: "Makkah clock tower hotel for Umrah service",
+    btnText: "Apply for Umrah Visa",
+    link: "/umrah",
   },
   {
     title: "Pakistani Visa Services",
-    desc: "Fast and reliable visa processing services for travelers.",
+    desc: "Our easy and fast user-friendly platform ensures a hassle-free visa application for single and multiple entry visas to Pakistan.",
     img: "/assets/visa/why-2.webp",
-    alt: "Pakistan visa assistance and processing services",
+    alt: "Beautiful lake and mountains landscape in Pakistan",
+    btnText: "Get Your Pakistani Visa Today",
+    link: "/pakistan",
   },
   {
-    title: "Saudi Travel Assistance",
-    desc: "Explore Saudi visa options including family & tourist visas.",
+    title: "Saudia Visa Services",
+    desc: "Explore Saudi visa options, including family, tourist, and business visas.",
     img: "/assets/visa/why-1.webp",
-    alt: "Saudi Arabia travel and visa consultancy services",
+    alt: "Mount Arafat crowd pilgrimage during Hajj",
+    btnText: "Apply for a Saudia Visa",
+    link: "/saudia",
   },
   {
-    title: "Visa Application Support",
-    desc: "Easy and user-friendly visa application system.",
+    title: "UAE Visa Services",
+    desc: "Explore convenient and suitable options for transit visas and long-term stays in the UAE.",
     img: "/assets/visa/why-2.webp",
-    alt: "Online visa application support and guidance",
+    alt: "Burj Khalifa and palm trees at night in Dubai",
+    btnText: "Get Your UAE Visa",
+    link: "/uae",
   },
 ];
 
 const Services = () => {
   return (
-   <section className="relative w-full min-h-[70vh] py-12 sm:py-20 px-4 sm:px-8 md:px-16 overflow-hidden">
+    <section className="relative pb-8 sm:pb-12 pt-11 sm:pt-17 px-4 sm:px-8 md:px-16 overflow-hidden">
+      {/* BACKGROUND IMAGE WITH LOW OPACITY */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15 z-0"
+        style={{ backgroundImage: "url('/assets/bgimage/h1.webp')" }}
+      />
 
-  {/* BACKGROUND IMAGE */}
-  <img
-    src="/assets/bgimage/h1.webp"
-    alt=""
-    loading="lazy"
-    className="absolute inset-0 w-full h-full object-cover"
-  />
+      {/* LINEAR GRADIENT OVERLAY */}
+      <div className="absolute inset-0 bg-linear-to-b from-[rgba(207,234,246,0.3)] to-[rgba(85,178,218,0.4)] z-0" />
 
-  {/* LIGHT GRADIENT */}
-  <div className="absolute inset-0 bg-gradient-to-b from-[rgba(207,234,246,0.15)] to-[rgba(85,178,218,0.25)]"></div>
-
-  {/* LIGHT OVERLAY */}
-  <div className="absolute inset-0 bg-white/35"></div>
-
-  {/* CONTENT */}
-  <div className="relative z-10 max-w-7xl mx-auto text-center">
+      {/* CONTENT */}
+      <div className="relative z-10 max-w-7xl mx-auto">
         {/* TITLE */}
-        <h2 className="text-3xl md:text-5xl font-bold text-blue-700 mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-10">
           Our Services
         </h2>
 
-        <p className="text-gray-700 max-w-3xl mx-auto mb-14">
-          Embark on unforgettable journeys to popular destinations such as
-          Makkah, Madinah, Dubai, and more with our exclusive tour packages.
-        </p>
-
-        {/* GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        {/* RESPONSIVE GRID (Mobile, Tablet, Desktop Friendly) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
           {servicesData.map((item, i) => (
             <div
               key={i}
-              className="relative rounded-2xl overflow-hidden shadow-lg group"
+              className="bg-white rounded-3xl p-5 sm:p-6 shadow-md flex flex-col sm:flex-row gap-5 items-center sm:items-stretch transition-all duration-300 hover:shadow-lg"
             >
-              <img
-                src={item.img}
-                alt={item.alt}
-                loading="lazy"
-                className="w-full h-80 md:h-96 object-cover group-hover:scale-105 transition duration-500"
-              />
+              {/* IMAGE CONTAINER - Fully fluid on all screen sizes */}
+              <div className="w-full sm:w-1/2 min-h-[180px] sm:min-h-[220px] relative rounded-2xl overflow-hidden flex-shrink-0">
+                <img
+                  src={item.img}
+                  alt={item.alt}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
 
-              <div className="absolute bottom-0 w-full bg-white/80 backdrop-blur-md p-4 text-left">
-                <h3 className="font-bold text-gray-900 text-lg">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600 text-sm mt-1">
-                  {item.desc}
-                </p>
+              {/* CONTENT CONTAINER */}
+              <div className="w-full sm:w-1/2 flex flex-col justify-between text-left py-1">
+                <div>
+                  <h3 className="font-bold text-gray-950 text-xl leading-tight">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-500 text-sm leading-relaxed mt-3">
+                    {item.desc}
+                  </p>
+                </div>
+
+                {/* EQUAL SIZE BUTTONS */}
+                <div className="mt-5 sm:mt-4 w-full">
+                  <Link
+                    href={item.link}
+                    className="block w-full text-center bg-[#0F91D5] hover:bg-[#0d80bd] text-white text-xs md:text-sm font-medium py-3 rounded-xl transition duration-200 shadow-xs"
+                  >
+                    {item.btnText}
+                  </Link>
+                </div>
               </div>
             </div>
           ))}

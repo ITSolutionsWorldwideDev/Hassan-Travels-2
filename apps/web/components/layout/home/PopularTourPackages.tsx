@@ -1,90 +1,50 @@
 "use client";
-import { useState } from "react";
-
 import Image from "next/image";
-const categories = ["popular", "family", "honeymoon", "summer", "cultural"];
+
+
 const tourPackages = [
   {
     img: "dubai.webp",
     name: "Dubai",
     country: "UAE",
     price: "€ 1,650",
-    category: "popular",
   },
-   {
+  {
     img: "dubai.webp",
     name: "Dubai",
     country: "UAE",
     price: "€ 1,650",
-    category: "popular",
   },
-   {
+  {
     img: "dubai.webp",
     name: "Dubai",
     country: "UAE",
     price: "€ 1,650",
-    category: "popular",
-  },
-   {
-    img: "dubai.webp",
-    name: "Dubai",
-    country: "UAE",
-    price: "€ 1,650",
-    category: "popular",
-  },
-   {
-    img: "dubai.webp",
-    name: "Dubai",
-    country: "UAE",
-    price: "€ 1,650",
-    category: "popular",
   },
   {
     img: "dubai.webp",
     name: "Istanbul",
     country: "Turkey",
     price: "€ 1,750",
-    category: "family",
   },
   {
     img: "dubai.webp",
     name: "Bangkok",
     country: "Thailand",
     price: "€ 2,250",
-    category: "honeymoon",
   },
   {
     img: "dubai.webp",
     name: "Makkah",
     country: "Saudi Arabia",
     price: "€ 1,950",
-    category: "summer",
-  },
-  {
-    img: "dubai.webp",
-    name: "Madinah",
-    country: "Saudi Arabia",
-    price: "€ 1,850",
-    category: "popular",
-  },
-  {
-    img: "dubai.webp",
-    name: "Kuala Lumpur",
-    country: "Malaysia",
-    price: "€ 2,150",
-    category: "cultural",
   },
 ];
-const PopularTourPackages = () => {
-  const [selectedCategory, setSelectedCategory] = useState("popular");
 
-  // Filter data according to selected category
-  const filteredTours = tourPackages.filter(
-    (tour) => tour.category === selectedCategory,
-  );
+const PopularTourPackages = () => {
   return (
-    /* FIXED: Removed mt-3 sm:mt-5 and combined it into padding-top to eliminate the white gap above the background */
-    <section className="relative pb-8 sm:pb-12 pt-11 sm:pt-17 px-4 sm:px-8 md:px-16 overflow-hidden">      {/* BACKGROUND IMAGE WITH LOW OPACITY */}
+    <section className="relative pb-8 sm:pb-12 pt-11 sm:pt-17 px-4 sm:px-8 md:px-16 overflow-hidden">
+      {/* BACKGROUND IMAGE WITH LOW OPACITY */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15 z-0"
         style={{ backgroundImage: "url('/assets/bgimage/h1.webp')" }}
@@ -92,7 +52,7 @@ const PopularTourPackages = () => {
 
       {/* LINEAR GRADIENT OVERLAY */}
       <div className="absolute inset-0 bg-linear-to-b from-[rgba(207,234,246,0.3)] to-[rgba(85,178,218,0.4)] z-0" />
-
+.
       {/* CONTENT WRAPPER */}
       <div className="relative z-10">
         {/* TITLE */}
@@ -100,40 +60,17 @@ const PopularTourPackages = () => {
           id="popular-tour-packages"
           className="text-2xl sm:text-3xl font-bold mb-3"
         >
-          <span className="text-[#0F91D5]">Popular Tour Packages</span>{" "}
+          <span className="text-[#0F91D5]">Popular Services</span>{" "}
           <span className="text-black">From Netherlands</span>
         </h2>
 
-     <p className="text-gray-500 mb-6 w-full max-w-none lg:max-w-7xl whitespace-normal text-sm sm:text-base">
-  Embark on unforgettable journeys to popular destinations such as Makkah, Madinah, Dubai, and more with our exclusive tour packages.
-</p>
+        <p className="text-gray-500 mb-10 w-full max-w-none lg:max-w-7xl whitespace-normal text-sm sm:text-base">
+          Embark on unforgettable journeys to popular destinations such as Makkah, Madinah, Dubai, and more with our exclusive tour packages.
+        </p>
 
-        {/* CATEGORY BUTTONS */}
-        <div
-          className="flex flex-wrap gap-2 sm:gap-3 mb-10"
-          aria-label="Tour Categories"
-        >
-          {categories.map((category, ind) => (
-            <button
-              key={ind}
-              onClick={() => setSelectedCategory(category)}
-              className={`px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm transition cursor-pointer capitalize
-                
-                ${
-                  selectedCategory === category
-                    ? "bg-[#0F91D5] text-white"
-                    : "bg-gray-200 text-black"
-                }
-              `}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-
-        {/* CARDS GRID */}
+        {/* CARDS GRID (Displays exactly 6 clean grids) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredTours.map((item, i) => (
+          {tourPackages.map((item, i) => (
             <article
               key={i}
               className="group flex bg-white rounded-2xl shadow-md overflow-hidden transition-all duration-500 hover:shadow-2xl"
@@ -145,14 +82,13 @@ const PopularTourPackages = () => {
                   alt={`${item.name} - ${item.country} tour package`}
                   width={400}
                   height={170}
-                  priority={i < 2} // only first 2 images load fast
+                  priority={i < 2}
                   className="w-full h-full object-cover transition-all duration-500 ease-out group-hover:-translate-x-10"
                 />
               </div>
 
               {/* TEXT SIDE */}
               <div className="w-1/2 bg-white px-5 py-4 flex flex-col justify-center transition-all duration-500 ease-out group-hover:-translate-x-6">
-                
                 <h3 className="text-lg font-semibold text-gray-900">
                   {item.name}
                 </h3>
@@ -167,7 +103,6 @@ const PopularTourPackages = () => {
                     {item.price}
                   </p>
                 </div>
-
               </div>
             </article>
           ))}
