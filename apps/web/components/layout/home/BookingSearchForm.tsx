@@ -39,18 +39,8 @@ const formatDate = (date: string | Date) => {
 };
 
 const MONTH_NAMES = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
 ];
 
 const formatFlexibleMonths = (months: string[]) => {
@@ -127,15 +117,12 @@ const BookingSearchForm = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           formType: "flightSearch",
-          recipientEmail: "maviasajjad78@gmail.com", // or make dynamic if you have user email
+          recipientEmail: "maviasajjad78@gmail.com",
           from: formData.from,
           to: formData.to,
           depart: formatDateField(formData.depart),
           returnDate: formatDateField(formData.returnDate),
           travellers: formData.travellers,
-          // raw objects also sent for your backend logs
-          // departRaw: JSON.stringify(formData.depart),
-          // returnDateRaw: JSON.stringify(formData.returnDate),
         }),
       });
 
@@ -159,10 +146,10 @@ const BookingSearchForm = () => {
   };
 
   return (
-    <section className="relative  z-10 w-full max-w-5xl md:max-w-7xl mx-auto px-4 mt-10">
+    <section className="relative z-10 w-full max-w-5xl md:max-w-7xl mx-auto px-4 mt-10">
       <form
         onSubmit={handleSubmit}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-11 gap-1 md:gap-1.5 items-stretch w-full"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-13 gap-1 md:gap-1.5 items-stretch w-full"
       >
         {/* FROM */}
         <div className="relative w-full min-w-0 lg:col-span-2">
@@ -233,10 +220,10 @@ const BookingSearchForm = () => {
             handleChange={(name: string, value: string) =>
               handleChange("travellers", value)
             }
-            onChange={(e) => handleChange("travellers", e.target.value)}
           />
         </div>
 
+        {/* CONTACT NUMBER */}
         <div className="w-full min-w-0 lg:col-span-2">
           <BookingSearchFormInputField
             label="Contact Number"
@@ -245,7 +232,6 @@ const BookingSearchForm = () => {
             handleChange={(name: string, value: string) =>
               handleChange("contactNumber", value)
             }
-            onChange={(e) => handleChange("contactNumber", e.target.value)}
           />
         </div>
 
@@ -253,7 +239,7 @@ const BookingSearchForm = () => {
         <button
           type="submit"
           disabled={status === "loading"}
-          className="bg-[#0F91D5] hover:bg-blue-600 text-white w-full h-13 lg:h-full lg:col-span-1 rounded-xl font-semibold shadow-sm flex items-center justify-center transition disabled:opacity-60"
+          className="bg-[#0F91D5] hover:bg-blue-600 text-white w-full h-14 lg:h-full lg:col-span-1 rounded-xl font-semibold shadow-sm flex items-center justify-center transition disabled:opacity-60"
         >
           {status === "loading" ? "..." : status === "success" ? "✓" : "Search"}
         </button>

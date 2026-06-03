@@ -149,7 +149,6 @@ export default function HomeMain() {
       <section>
         <Testimonials />
       </section>
-
       {/* ================= CTA SECTION ================= */}
       <section
         className="relative py-12 sm:py-20 px-4 text-center text-white bg-cover bg-center bg-no-repeat overflow-hidden"
