@@ -108,7 +108,7 @@ const BookingSearchForm = () => {
   });
 
   const [status, setStatus] = React.useState<SubmitStatus>("idle");
-
+  console.log(formData);
   const handleChange = (name: string, value: string) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -127,12 +127,13 @@ const BookingSearchForm = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           formType: "flightSearch",
-          recipientEmail: "maviasajjad78@gmail.com", // or make dynamic if you have user email
+          // recipientEmail: "maviasajjad78@gmail.com", // or make dynamic if you have user email
           from: formData.from,
           to: formData.to,
           depart: formatDateField(formData.depart),
           returnDate: formatDateField(formData.returnDate),
           travellers: formData.travellers,
+          contactNumber: formData.contactNumber,
           // raw objects also sent for your backend logs
           // departRaw: JSON.stringify(formData.depart),
           // returnDateRaw: JSON.stringify(formData.returnDate),

@@ -98,6 +98,7 @@ export interface FlightSearchData {
   travellers: string;
   departRaw?: string;
   returnDateRaw?: string;
+  contactNumber: string;
 }
 
 export type FormDataMap = {
