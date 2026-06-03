@@ -253,9 +253,10 @@ const TermsAndConditions = () => {
                     </p>
                   )}
 
+
                   {section.email && (
                     <p className="text-sm text-gray-700 mt-2">
-                      Mail ons dan op{" "}
+                      Then please email us at{" "}
                       <span className="font-semibold text-[#0F91D5] underline cursor-pointer">
                         {section.email}
                       </span>
