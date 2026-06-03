@@ -11,7 +11,7 @@ const packages = [
     category: "Africa",
     categoryColor: "bg-green-500",
     price: "2,273",
-    title: "Best of Tanzania",
+    title: "Tanzania",
     location: "Arusha – Arusha",
     duration: "6 Days / 5 Nights",
     stay: {
@@ -43,7 +43,7 @@ const packages = [
     category: "Middle East",
     categoryColor: "bg-orange-500",
     price: "1,822",
-    title: "Habibi Tour",
+    title: "Oman",
     location: "Muscat – Muscat",
     duration: "8 Days / 7 Nights",
     stay: {
@@ -73,8 +73,8 @@ const packages = [
     category: "Asia",
     categoryColor: "bg-blue-500",
     price: "1,170",
-    title: "Kuala Lumpur to Penang & Taman Negara",
-    location: "Malaysia",
+    title: "Malaysia",
+    location: "Kuala Lumpur - Kuala Lumpur",
     duration: "8 Days / 7 Nights",
     stay: {
       name: "Hotels Included",
@@ -94,7 +94,7 @@ const packages = [
       "Taman Negara jungle",
       "Rainforest trekking",
     ],
-    nextDeparture: "Guaranteed departure",
+    nextDeparture: "On request",
   },
 
   {
@@ -103,7 +103,7 @@ const packages = [
     category: "Asia",
     categoryColor: "bg-pink-500",
     price: "1,044",
-    title: "Bali Private Adventure",
+    title: "Indonesia",
     location: "Indonesia",
     duration: "7 Days / 6 Nights",
     stay: {
@@ -133,7 +133,7 @@ const packages = [
     category: "Asia",
     categoryColor: "bg-yellow-500",
     price: "1,069",
-    title: "Smile of Thailand",
+    title: "Thailand",
     location: "Bangkok – Bangkok",
     duration: "7 Days / 6 Nights",
     stay: {
@@ -163,7 +163,7 @@ const packages = [
     category: "Far East",
     categoryColor: "bg-red-500",
     price: "2,714",
-    title: "Authentic Japan",
+    title: "Japan",
     location: "Osaka – Tokyo",
     duration: "10 Days / 9 Nights",
     stay: {
@@ -184,7 +184,7 @@ const packages = [
       "Tokyo city tour",
       "Japanese traditions",
     ],
-    nextDeparture: "Guaranteed departure",
+    nextDeparture: "On request",
   },
 
   {
@@ -193,7 +193,7 @@ const packages = [
     category: "Island",
     categoryColor: "bg-cyan-500",
     price: "On Request",
-    title: "Dubai & Maldives",
+    title: "Maldives",
     location: "Maldives",
     duration: "11 Days / 10 Nights",
     stay: {
@@ -221,7 +221,7 @@ const packages = [
     category: "Island",
     categoryColor: "bg-cyan-500",
     price: "On Request",
-    title: "Dubai & Seychelles",
+    title: "Seychelles",
     location: "Seychelles",
     duration: "12 Days / 11 Nights",
     stay: {
@@ -249,7 +249,7 @@ const packages = [
     category: "North America",
     categoryColor: "bg-purple-500",
     price: "764",
-    title: "American Gateway Reverse",
+    title: "Canada",
     location: "USA & Canada",
     duration: "4 Days / 3 Nights",
     stay: {
@@ -269,7 +269,7 @@ const packages = [
       "City sightseeing",
       "Group travel",
     ],
-    nextDeparture: "Guaranteed departure",
+    nextDeparture: "On request",
   },
 
   {
@@ -278,7 +278,7 @@ const packages = [
     category: "North America",
     categoryColor: "bg-blue-500",
     price: "922",
-    title: "American Triangle",
+    title: "USA",
     location: "USA",
     duration: "5 Days / 4 Nights",
     stay: {
@@ -307,7 +307,7 @@ const packages = [
     category: "Oceania",
     categoryColor: "bg-indigo-500",
     price: "Custom",
-    title: "Australia Self Drive",
+    title: "Australia",
     location: "Australia",
     duration: "14 Days / 13 Nights",
     stay: {
@@ -335,7 +335,7 @@ const packages = [
     category: "South America",
     categoryColor: "bg-green-600",
     price: "2,358",
-    title: "Experience Argentina",
+    title: "Brazil",
     location: "Argentina",
     duration: "9 Days / 8 Nights",
     stay: {
@@ -355,9 +355,9 @@ const packages = [
       "Local guides",
       "South America experience",
     ],
-    nextDeparture: "Guaranteed departure",
+    nextDeparture: "On request",
   },
-  
+
 
   {
     id: 13,
@@ -365,7 +365,7 @@ const packages = [
     category: "South America",
     categoryColor: "bg-yellow-600",
     price: "1,718",
-    title: "Experience Colombia",
+    title: "Colombia",
     location: "Colombia",
     duration: "9 Days / 8 Nights",
     stay: {
@@ -385,7 +385,7 @@ const packages = [
       "Cultural experience",
       "Group travel",
     ],
-    nextDeparture: "Guaranteed departure",
+    nextDeparture: "On request",
   },
 ];
 
@@ -424,6 +424,11 @@ Please provide me with more details regarding availability and booking requireme
     window.open(whatsappUrl, "_blank");
   };
 
+  // Function to check if price is numeric (not "On Request" or "Custom")
+  const isNumericPrice = (price: string) => {
+    return price !== "On Request" && price !== "Custom";
+  };
+
   return (
     <section className="relative py-16 overflow-hidden">
       <div
@@ -452,8 +457,7 @@ Please provide me with more details regarding availability and booking requireme
           {currentPackages.map((item) => (
             <div
               key={item.id}
-              className="bg-white rounded-2xl shadow-xl overflow-hidden hover:scale-105 transition duration-300 flex flex-col h-full"
-            >
+className="bg-white/70 backdrop-blur-md rounded-2xl shadow-xl overflow-hidden hover:scale-105 transition duration-300 flex flex-col h-full border border-white/30"           >
               <div className="relative">
                 <img
                   src={item.image}
@@ -463,10 +467,15 @@ Please provide me with more details regarding availability and booking requireme
 
                 {/* Category Badge Removed */}
 
-                <div className="absolute top-3 right-3 bg-white px-3 py-1 rounded-xl shadow text-[#0F91D5] font-semibold text-sm">
-                  €{item.price}
-                  <div className="text-[10px] text-gray-400">per person</div>
-                </div>
+              <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-xl shadow text-[#0F91D5] font-semibold text-sm w-[110px] h-[58px] flex flex-col items-center justify-center text-center leading-tight">
+  {isNumericPrice(item.price) && (
+    <div className="text-[10px] text-gray-500">From</div>
+  )}
+
+  <div className="text-sm font-bold">€{item.price}</div>
+
+  <div className="text-[10px] text-gray-400">per person</div>
+</div>
                 <div className="absolute bottom-0 bg-white rounded-md left-2 p-1 text-xs text-gray-500 mb-2">
                   ⭐ 4.8 (365)
                 </div>
@@ -476,7 +485,7 @@ Please provide me with more details regarding availability and booking requireme
                 <h3 className="font-semibold text-sm mb-1">{item.title}</h3>
 
                 <p className="text-xs text-gray-500 mb-3">
-                  📍 {item.location} • 🕒 {item.duration}
+                  🕒 {item.duration}
                 </p>
 
                 <div className="bg-[#F8F9FA] p-5 rounded-lg text-xs mb-3">
