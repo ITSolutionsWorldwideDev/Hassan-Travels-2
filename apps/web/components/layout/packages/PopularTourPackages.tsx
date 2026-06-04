@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useMemo, useState } from "react";
-import { Hotel, Star, PlaneTakeoff } from "lucide-react";
+import { Hotel, Star, PlaneTakeoff, ChevronLeft, ChevronRight } from "lucide-react";
 import { PackagesBenefits } from "./PackagesBenefits";
 
 const packages = [
   {
     id: 1,
-    image: "/assets/packages/Tanzania/1.webp",
+    images: Array.from({ length: 6 }, (_, i) => `/assets/packages/Tanzania/${i + 1}.webp`),
     category: "Africa",
     categoryColor: "bg-green-500",
     price: "2,273",
@@ -36,10 +36,9 @@ const packages = [
     ],
     nextDeparture: "On request",
   },
-
   {
     id: 2,
-    image: "/assets/packages/Oman/1.webp",
+    images: Array.from({ length: 8 }, (_, i) => `/assets/packages/Oman/${i + 1}.webp`),
     category: "Middle East",
     categoryColor: "bg-orange-500",
     price: "1,822",
@@ -66,10 +65,9 @@ const packages = [
     ],
     nextDeparture: "On request",
   },
-
   {
     id: 3,
-    image: "/assets/packages/Malaysia/1.webp",
+    images: Array.from({ length: 8 }, (_, i) => `/assets/packages/Malaysia/${i + 1}.webp`),
     category: "Asia",
     categoryColor: "bg-blue-500",
     price: "1,170",
@@ -96,10 +94,9 @@ const packages = [
     ],
     nextDeparture: "On request",
   },
-
   {
     id: 4,
-    image: "/assets/packages/Bali/1.webp",
+    images: Array.from({ length: 8 }, (_, i) => `/assets/packages/Bali/${i + 1}.webp`),
     category: "Asia",
     categoryColor: "bg-pink-500",
     price: "1,044",
@@ -126,10 +123,9 @@ const packages = [
     ],
     nextDeparture: "On request",
   },
-
   {
     id: 5,
-    image: "/assets/packages/Thailand/1.webp",
+    images: Array.from({ length: 8 }, (_, i) => `/assets/packages/Thailand/${i + 1}.webp`),
     category: "Asia",
     categoryColor: "bg-yellow-500",
     price: "1,069",
@@ -156,10 +152,9 @@ const packages = [
     ],
     nextDeparture: "On request",
   },
-
   {
     id: 6,
-    image: "/assets/packages/Japan/1.webp",
+    images: Array.from({ length: 8 }, (_, i) => `/assets/packages/Japan/${i + 1}.webp`),
     category: "Far East",
     categoryColor: "bg-red-500",
     price: "2,714",
@@ -186,10 +181,9 @@ const packages = [
     ],
     nextDeparture: "On request",
   },
-
   {
     id: 7,
-    image: "/assets/packages/Maldives/1.webp",
+    images: Array.from({ length: 8 }, (_, i) => `/assets/packages/Maldives/${i + 1}.webp`),
     category: "Island",
     categoryColor: "bg-cyan-500",
     price: "On Request",
@@ -214,10 +208,9 @@ const packages = [
     ],
     nextDeparture: "On request",
   },
-
   {
     id: 8,
-    image: "/assets/packages/Seychelles/1.webp",
+    images: Array.from({ length: 8 }, (_, i) => `/assets/packages/Seychelles/${i + 1}.webp`),
     category: "Island",
     categoryColor: "bg-cyan-500",
     price: "On Request",
@@ -242,11 +235,9 @@ const packages = [
     ],
     nextDeparture: "On request",
   },
-
   {
     id: 9,
-    image: "/assets/packages/Canada/1.webp",
-    category: "North America",
+images: Array.from({ length: 15 }, (_, i) => `/assets/packages/Canada/${i + 1}.webp`),
     categoryColor: "bg-purple-500",
     price: "764",
     title: "Canada",
@@ -271,10 +262,9 @@ const packages = [
     ],
     nextDeparture: "On request",
   },
-
   {
     id: 10,
-    image: "/assets/packages/USA/2.webp",
+    images: Array.from({ length: 8 }, (_, i) => `/assets/packages/USA/${i + 1}.webp`),
     category: "North America",
     categoryColor: "bg-blue-500",
     price: "922",
@@ -300,10 +290,9 @@ const packages = [
     ],
     nextDeparture: "On request",
   },
-
   {
     id: 11,
-    image: "/assets/packages/Australia/1.webp",
+    images: Array.from({ length: 8 }, (_, i) => `/assets/packages/Australia/${i + 1}.webp`),
     category: "Oceania",
     categoryColor: "bg-indigo-500",
     price: "Custom",
@@ -328,10 +317,9 @@ const packages = [
     ],
     nextDeparture: "Any time",
   },
-
   {
     id: 12,
-    image: "/assets/packages/Brazil/1.webp",
+    images: Array.from({ length: 8 }, (_, i) => `/assets/packages/Brazil/${i + 1}.webp`),
     category: "South America",
     categoryColor: "bg-green-600",
     price: "2,358",
@@ -357,11 +345,9 @@ const packages = [
     ],
     nextDeparture: "On request",
   },
-
-
   {
     id: 13,
-    image: "/assets/packages/Columbia/1.webp",
+    images: Array.from({ length: 7 }, (_, i) => `/assets/packages/Columbia/${i + 1}.webp`),
     category: "South America",
     categoryColor: "bg-yellow-600",
     price: "1,718",
@@ -393,6 +379,8 @@ const ITEMS_PER_PAGE = 4;
 
 const PopularTourPackages = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  // Track active image index for each card dynamically using an object state
+  const [activeImageIndexes, setActiveImageIndexes] = useState<{ [key: number]: number }>({});
 
   const totalPages = Math.ceil(packages.length / ITEMS_PER_PAGE);
 
@@ -404,6 +392,22 @@ const PopularTourPackages = () => {
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
+  };
+
+  const handlePrevImage = (id: number, maxImages: number) => {
+    setActiveImageIndexes((prev) => {
+      const currentIndex = prev[id] || 0;
+      const nextIndex = currentIndex === 0 ? maxImages - 1 : currentIndex - 1;
+      return { ...prev, [id]: nextIndex };
+    });
+  };
+
+  const handleNextImage = (id: number, maxImages: number) => {
+    setActiveImageIndexes((prev) => {
+      const currentIndex = prev[id] || 0;
+      const nextIndex = currentIndex === maxImages - 1 ? 0 : currentIndex + 1;
+      return { ...prev, [id]: nextIndex };
+    });
   };
 
   const handleBooking = (item: typeof packages[0]) => {
@@ -424,7 +428,6 @@ Please provide me with more details regarding availability and booking requireme
     window.open(whatsappUrl, "_blank");
   };
 
-  // Function to check if price is numeric (not "On Request" or "Custom")
   const isNumericPrice = (price: string) => {
     return price !== "On Request" && price !== "Custom";
   };
@@ -437,7 +440,6 @@ Please provide me with more details regarding availability and booking requireme
       />
 
       <div className="absolute inset-0 bg-linear-to-b from-[rgba(207,234,246,0.15)] to-[rgba(85,178,218,0.25)] z-0"></div>
-
       <div className="absolute inset-0 bg-white/35 z-0"></div>
 
       <div className="container relative z-10 max-w-7xl mx-auto px-4">
@@ -454,86 +456,109 @@ Please provide me with more details regarding availability and booking requireme
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {currentPackages.map((item) => (
-            <div
-              key={item.id}
-className="bg-white/70 backdrop-blur-md rounded-2xl shadow-xl overflow-hidden hover:scale-105 transition duration-300 flex flex-col h-full border border-white/30"           >
-              <div className="relative">
-                <img
-                  src={item.image}
-                  className="h-52 w-full object-cover"
-                  alt={item.title}
-                />
+          {currentPackages.map((item) => {
+            const currentImgIndex = activeImageIndexes[item.id] || 0;
 
-                {/* Category Badge Removed */}
+            return (
+              <div
+                key={item.id}
+                className="bg-white/70 backdrop-blur-md rounded-2xl shadow-xl overflow-hidden hover:scale-105 transition duration-300 flex flex-col h-full border border-white/30"
+              >
+                {/* Image Container with Slider Navigation */}
+                <div className="relative group/slider">
+                  <img
+                    src={item.images[currentImgIndex]}
+                    className="h-52 w-full object-cover transition-all duration-300"
+                    alt={`${item.title} - view ${currentImgIndex + 1}`}
+                  />
 
-              <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-xl shadow text-[#0F91D5] font-semibold text-sm w-[110px] h-[58px] flex flex-col items-center justify-center text-center leading-tight">
-  {isNumericPrice(item.price) && (
-    <div className="text-[10px] text-gray-500">From</div>
-  )}
+                  {/* Left Arrow */}
+                  <button
+                    onClick={() => handlePrevImage(item.id, item.images.length)}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-1 rounded-full  transition duration-200 hover:bg-black/70 z-10"
+                    type="button"
+                  >
+                    <ChevronLeft size={20} />
+                  </button>
 
-  <div className="text-sm font-bold">€{item.price}</div>
+                  {/* Right Arrow */}
+                  <button
+                    onClick={() => handleNextImage(item.id, item.images.length)}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-1 rounded-full  transition duration-200 hover:bg-black/70 z-10"
+                    type="button"
+                  >
+                    <ChevronRight size={20} />
+                  </button>
 
-  <div className="text-[10px] text-gray-400">per person</div>
-</div>
-                <div className="absolute bottom-0 bg-white rounded-md left-2 p-1 text-xs text-gray-500 mb-2">
-                  ⭐ 4.8 (365)
-                </div>
-              </div>
+                  <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-xl shadow text-[#0F91D5] font-semibold text-sm w-[110px] h-[58px] flex flex-col items-center justify-center text-center leading-tight">
+                    {isNumericPrice(item.price) && (
+                      <div className="text-[10px] text-gray-500">From</div>
+                    )}
+                    <div className="text-sm font-bold">€{item.price}</div>
+                    <div className="text-[10px] text-gray-400">per person</div>
+                  </div>
 
-              <div className="p-4 text-left flex flex-col flex-grow">
-                <h3 className="font-semibold text-sm mb-1">{item.title}</h3>
-
-                <p className="text-xs text-gray-500 mb-3">
-                  🕒 {item.duration}
-                </p>
-
-                <div className="bg-[#F8F9FA] p-5 rounded-lg text-xs mb-3">
-                  <div className="flex gap-1">
-                    <Hotel className="text-[#058BD0] shrink-0" />
-                    <div>
-                      <h2 className="font-bold flex items-center flex-wrap">
-                        {item.stay.name}{" "}
-                        <span className="flex ml-1">
-                          {Array.from({ length: 5 }).map((_, index) => (
-                            <Star key={index} className="fill-yellow-400 text-yellow-400 size-4" />
-                          ))}
-                        </span>
-                      </h2>
-                      <div className="font-normal">{item.stay.room}</div>
-                    </div>
+                  <div className="absolute bottom-0 bg-white rounded-md left-2 p-1 text-xs text-gray-500 mb-2">
+                    ⭐ 4.8 (365)
                   </div>
                 </div>
 
-                <PackagesBenefits benefits={item.packages} />
+                <div className="p-4 text-left flex flex-col flex-grow">
+                  <h3 className="font-semibold text-sm mb-1">{item.title}</h3>
 
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {item.experice.map((exp, ind) => (
-                    <p key={ind} className="bg-[#E3F2FD] text-[#0F91D5] text-[10px] px-2 py-1 rounded-xl">
-                      {exp}
-                    </p>
-                  ))}
+                  <p className="text-xs text-gray-500 mb-3">
+                    🕒 {item.duration}
+                  </p>
+
+                  <div className="bg-[#F8F9FA] p-5 rounded-lg text-xs mb-3">
+                    <div className="flex gap-2 items-start">
+                      <Hotel className="text-[#058BD0] shrink-0 mt-0.5" />
+                      <div>
+                        {/* Hotels and Stars separated onto dynamic sequential block elements */}
+                        <h2 className="font-bold block w-full">
+                          {item.stay.name}
+                        </h2>
+                        <span className="flex mt-1 block">
+                          {Array.from({ length: 5 }).map((_, index) => (
+                            <Star key={index} className="fill-yellow-400 text-yellow-400 size-4 inline mr-0.5" />
+                          ))}
+                        </span>
+                        <div className="font-normal mt-1 text-gray-600">{item.stay.room}</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <PackagesBenefits benefits={item.packages} />
+
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {item.experice.map((exp, ind) => (
+                      <p key={ind} className="bg-[#E3F2FD] text-[#0F91D5] text-[10px] px-2 py-1 rounded-xl">
+                        {exp}
+                      </p>
+                    ))}
+                  </div>
+
+                  <div className="flex justify-between text-xs mb-4 mt-auto">
+                    <span className="flex items-center">
+                      <PlaneTakeoff className="mr-2 size-4" />
+                      Next Departure:
+                    </span>
+                    <span className="font-medium">{item.nextDeparture}</span>
+                  </div>
+
+                  <button 
+                    onClick={() => handleBooking(item)}
+                    className="w-full bg-[#0F91D5] font-bold text-white py-2.5 rounded-lg text-sm hover:bg-blue-700 transition mt-2"
+                  >
+                    Book Now
+                  </button>
                 </div>
-
-                <div className="flex justify-between text-xs mb-4 mt-auto">
-                  <span className="flex items-center">
-                    <PlaneTakeoff className="mr-2 size-4" />
-                    Next Departure:
-                  </span>
-                  <span className="font-medium">{item.nextDeparture}</span>
-                </div>
-
-                <button 
-                  onClick={() => handleBooking(item)}
-                  className="w-full bg-[#0F91D5] font-bold text-white py-2.5 rounded-lg text-sm hover:bg-blue-700 transition mt-2"
-                >
-                  Book Now
-                </button>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
+        {/* Pagination Block */}
         <div className="flex justify-center items-center flex-wrap mt-12 gap-3 text-sm font-medium">
           <button
             type="button"
