@@ -65,13 +65,14 @@ export const templates: {
 
   ticket: (data) => ({
     subject: `✈️ Ticket Request: ${data.from} → ${data.to} (${data.tripType})`,
-    text: `Trip: ${data.tripType}\nFrom: ${data.from}\nTo: ${data.to}\nDeparture: ${data.departure}\nReturn: ${data.return || "N/A"}\nClass: ${data.travelClass}\nName: ${data.firstName} ${data.middleName ?? ""} ${data.lastName}\nNationality: ${data.nationality}\nDOB: ${data.dob}\nPassport: ${data.passport}\nIssue: ${data.issueDate}\nExpiry: ${data.expiryDate}\nEmail: ${data.email}\nPhone: ${data.phone}`,
+    text: `Trip: ${data.tripType}\nFrom: ${data.from}\nTo: ${data.to}${data.nextCity ? `\nNext City: ${data.nextCity}` : ""}\nDeparture: ${data.departure}\nReturn: ${data.return || "N/A"}\nClass: ${data.travelClass}\nName: ${data.firstName} ${data.middleName ?? ""} ${data.lastName}\nNationality: ${data.nationality}\nDOB: ${data.dob}\nPassport: ${data.passport}\nIssue: ${data.issueDate}\nExpiry: ${data.expiryDate}\nEmail: ${data.email}\nPhone: ${data.phone}`,
     html: `
       <h2>✈️ Air Ticket Request</h2>
       <h3>Flight Details</h3>
       <p><b>Trip Type:</b> ${data.tripType}</p>
       <p><b>From:</b> ${data.from}</p>
       <p><b>To:</b> ${data.to}</p>
+      ${data.nextCity ? `<p><b>Next City:</b> ${data.nextCity}</p>` : ""}
       <p><b>Departure:</b> ${data.departure}</p>
       ${data.return ? `<p><b>Return:</b> ${data.return}</p>` : ""}
       <p><b>Class:</b> ${data.travelClass}</p>

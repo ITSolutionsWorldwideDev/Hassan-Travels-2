@@ -6,7 +6,7 @@ import { FaPlane, FaUser, FaPassport, FaEnvelope } from "react-icons/fa";
 
 type TripType = "Round Trip" | "One Way" | "Multi-City";
 type FormDataType = { [key: string]: string };
-type FieldType = { label: string; name: string; type?: string; full?: boolean };
+type FieldType = { label: string; name: string; type?: string; full?: boolean; options?: string[] };
 type SectionType = { title: string; icon: React.ReactNode; fields: FieldType[] };
 type SubmitStatus = "idle" | "loading" | "success" | "error";
 
@@ -19,7 +19,7 @@ const formSections: SectionType[] = [
       { label: "To (Destination City)", name: "to" },
       { label: "Departure Date", name: "departure", type: "date" },
       { label: "Return Date", name: "return", type: "date" },
-      { label: "Your Class", name: "travelClass", full: true },
+      { label: "Your Class", name: "travelClass", full: true, options: ["Economy Class", "Business Class", "First Class"] },
     ],
   },
   {
@@ -57,7 +57,7 @@ const TicketRequestForm = () => {
   const [formData, setFormData] = useState<FormDataType>({});
   const [status, setStatus] = useState<SubmitStatus>("idle");
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -145,14 +145,31 @@ const TicketRequestForm = () => {
                       <label className="text-xs text-gray-600 mb-1 block">
                         {field.label}
                       </label>
-                      <input
-                        required={!(tripType === "One Way" && field.name === "return")}
-                        type={field.type || "text"}
-                        name={field.name}
-                        value={formData[field.name] || ""}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 border rounded-md text-sm focus:border-[#0F91D5] focus:ring-1 focus:ring-[#0F91D5]/30 outline-none transition-all bg-white/80"
-                      />
+                      {field.options ? (
+                        <select
+                          required
+                          name={field.name}
+                          value={formData[field.name] || ""}
+                          onChange={handleChange}
+                          className="w-full px-3 py-2 border rounded-md text-sm focus:border-[#0F91D5] focus:ring-1 focus:ring-[#0F91D5]/30 outline-none transition-all bg-white/80"
+                        >
+                          <option value="">Select class</option>
+                          {field.options.map((option) => (
+                            <option key={option} value={option}>
+                              {option}
+                            </option>
+                          ))}
+                        </select>
+                      ) : (
+                        <input
+                          required={!(tripType === "One Way" && field.name === "return")}
+                          type={field.type || "text"}
+                          name={field.name}
+                          value={formData[field.name] || ""}
+                          onChange={handleChange}
+                          className="w-full px-3 py-2 border rounded-md text-sm focus:border-[#0F91D5] focus:ring-1 focus:ring-[#0F91D5]/30 outline-none transition-all bg-white/80"
+                        />
+                      )}
                     </div>
                   );
                 })}

@@ -48,6 +48,7 @@ export interface TicketData {
   tripType: string;
   from: string;
   to: string;
+  nextCity?: string;
   departure: string;
   return?: string;
   travelClass: string;
