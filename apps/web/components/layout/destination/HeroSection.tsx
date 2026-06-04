@@ -34,7 +34,7 @@ const destinations = [
   {
     name: "India",
     country: "India",
-    image: "/assets/destinations/india.webp",
+    image: "/assets/destinations/indi.webp",
     description: "Vibrant history & incredible architecture",
     time: "8h 00m",
     price: "€429",
