@@ -106,5 +106,4 @@ const OurCommitment = () => {
     </section>
   );
 };
-
 export default OurCommitment;

@@ -32,7 +32,7 @@ export default function Footer() {
                 width={36}
                 height={36}
               />
-              <span className="text-xs text-gray-400">IATA Aggregated</span>
+              <span className="text-xs text-gray-400">Iata Aggregatedd</span>
             </div>
           </div>
 

@@ -27,7 +27,7 @@ const OurStory = () => {
             <HeadingAndDesc
               head={
                 <>
-                  Iata Aggregate <p className="text-[#0F91D5]">Partners</p>
+                  Iata Aggregated <p className="text-[#0F91D5]">Partners</p>
                 </>
               }
               desc={

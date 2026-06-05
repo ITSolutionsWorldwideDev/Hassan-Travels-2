@@ -76,8 +76,8 @@ export default function HomeMain() {
 
         {/* CONTENT */}
         <div className="relative z-10 w-full max-w-5xl mx-auto px-4 pt-24 md:pt-28 -mt-8 sm:-mt-12 md:-mt-16">
-          {/* BADGE */}
-          <div className="inline-flex items-center gap-2 border border-white/30 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full mb-5 text-xs sm:text-sm">
+          {/* BADGE (Updated background to white, text to black, and altered text to AGGREGATED) */}
+          <div className="inline-flex items-center gap-2 border border-white/30 bg-white px-4 py-2 rounded-full mb-5 text-xs sm:text-sm text-black font-medium shadow-sm">
             <Image
               src="/assets/home/iata.webp"
               alt="IATA Badge"
@@ -86,7 +86,7 @@ export default function HomeMain() {
               priority
               className="h-4 w-auto object-contain"
             />
-            <span>IATA AUTHORIZED • 17+ YEARS EXCELLENCE</span>
+            <span>Iata Aggregated • 17+ YEARS EXCELLENCE</span>
           </div>
 
           {/* HEADING BLOCK */}
