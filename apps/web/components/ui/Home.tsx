@@ -9,6 +9,7 @@ import SimpleSlider from "./SimpleSlider";
 import LuxurayAccommodation from "../layout/home/LuxurayAccommodation";
 import CenterIconHeadingDesc from "./CenterIconHeadingDesc";
 import Map from "./Map";
+import PopularTourPackages from "@/components/layout/home/PopularTourPackages";
 
 // INTEGRATED VISA SERVICE IMPORTS
 import Services from "@/components/layout/visas/Services";
@@ -112,8 +113,7 @@ export default function HomeMain() {
       </section>
 
       {/* ================= SERVICES SECTION (REPLACED POPULAR PACKAGES) ================= */}
-      <Services />
-
+      <PopularTourPackages />
       {/* ================= MULTIPLE IMAGES SECTION ================= */}
       <MutipleImageRightText imageData={imageData} />
 

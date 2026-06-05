@@ -203,10 +203,10 @@ Please let me know about the flight details, ticket availability, and booking op
             {showAll ? "Show Less Countries ↑" : "Explore All Countries →"}
           </button>
         </div>
-
       </div>
     </section>
   )
 }
+
 
 export default HeroSection;
