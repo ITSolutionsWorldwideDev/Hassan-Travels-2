@@ -2,49 +2,49 @@
 import Image from "next/image";
 import { useState } from "react";
 
-// POPULAR PACKAGES (6 unique destinations)
+// POPULAR PACKAGES (6 unique destinations - now using c1 to c6)
 const popularPackages = [
   {
-    img: "dubai.webp",
+    img: "c1.webp",
     name: "Pakistan",
     country: "",
     price: "€ 1,650",
-    description: "Experience luxury shopping, ultramodern architecture, and a lively nightlife scene. Perfect for adventurers and leisure seekers.",
+    description: "Discover Pakistan's breathtaking landscapes, rich cultural heritage, vibrant cities, and unforgettable travel experiences.",
   },
   {
-    img: "dubai.webp",
+    img: "cp2.webp",
     name: "Pakistan Visa",
     country: "",
     price: "€ 1,950",
-    description: "The holiest city in Islam, home to the Masjid al-Haram. A spiritual journey of a lifetime.",
+    description: "Fast and reliable Pakistan visa processing services with expert guidance and hassle-free documentation support.",
   },
   {
-    img: "dubai.webp",
+    img: "c3.webp",
     name: "Saudi Visa",
     country: "",
     price: "€ 1,750",
-    description: "Where East meets West. Explore historic mosques, bustling bazaars, and delicious cuisine.",
+    description: "Get your Saudi visa with a smooth application process, professional assistance, and timely approvals.",
   },
   {
-    img: "dubai.webp",
+    img: "c4.webp",
     name: "Umrah Package",
     country: "",
     price: "€ 2,250",
-    description: "With years of experience, we offer customized Umrah packages and excellent customer support and guidance.",
+    description: "Complete Umrah packages including visa, accommodation, transportation, and dedicated support throughout your journey.",
   },
   {
-    img: "dubai.webp",
+    img: "c5.webp",
     name: "India",
     country: "",
     price: "€ 1,850",
-    description: "The second holiest city in Islam, known for the Prophet's Mosque and peaceful atmosphere.",
+    description: "Explore India's diverse culture, historic landmarks, spiritual destinations, and world-famous attractions.",
   },
   {
-    img: "dubai.webp",
+    img: "c6.webp",
     name: "E-Sim",
     country: "",
     price: "€ 2,150",
-    description: "Modern skyline, Packages diversity, and incredible shopping experiences.",
+    description: "Stay connected worldwide with affordable eSIM plans offering instant activation and seamless mobile data.",
   },
 ];
 
@@ -353,7 +353,7 @@ const PopularTourPackages = () => {
                 {/* IMAGE SIDE */}
                 <div className="w-1/2 h-42.5 overflow-hidden">
                   <Image
-                    src={`/assets/home/${item.img}`}
+                    src={item.img.startsWith("c") ? `/assets/tour/${item.img}` : `/assets/home/${item.img}`}
                     alt={`${item.name} - ${item.country} tour package`}
                     width={400}
                     height={170}
@@ -398,7 +398,7 @@ const PopularTourPackages = () => {
             {/* Modal Image */}
             <div className="relative h-48 w-full">
               <Image
-                src={`/assets/home/${selectedPackage.img}`}
+                src={selectedPackage.img.startsWith("c") ? `/assets/tour/${selectedPackage.img}` : `/assets/home/${selectedPackage.img}`}
                 alt={selectedPackage.name}
                 fill
                 className="object-cover"
