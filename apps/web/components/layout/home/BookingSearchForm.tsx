@@ -227,11 +227,11 @@ const BookingSearchForm = () => {
           />
         </div>
 
-        {/* CONTACT NUMBER */}
+        {/* CONTACT NUMBER / EMAIL FIELD (Kept tight on single line to prevent layout shift) */}
         <div className="w-full min-w-0 lg:col-span-2">
           <BookingSearchFormInputField
-            label="Contact Number"
-            placeHolder="Phone number"
+            label="Contact / Email"
+            placeHolder="Phone or Email"
             value={formData.contactNumber}
             handleChange={(name: string, value: string) =>
               handleChange("contactNumber", value)
@@ -239,13 +239,13 @@ const BookingSearchForm = () => {
           />
         </div>
 
-        {/* SEARCH BUTTON */}
+        {/* SUBMIT BUTTON */}
         <button
           type="submit"
           disabled={status === "loading"}
           className="bg-[#0F91D5] hover:bg-blue-600 text-white w-full h-14 lg:h-full lg:col-span-1 rounded-xl font-semibold shadow-sm flex items-center justify-center transition disabled:opacity-60"
         >
-          {status === "loading" ? "..." : status === "success" ? "✓" : "Search"}
+          {status === "loading" ? "..." : status === "success" ? "✓" : "Submit"}
         </button>
       </form>
 

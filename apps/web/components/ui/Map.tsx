@@ -51,10 +51,10 @@ const Map = () => {
                   </a>
                 </address>
 
-                <p className="text-sm text-gray-500">We are available:</p>
+                <p className="text-sm text-gray-500 mt-1">We are available:</p>
 
-                <p className="mt-2 font-bold">
-                  Monday - Saturday <br /> Sunday: Closed
+                <p className="mt-2 font-bold text-sm sm:text-base">
+                  Monday - Saturday: 09:00 AM- 18:00 PM <br /> Sunday: Closed
                 </p>
               </div>
             </article>

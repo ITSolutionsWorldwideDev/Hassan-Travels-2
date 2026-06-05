@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaTiktok, FaLinkedinIn } from "react-icons/fa";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { FiMail, FiPhone } from "react-icons/fi";
 import Link from "next/link";
@@ -155,6 +155,16 @@ export default function Footer() {
                   className="w-8 h-8 flex items-center justify-center bg-white/5 rounded-md hover:bg-[#0F91D5] transition-colors text-white"
                 >
                   <FaTiktok size={12} />
+                </Link>
+
+                {/* LINKEDIN */}
+                <Link
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 flex items-center justify-center bg-white/5 rounded-md hover:bg-[#0F91D5] transition-colors text-white"
+                >
+                  <FaLinkedinIn size={12} />
                 </Link>
               </div>
             </div>

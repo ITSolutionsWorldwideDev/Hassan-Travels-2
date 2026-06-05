@@ -68,7 +68,7 @@ const LuxurayAccommodation = () => {
       {/* RIGHT IMAGE */}
       <div className="order-first lg:order-last flex justify-end items-center">
         <Image
-          src="/assets/home/hote.webp"
+          src="/assets/home/hotel.webp"
           alt="Luxury five-star hotel experience"
           width={500}
           height={700}

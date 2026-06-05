@@ -16,7 +16,7 @@ const OurCommitment = () => {
         {/* LEFT IMAGE */}
         <div className="relative">
           <img
-            src="/assets/about-us/2.webp"
+            src="/assets/about-us/customer.webp"
             alt="Customer"
             loading="lazy"
             className="rounded-2xl shadow-lg w-full h-95 object-cover"
