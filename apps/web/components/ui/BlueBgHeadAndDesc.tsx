@@ -43,7 +43,7 @@ const BlueBgHeadAndDesc = ({
               <button
                 onClick={() => setIsModalOpen(true)}
                 type="button"
-                className="bg-[#d4e157] text-black font-semibold px-8 py-3.5 rounded-2xl shadow-lg hover:bg-gray-100 transition flex items-center gap-2 justify-center cursor-pointer border-none"
+                className=" bg-lime-400 hover:bg-lime-500 text-white font-semibold px-8 py-3.5 rounded-2xl shadow-lg hover:bg-gray-100 transition flex items-center gap-2 justify-center cursor-pointer border-none"
               >
                 {btnTxt2}
               </button>

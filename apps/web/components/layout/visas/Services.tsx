@@ -3,42 +3,34 @@ import Link from "next/link";
 
 const servicesData = [
   {
-    title: "Umrah Visa Services",
-    desc: "With years of experience, we offer customized Umrah packages and excellent customer support and guidance.",
-    img: "/assets/visa/why-1.webp",
-    alt: "Makkah clock tower hotel for Umrah service",
-    btnText: "Apply for Umrah Visa",
-    link: "/umrah",
+    title: "Saudia Visa Services",
+    desc: "Expert guidance for Saudi visit, business, and family visas with a streamlined, hassle-free application process.",
+    img: "/assets/visa/c1.webp",
+    alt: "Mount Arafat crowd pilgrimage during Hajj",
+    btnText: "Apply for Saudia Visa",
+    link: "/saudi-arabia",
   },
   {
     title: "Pakistani Visa Services",
-    desc: "Our easy and fast user-friendly platform ensures a hassle-free visa application for single and multiple entry visas to Pakistan.",
-    img: "/assets/visa/why-2.webp",
+    desc: "Fast and reliable processing for E-visas, tourist visas, and business entry requirements for Pakistan.",
+    img: "/assets/visa/c2.webp",
     alt: "Beautiful lake and mountains landscape in Pakistan",
-    btnText: "Get Your Pakistani Visa Today",
+    btnText: "Get Pakistani Visa",
     link: "/pakistan",
   },
   {
-    title: "Saudia Visa Services",
-    desc: "Explore Saudi visa options, including family, tourist, and business visas.",
-    img: "/assets/visa/why-1.webp",
-    alt: "Mount Arafat crowd pilgrimage during Hajj",
-    btnText: "Apply for a Saudia Visa",
-    link: "/saudi-arabia", // Updated route to match your new page
-  },
-  {
-    title: "UAE Visa Services",
-    desc: "Explore convenient and suitable options for transit visas and long-term stays in the UAE.",
-    img: "/assets/visa/why-2.webp",
-    alt: "Burj Khalifa and palm trees at night in Dubai",
-    btnText: "Get Your UAE Visa",
-    link: "/uae",
+    title: "Other Visa Services",
+    desc: "Professional assistance for UAE, Umrah, and other global destinations tailored to your travel needs.",
+    img: "/assets/visa/c3.webp", // Replace with your generic travel image
+    alt: "Global travel destinations and visa documentation",
+    btnText: "Explore More Visas",
+    link: "/destinations", // Link to a general services or contact page
   },
 ];
 
 const Services = () => {
   return (
-    <section className="relative pb-8 sm:pb-12 pt-11 sm:pt-17 px-4 sm:px-8 md:px-16 overflow-hidden">
+    <section className="relative pb-12 pt-16 px-4 sm:px-8 md:px-16 overflow-hidden">
       {/* BACKGROUND IMAGE WITH LOW OPACITY */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15 z-0"
@@ -50,20 +42,19 @@ const Services = () => {
 
       {/* CONTENT */}
       <div className="relative z-10 max-w-7xl mx-auto">
-        {/* TITLE */}
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-10">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
           Our Services
         </h2>
 
-        {/* RESPONSIVE GRID (Mobile, Tablet, Desktop Friendly) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
+        {/* UPDATED GRID: md:grid-cols-3 for 3 cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
           {servicesData.map((item, i) => (
             <div
               key={i}
-              className="bg-white rounded-3xl p-5 sm:p-6 shadow-md flex flex-col sm:flex-row gap-5 items-center sm:items-stretch transition-all duration-300 hover:shadow-lg"
+              className="bg-white rounded-3xl p-6 shadow-md flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
             >
-              {/* IMAGE CONTAINER - Fully fluid on all screen sizes */}
-              <div className="w-full sm:w-1/2 min-h-[180px] sm:min-h-[220px] relative rounded-2xl overflow-hidden flex-shrink-0">
+              {/* IMAGE CONTAINER */}
+              <div className="w-full h-[200px] relative rounded-2xl overflow-hidden mb-5">
                 <img
                   src={item.img}
                   alt={item.alt}
@@ -73,7 +64,7 @@ const Services = () => {
               </div>
 
               {/* CONTENT CONTAINER */}
-              <div className="w-full sm:w-1/2 flex flex-col justify-between text-left py-1">
+              <div className="flex flex-col flex-grow justify-between">
                 <div>
                   <h3 className="font-bold text-gray-950 text-xl leading-tight">
                     {item.title}
@@ -83,11 +74,11 @@ const Services = () => {
                   </p>
                 </div>
 
-                {/* EQUAL SIZE BUTTONS */}
-                <div className="mt-5 sm:mt-4 w-full">
+                {/* BUTTON */}
+                <div className="mt-6 w-full">
                   <Link
                     href={item.link}
-                    className="block w-full text-center bg-[#0F91D5] hover:bg-[#0d80bd] text-white text-xs md:text-sm font-medium py-3 rounded-xl transition duration-200 shadow-xs"
+                    className="block w-full text-center bg-[#0F91D5] hover:bg-[#0d80bd] text-white text-sm font-semibold py-3.5 rounded-xl transition duration-200 shadow-sm"
                   >
                     {item.btnText}
                   </Link>

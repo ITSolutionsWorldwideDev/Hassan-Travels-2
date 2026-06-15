@@ -15,7 +15,7 @@ const IataRecognized = () => {
       <div className="mb-6">
         <span className="inline-flex items-center gap-2 bg-white/20 text-white text-xs px-4 py-1.5 rounded-full">
           <FaStar className="text-yellow-300" />
-          Iata Aggregated Partners
+          Iata Accredited Partners
         </span>
       </div>
 

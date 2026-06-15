@@ -84,6 +84,14 @@ const TicketRequestForm = () => {
     }
   };
 
+  // Helper to determine if a specific field is absolutely compulsory
+  const isRequiredField = (fieldName: string) => {
+    const nonRequiredFields = ["middleName", "passport", "issueDate", "expiryDate"];
+    if (nonRequiredFields.includes(fieldName)) return false;
+    if (tripType === "One Way" && fieldName === "return") return false;
+    return true;
+  };
+
   return (
     <section className="relative w-full min-h-[70vh] py-12 sm:py-20 px-4 sm:px-8 md:px-16 overflow-hidden flex justify-center items-center">
 
@@ -140,14 +148,16 @@ const TicketRequestForm = () => {
                 {section.fields.map((field) => {
                   if (tripType === "One Way" && field.name === "return") return null;
 
+                  const isCompulsory = isRequiredField(field.name);
+
                   return (
                     <div key={field.name} className={field.full ? "sm:col-span-2" : ""}>
                       <label className="text-xs text-gray-600 mb-1 block">
-                        {field.label}
+                        {field.label} {isCompulsory && <span className="text-red-600 font-bold ml-0.5">*</span>}
                       </label>
                       {field.options ? (
                         <select
-                          required
+                          required={isCompulsory}
                           name={field.name}
                           value={formData[field.name] || ""}
                           onChange={handleChange}
@@ -162,7 +172,7 @@ const TicketRequestForm = () => {
                         </select>
                       ) : (
                         <input
-                          required={!(tripType === "One Way" && field.name === "return")}
+                          required={isCompulsory}
                           type={field.type || "text"}
                           name={field.name}
                           value={formData[field.name] || ""}

@@ -219,7 +219,7 @@ const BookingSearchForm = () => {
         <div className="w-full min-w-0 lg:col-span-2">
           <BookingSearchFormInputField
             label="Travellers & Cabin"
-            placeHolder="1 Adult, Economy"
+            placeHolder="Passenger, Economy"
             value={formData.travellers}
             handleChange={(name: string, value: string) =>
               handleChange("travellers", value)

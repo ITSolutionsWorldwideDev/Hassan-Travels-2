@@ -92,21 +92,24 @@ export default function Navbar() {
                 Pakistan Visa
               </Link>
 
-              <Link
-                href="/netherland"
+<Link
+                href="/saudi-arabia"
                 onClick={() => setDesktopVisaOpen(false)}
                 className="block text-sm text-gray-600 hover:text-[#0F91D5] hover:bg-blue-50 px-4 py-2 rounded transition"
               >
-                Netherlands Visa
+                Saudi Visa
               </Link>
 
               <Link
-                href="/uae"
+                href="/destinations"
                 onClick={() => setDesktopVisaOpen(false)}
                 className="block text-sm text-gray-600 hover:text-[#0F91D5] hover:bg-blue-50 px-4 py-2 rounded transition"
               >
-                UAE Visa
+                Other Visa
               </Link>
+
+              
+              
             </div>
           </div>
 
@@ -126,14 +129,14 @@ export default function Navbar() {
         {/* RIGHT SIDE */}
         <div className="flex items-center gap-4">
           {/* PHONE */}
-          <a
-            href="tel:+31104857673"
-            className="hidden md:flex items-center gap-2 text-sm text-gray-500 hover:text-blue-400 transition-colors"
-            aria-label="Call +31 104857673"
-          >
-            <Phone size={16} className="text-black fill-current" />
-            <span>+31 104857673</span>
-          </a>
+         <a
+  href="tel:+31104857673"
+  className="hidden md:flex items-center gap-2 text-sm text-gray-500 hover:text-blue-400 transition-colors"
+  aria-label="Call +31 (0)10 485 7673"
+>
+  <Phone size={16} className="text-black fill-current" />
+  <span>+31 (0)10 485 7673</span>
+</a>
 
           {/* DESKTOP BOOK NOW BUTTON */}
           <button 
@@ -218,10 +221,16 @@ export default function Navbar() {
 
             {/* MOBILE BOOK NOW */}
             <div className="pt-4 border-t w-full flex flex-col items-center mt-3">
-              <div className="flex items-center gap-2 mb-2 text-sm text-gray-500">
-                <Phone size={14} className="text-black fill-current" />
-                <p>+31 104857673</p>
-              </div>
+  <div className="flex items-center gap-2 mb-2 text-sm text-gray-500">
+    <Phone size={14} className="text-black fill-current" />
+    <a
+      href="tel:+31104857673"
+      className="hover:text-black transition-colors"
+    >
+      +31 (0)10 485 7673
+    </a>
+  </div>
+
               <button 
                 onClick={() => {
                   setOpen(false); 
