@@ -2,7 +2,6 @@
 
 import React, { useMemo, useState } from "react";
 import { Hotel, Star, PlaneTakeoff, ChevronLeft, ChevronRight } from "lucide-react";
-import { FaClock } from "react-icons/fa"; // Imported the clock icon
 import { PackagesBenefits } from "./PackagesBenefits";
 
 const packages = [
@@ -378,9 +377,8 @@ const packages = [
 
 const ITEMS_PER_PAGE = 4;
 
-const PopularTourPackages = () => {
+const PopularTourPackages: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  // Track active image index for each card dynamically using an object state
   const [activeImageIndexes, setActiveImageIndexes] = useState<{ [key: number]: number }>({});
 
   const totalPages = Math.ceil(packages.length / ITEMS_PER_PAGE);
@@ -444,30 +442,17 @@ Please provide me with more details regarding availability and booking requireme
       <div className="absolute inset-0 bg-white/35 z-0"></div>
 
       <div className="container relative z-10 max-w-7xl mx-auto px-4">
+        
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0F91D5]">
-            Popular Tour Packages{" "}
-            <span className="text-black">From Netherlands</span>
+            Popular Tour Packages <span className="text-black">From Netherlands</span>
           </h2>
 
           <p className="text-gray-600 mt-3 text-sm md:text-base max-w-2xl mx-auto">
-            Embark on unforgettable journeys to destinations like Makkah,
-            Madinah, Dubai and more.
+            Embark on unforgettable journeys to destinations like Tanzania, Malaysia, Japan and more.
           </p>
         </div>
 
-        {/* COMING SOON CONTAINER PLACEHOLDER */}
-        <div className="flex justify-center items-center py-12 w-full">
-          <div className="bg-white/70 backdrop-blur-md max-w-md w-full rounded-2xl shadow-xl p-8 text-center border border-white/30 hover:scale-105 transition duration-300 flex flex-col items-center">
-            <FaClock size={40} className="text-[#0F91D5] mb-4 animate-pulse" />
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">Coming Soon</h3>
-            <p className="text-gray-500 text-sm">
-              We are curating the best tour packages for you. Stay tuned for exciting new travel deals!
-            </p>
-          </div>
-        </div>
-
-        {/* ORIGINAL PACKAGES GRID (REMOVED FROM UI FRONTEND, BUT KEPT IN CODE FOR FUTURE REUSE)
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {currentPackages.map((item) => {
             const currentImgIndex = activeImageIndexes[item.id] || 0;
@@ -486,7 +471,7 @@ Please provide me with more details regarding availability and booking requireme
 
                   <button
                     onClick={() => handlePrevImage(item.id, item.images.length)}
-                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-1 rounded-full   transition duration-200 hover:bg-black/70 z-10"
+                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-1 rounded-full transition duration-200 hover:bg-black/70 z-10"
                     type="button"
                   >
                     <ChevronLeft size={20} />
@@ -494,7 +479,7 @@ Please provide me with more details regarding availability and booking requireme
 
                   <button
                     onClick={() => handleNextImage(item.id, item.images.length)}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-1 rounded-full   transition duration-200 hover:bg-black/70 z-10"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-1 rounded-full transition duration-200 hover:bg-black/70 z-10"
                     type="button"
                   >
                     <ChevronRight size={20} />
@@ -567,6 +552,7 @@ Please provide me with more details regarding availability and booking requireme
           })}
         </div>
 
+        {/* PAGINATION SECTION */}
         <div className="flex justify-center items-center flex-wrap mt-12 gap-3 text-sm font-medium">
           <button
             type="button"
@@ -612,7 +598,6 @@ Please provide me with more details regarding availability and booking requireme
             Next
           </button>
         </div>
-        */}
 
       </div>
     </section>

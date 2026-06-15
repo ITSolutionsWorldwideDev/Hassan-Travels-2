@@ -1,18 +1,13 @@
-// import TestimonialsSection from "@/app/components/ui/TestimonialsSection";
-// import FaqSection from "@/app/components/ui/FaqSection";
-// import HeroSection from "@/app/components/ui/HeroSection";
-
 import React from "react";
 import Testimonials from "@/components/ui/Testimonials";
 import Faqs from "@/components/ui/Faqs";
 import CommonHeader from "@/components/ui/CommonHeader";
 import SideIconDesc from "@/components/ui/SideIconDesc";
-// import WhySection from "../components/ui/WhySection";
 import { ImCreditCard } from "react-icons/im";
 import { LuHeadset } from "react-icons/lu";
 import { FaPassport } from "react-icons/fa";
 import { GiLaptop } from "react-icons/gi";
-import PopularTourPackages from "@/components/layout/packages/PopularTourPackages";
+import { FaClock } from "react-icons/fa"; 
 import StepsToApply from "@/components/layout/umrah/StepsToApply";
 import CustomTravelPackages from "@/components/ui/CustomTravelPackages";
 import MutipleImageRightText from "@/components/ui/MutipleImageRightText";
@@ -90,7 +85,31 @@ const UmrahPage: React.FC = () => {
 
           <SideIconDesc data={visaServices} />
           <RequiredDocuments documents={documentRequired} title='Umrah' rightImage="/assets/umrah/kaba.webp" />
-          <PopularTourPackages />
+          
+          {/* OPTIMIZED COMING SOON SECTION (PADDINGS ADJUSTED TO REMOVE WHITE SPACE) */}
+          <section className="relative pt-2 pb-12 overflow-hidden">
+            <div className="container relative z-10 max-w-7xl mx-auto px-4">
+              <div className="text-center mb-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-[#0F91D5]">
+                  Popular Umrah Packages <span className="text-black">From Netherlands</span>
+                </h2>
+                <p className="text-gray-600 mt-2 text-sm md:text-base max-w-2xl mx-auto">
+                  Embark on a spiritual journey to Makkah and Madinah with our customized services.
+                </p>
+              </div>
+
+              <div className="flex justify-center items-center py-2 w-full">
+                <div className="bg-white/70 backdrop-blur-md max-w-md w-full rounded-2xl shadow-xl p-8 text-center border border-white/30 hover:scale-105 transition duration-300 flex flex-col items-center">
+                  <FaClock size={40} className="text-[#0F91D5] mb-4 animate-pulse" />
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Coming Soon</h3>
+                  <p className="text-gray-500 text-sm">
+                    We are curating the best Umrah packages for you. Stay tuned for exciting new spiritual travel deals!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
         </div>
       </div>
 
@@ -101,12 +120,8 @@ const UmrahPage: React.FC = () => {
 
       <MutipleImageRightText imageData={imageData} />
 
-      {/* <WhySection /> */}
-
-      {/* <Faqs/> */}
       <Faqs imagesLinks={imageData} />
 
-      {/* <TestimonialsSection /> */}
       <Testimonials />
     </div>
   );
