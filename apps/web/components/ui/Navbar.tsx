@@ -8,12 +8,12 @@ import BookingModal from "./BookingModal";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [mobileVisaOpen, setMobileVisaOpen] = useState(false);
-  const [desktopVisaOpen, setDesktopVisaOpen] = useState(false); // New state for tablets/desktop click
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [desktopVisaOpen, setDesktopVisaOpen] = useState(false); 
+  const [isModalOpen, setIsModalOpen] = useState(false); 
   
   const desktopDropdownRef = useRef<HTMLDivElement>(null);
 
-  // Close desktop dropdown if clicked outside (very important for tablets)
+  // Close desktop dropdown if clicked outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (desktopDropdownRef.current && !desktopDropdownRef.current.contains(event.target as Node)) {
@@ -26,7 +26,8 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="relative flex justify-between items-center px-4 sm:px-6 md:px-12 py-4 bg-white shadow-sm z-40">
+      {/* 🔹 Responsive Position: Mobile pe relative, Desktop/Tablet (md+) pe fixed */}
+      <header className="relative md:fixed top-0 left-0 w-full flex justify-between items-center px-4 sm:px-6 md:px-12 py-4 bg-white shadow-sm z-50">
         
         {/* LOGO */}
         <Link href="/">
@@ -49,7 +50,7 @@ export default function Navbar() {
             Umrah
           </Link>
 
-          {/* DYNAMIC VISA DROPDOWN (Works on Hover AND Click for 770px+ frames) */}
+          {/* DYNAMIC VISA DROPDOWN */}
           <div 
             ref={desktopDropdownRef}
             className="relative group"
@@ -57,14 +58,12 @@ export default function Navbar() {
             onMouseLeave={() => setDesktopVisaOpen(false)}
           >
             <div className="flex items-center gap-1 text-gray-700 font-medium py-2">
-              {/* Word Click -> Goes to page */}
               <Link 
                 href="/visa" 
                 className="hover:text-[#0F91D5] transition cursor-pointer"
               >
                 Visa
               </Link>
-              {/* Arrow Click -> Standard click toggle logic for tablets/small laptops */}
               <button
                 type="button"
                 onClick={(e) => {
@@ -92,7 +91,7 @@ export default function Navbar() {
                 Pakistan Visa
               </Link>
 
-<Link
+              <Link
                 href="/saudi-arabia"
                 onClick={() => setDesktopVisaOpen(false)}
                 className="block text-sm text-gray-600 hover:text-[#0F91D5] hover:bg-blue-50 px-4 py-2 rounded transition"
@@ -107,9 +106,6 @@ export default function Navbar() {
               >
                 Other Visa
               </Link>
-
-              
-              
             </div>
           </div>
 
@@ -129,14 +125,14 @@ export default function Navbar() {
         {/* RIGHT SIDE */}
         <div className="flex items-center gap-4">
           {/* PHONE */}
-         <a
-  href="tel:+31104857673"
-  className="hidden md:flex items-center gap-2 text-sm text-gray-500 hover:text-blue-400 transition-colors"
-  aria-label="Call +31 (0)10 485 7673"
->
-  <Phone size={16} className="text-black fill-current" />
-  <span>+31 (0)10 485 7673</span>
-</a>
+          <a
+            href="tel:+31104857673"
+            className="hidden md:flex items-center gap-2 text-sm text-gray-500 hover:text-blue-400 transition-colors"
+            aria-label="Call +31 (0)10 485 7673"
+          >
+            <Phone size={16} className="text-black fill-current" />
+            <span>+31 (0)10 485 7673</span>
+          </a>
 
           {/* DESKTOP BOOK NOW BUTTON */}
           <button 
@@ -221,15 +217,12 @@ export default function Navbar() {
 
             {/* MOBILE BOOK NOW */}
             <div className="pt-4 border-t w-full flex flex-col items-center mt-3">
-  <div className="flex items-center gap-2 mb-2 text-sm text-gray-500">
-    <Phone size={14} className="text-black fill-current" />
-    <a
-      href="tel:+31104857673"
-      className="hover:text-black transition-colors"
-    >
-      +31 (0)10 485 7673
-    </a>
-  </div>
+              <div className="flex items-center gap-2 mb-2 text-sm text-gray-500">
+                <Phone size={14} className="text-black fill-current" />
+                <a href="tel:+31104857673" className="hover:text-black transition-colors">
+                  +31 (0)10 485 7673
+                </a>
+              </div>
 
               <button 
                 onClick={() => {
