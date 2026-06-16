@@ -106,20 +106,6 @@ export default function SaudiArabiaPage() {
         {/* CONTENT WRAPPER */}
         <div className="relative z-10 max-w-7xl mx-auto flex flex-col gap-14 w-full">
           
-          {/* ================= SECTION 2 (REMOVED DUPLICATE CARD CONTAINER TO FIX DOUBLE BORDER) ================= */}
-          <div className="w-full">
-            <HeadDesImg
-              title={
-                <>
-                  Visa-Free Travel for <span className="text-[#0F91D5]">UAE</span>
-                  <span className="text-[#0F91D5] block mt-1">Citizens</span>
-                </>
-              }
-              description="UAE citizens can travel to Saudi Arabia for tourism and business purposes without having a visa if they have an Emirati passport. Saudi Arabia allows them to stay for a short period of time, for up to 90 days"
-              imageSrc="/assets/netherland/net2.webp"
-            />
-          </div>
-
           {/* ================= VISA TYPES (MAXIMUM STRETCH OUTWARD) ================= */}
           <div className="w-full -mx-4 md:-mx-6 px-4 md:px-6 lg:max-w-none lg:w-auto">
             <SideIconDesc data={visaType} />
