@@ -48,10 +48,10 @@ const visaSolution = {
 };
 
 const imageData = [
-  "/assets/visa/why-1.webp",
-  "/assets/visa/why-2.webp",
-  "/assets/visa/why-3.webp",
-  "/assets/visa/why-4.webp",
+  "/assets/visa/1.webp",
+  "/assets/visa/3.webp",
+  "/assets/visa/2.webp",
+  "/assets/visa/4.webp",
 ];
 
 export default function HomeMain() {
