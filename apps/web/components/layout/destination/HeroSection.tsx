@@ -3,18 +3,17 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { IoLocationSharp } from 'react-icons/io5';
-import { BiSolidBriefcase } from 'react-icons/bi'; 
 
-// Data array updated with baggage information
+// Data array updated (Baggage and Price removed)
 const destinations = [
-  { name: "Pakistan", image: "/assets/destinations/pakistan.webp", description: "Beautiful valleys & cultural heritage", baggage: "2 Baggage", price: "€499" },
-  { name: "Afghanistan", image: "/assets/destinations/afghanistan.webp", description: "Historic landscapes & breathtaking mountains", baggage: "2 Baggage", price: "€549" },
-  { name: "Saudi Arabia", image: "/assets/destinations/makkah.webp", description: "Holy pilgrimage destination", baggage: "2 Baggage", price: "€399" },
-  { name: "India", image: "/assets/destinations/indi.webp", description: "Vibrant history & incredible architecture", baggage: "2 Baggage", price: "€429" },
-  { name: "Bangladesh", image: "/assets/destinations/ban.webp", description: "Lush greenery & rich cultural riverscapes", baggage: "2 Baggage", price: "€479" },
-  { name: "Irak (Kurdistan)", image: "/assets/destinations/iraq.webp", description: "Ancient citadels & mountainous landscapes", baggage: "2 Baggage", price: "€379" },
-  { name: "Turkey", image: "/assets/destinations/turkey.webp", description: "Where East meets West", baggage: "2 Baggage", price: "€189" },
-  { name: "Africa", image: "/assets/destinations/africa.webp", description: "Timeless pyramids & rich ancient history", baggage: "2 Baggage", price: "€349" },
+  { name: "Pakistan", image: "/assets/destinations/pakistan.webp", description: "Beautiful valleys & cultural heritage" },
+  { name: "Afghanistan", image: "/assets/destinations/afghanistan.webp", description: "Historic landscapes & breathtaking mountains" },
+  { name: "Saudi Arabia", image: "/assets/destinations/makkah.webp", description: "Holy pilgrimage destination" },
+  { name: "India", image: "/assets/destinations/indi.webp", description: "Vibrant history & incredible architecture" },
+  { name: "Bangladesh", image: "/assets/destinations/ban.webp", description: "Lush greenery & rich cultural riverscapes" },
+  { name: "Irak (Kurdistan)", image: "/assets/destinations/iraq.webp", description: "Ancient citadels & mountainous landscapes" },
+  { name: "Turkey", image: "/assets/destinations/turkey.webp", description: "Where East meets West" },
+  { name: "Africa", image: "/assets/destinations/africa.webp", description: "Timeless pyramids & rich ancient history" },
 ];
 
 const HeroSection = () => {
@@ -26,8 +25,6 @@ const HeroSection = () => {
     const rawMessage = `Assalam-o-Alaikum, I want to book a flight to this country:
 
 ✈️ *Country:* ${item.name}
-🧳 *Baggage:* ${item.baggage}
-💶 *Starting Price:* ${item.price}
 
 Please let me know about the flight details, ticket availability, and booking options. Thanks!`;
 
@@ -47,10 +44,9 @@ Please let me know about the flight details, ticket availability, and booking op
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight tracking-tight">
             Fly to Your <span className="font-bold text-[#0F91D5]">Dream Country</span>
           </h2>
-          {/* Added requested sub-headline */}
           <p className="mt-4 text-gray-600 text-lg">
-            Discover the world's most popular countries with unbeatable flight prices. 
-            <span className="font-semibold text-gray-800"> Book now and save on select routes.</span>
+            Discover the world's most popular countries with us. 
+            <span className="font-semibold text-gray-800"> Book now to get the best travel experience.</span>
           </p>
         </div>
 
@@ -69,20 +65,7 @@ Please let me know about the flight details, ticket availability, and booking op
               </div>
 
               <div className="p-5">
-                <p className="text-sm text-gray-500 mb-4 h-10 line-clamp-2">{item.description}</p>
-
-                <div className="flex justify-between items-center mb-4">
-                  <div className="flex items-center gap-2 text-sm font-bold text-gray-700">
-                    <BiSolidBriefcase size={18} className="text-sky-500" />
-                    {item.baggage}
-                  </div>
-
-                  <span className="font-bold text-[#0F91D5] text-lg">
-                    {item.price}
-                  </span>
-                </div>
-
-                <hr className="mb-4" />
+                <p className="text-sm text-gray-500 mb-6 h-10 line-clamp-2">{item.description}</p>
 
                 <button 
                   onClick={() => handleDestinationBooking(item)}
