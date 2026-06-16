@@ -26,8 +26,8 @@ export default function UmrahPage() {
     <main className="w-full overflow-hidden">
       {/* HERO SECTION */}
      <CommonHeader
-        heading={"Affordable Visa Services for Travelers in the \nNetherlands"}
-        desc="Get your Umrah, Pakistani, Saudia, UAE, and Netherlands visas quickly and easily with Hassaan Travel."
+        heading={"Affordable Visa Services for Travelers in the \nNetherlands and neighbouring countries"}
+        desc="Get your KSA, Pakistani and many other visas quickly  and easily with Hassaan Travel."
       />
 
 

@@ -17,7 +17,7 @@ const visaServices = {
   head: (
     <>
       <div className="text-center text-black">
-        <div>Complete Umrah Visa Services</div>
+        <div>Complete Umrah Package Services</div>
         <div>for Performers</div>
       </div>
     </>
@@ -26,22 +26,22 @@ const visaServices = {
   data: [
     {
       title: "E-Visa Services",
-      desc: "Fast and easy processing of your Umrah visa through e-visa.",
+      desc: "Fast and easy processing of your visa for Umrah.",
       icon: <ImCreditCard />,
     },
     {
-      title: "Document Assistance",
-      desc: "Help with collecting the necessary documents for a smooth visa application process.",
+      title: "Hotel booking ",
+      desc: "Choose your stay from our many offered hotels.",
       icon: <LuHeadset />,
     },
     {
-      title: "Group & Family Visa Options",
-      desc: "Special services for families and groups traveling together.",
+      title: "Transportation",
+      desc: "Get the best and trustworthy transportation service and focus on your pilgrimage.",
       icon: <FaPassport />,
     },
     {
-      title: "Visa Tracking",
-      desc: "Track your Umrah visa status and get updates directly from Hassaan Travel.",
+      title: "Tickets",
+      desc: "Best route and cheapest available flights according to your wishes.",
       icon: <GiLaptop />,
     },
   ],
@@ -62,7 +62,12 @@ const faqImasgesLinks = [
 ];
 
 const documentRequired = [
-  'Online Saudi Umrah Visa Application', 'A Valid Passport', 'Passport-size Photo', 'Proof of Relationship', 'No-Objection Letter', 'Ticket'
+  'Valid Passport (Minimum 06 Month on return)',
+  'Passport-size photograph',
+  'Residential Address',
+  'Accommodation address',
+  'Marital Status',
+  'Occupation'
 ];
 
 const UmrahPage: React.FC = () => {
@@ -79,8 +84,8 @@ const UmrahPage: React.FC = () => {
         {/* CONTENT LAYER */}
         <div className="relative z-10">
           <CommonHeader
-            heading="Apply for Your Umrah Visa Online with Hassaan Travel"
-            desc="Fast, Easy, and Reliable Umrah Visa Services for Performers from the Netherlands."
+            heading="Book your Umrah easily Online with Hassaan Travel"
+            desc="Fast, Easy and Reliable Umrah Services for Performers from The Netherlands and neighboring countries."
           />
 
           <SideIconDesc data={visaServices} />
@@ -116,7 +121,8 @@ const UmrahPage: React.FC = () => {
       {/* OUTSIDE BACKGROUND SECTION */}
       <StepsToApply />
 
-      <CustomTravelPackages />
+      {/* Pass mode="umrah" to CustomTravelPackages */}
+      <CustomTravelPackages mode="umrah" />
 
       <MutipleImageRightText imageData={imageData} />
 

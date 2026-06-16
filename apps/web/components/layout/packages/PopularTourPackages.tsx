@@ -417,7 +417,7 @@ const PopularTourPackages: React.FC = () => {
 🌟 *Package Name:* ${item.title}
 📍 *Location:* ${item.location}
 🕒 *Duration:* ${item.duration}
-💶 *Price:* €${item.price} per person
+💶 *Price:* ${item.price} per person
 🛫 *Next Departure:* ${item.nextDeparture}
 
 Please provide me with more details regarding availability and booking requirements. Thank you!`;
@@ -489,7 +489,7 @@ Please provide me with more details regarding availability and booking requireme
                     {isNumericPrice(item.price) && (
                       <div className="text-[10px] text-gray-500">From</div>
                     )}
-                    <div className="text-sm font-bold">€{item.price}</div>
+                    <div className="text-sm font-bold">{item.price}</div>
                     <div className="text-[10px] text-gray-400">per person</div>
                   </div>
 

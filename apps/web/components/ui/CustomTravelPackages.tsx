@@ -17,6 +17,14 @@ interface TravelerRowConfig {
   value: number;
   setter: React.Dispatch<React.SetStateAction<number>>;
   min: number;
+  max?: number;
+  helperText?: string;
+}
+
+// ─── Props ────────────────────────────────────────────────────────────────────
+
+interface CustomTravelPackagesProps {
+  mode?: 'umrah' | 'packages';
 }
 
 // ─── Static Data ──────────────────────────────────────────────────────────────
@@ -73,7 +81,11 @@ const preferences: PreferenceOption[] = [
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
-export default function TravelBookingForm(): JSX.Element {
+export default function CustomTravelPackages({ mode = 'packages' }: CustomTravelPackagesProps): JSX.Element {
+  const isUmrah = mode === 'umrah';
+  
+  // ─── State ─────────────────────────────────────────────────────────────────
+  
   const [country, setCountry]               = useState<CountryCode>("SA");
   const [airport, setAirport]               = useState<string>("");
   const [timeSpan, setTimeSpan]             = useState<string>("");
@@ -82,6 +94,7 @@ export default function TravelBookingForm(): JSX.Element {
   const [customDays, setCustomDays]         = useState<string>("");
   const [adults, setAdults]                 = useState<number>(2);
   const [children, setChildren]             = useState<number>(0);
+  const [infants, setInfants]               = useState<number>(0);
   const [selectedPrefs, setSelectedPrefs]   = useState<string[]>(["airport"]);
   const [specialRequests, setSpecialRequests] = useState<string>("");
   const [status, setStatus]                 = useState<SubmitStatus>("idle");
@@ -103,6 +116,7 @@ export default function TravelBookingForm(): JSX.Element {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           formType: "travelQuote",
+          pageType: isUmrah ? "umrah" : "packages",
           country: countries.find((c) => c.code === country)?.name,
           airport: airport || airportsByCountry[country]?.[0] || "",
           timeSpan,
@@ -110,6 +124,7 @@ export default function TravelBookingForm(): JSX.Element {
           duration: duration === "custom" ? `${customDays} Days` : `${duration} Days`,
           adults,
           children,
+          infants,
           preferences: selectedPrefs.join(", "),
           specialRequests,
         }),
@@ -117,7 +132,6 @@ export default function TravelBookingForm(): JSX.Element {
 
       if (res.ok) {
         setStatus("success");
-        // reset after 3s
         setTimeout(() => setStatus("idle"), 3000);
       } else {
         setStatus("error");
@@ -127,9 +141,12 @@ export default function TravelBookingForm(): JSX.Element {
     }
   };
 
+  // ─── Traveler rows configuration ──────────────────────────────────────────
+  
   const travelerRows: TravelerRowConfig[] = [
-    { label: "Adults",   value: adults,   setter: setAdults,   min: 1 },
-    { label: "Children", value: children, setter: setChildren, min: 0 },
+    { label: "Adults (12+)", value: adults, setter: setAdults, min: 1 },
+    { label: "Children (2-11)", value: children, setter: setChildren, min: 0, max: 10 },
+    { label: "Infants (0-1)", value: infants, setter: setInfants, min: 0, max: 5 },
   ];
 
   // ─── Derived button state ─────────────────────────────────────────────────
@@ -148,6 +165,8 @@ export default function TravelBookingForm(): JSX.Element {
     error:   "bg-red-500 shadow-lg shadow-red-200",
   }[status];
 
+  // ─── Render ───────────────────────────────────────────────────────────────
+
   return (
     <section className="relative w-full py-12 sm:py-20 overflow-hidden flex items-center justify-center">
       <div className="relative z-10 w-full max-w-5xl mx-auto px-4 font-sans">
@@ -155,11 +174,18 @@ export default function TravelBookingForm(): JSX.Element {
         {/* HEADING */}
         <div className="text-center mb-10">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
-            Make Your <span className="text-[#0F91D5]">Custom</span> Travel Package
+            {isUmrah ? (
+              <>Make Your <span className="text-[#0F91D5]">Umrah</span> Package</>
+            ) : (
+              <>Make Your <span className="text-[#0F91D5]">Custom</span> Travel Package</>
+            )}
           </h2>
           <p className="text-gray-700 max-w-2xl mx-auto">
-            Build your perfect journey tailored to your preferences. Choose your destination,
-            travel style, and let us create an unforgettable experience.
+            {isUmrah ? (
+              "Build your perfect Umrah journey tailored to your preferences. Choose your destination, travel style, and let us create an unforgettable spiritual experience."
+            ) : (
+              "Build your perfect journey tailored to your preferences. Choose your destination, travel style, and let us create an unforgettable experience."
+            )}
           </p>
         </div>
 
@@ -173,15 +199,40 @@ export default function TravelBookingForm(): JSX.Element {
               {/* Destination Country */}
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-gray-700">Destination Country</label>
-                <select
-                  value={country}
-                  onChange={(e) => { setCountry(e.target.value as CountryCode); setAirport(""); }}
-                  className="w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-700 font-medium focus:outline-none focus:border-[#0F91D5] focus:bg-white transition-all"
-                >
-                  {countries.map((c) => (
-                    <option key={c.code} value={c.code}>{c.name}</option>
-                  ))}
-                </select>
+                <div className="relative">
+                  <select
+                    value={country}
+                    onChange={(e) => { 
+                      const newCountry = e.target.value as CountryCode;
+                      setCountry(newCountry);
+                      setAirport("");
+                    }}
+                    className={`w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-700 font-medium focus:outline-none focus:border-[#0F91D5] focus:bg-white transition-all appearance-none ${
+                      isUmrah ? 'cursor-not-allowed opacity-75' : ''
+                    }`}
+                    disabled={isUmrah}
+                  >
+                    {isUmrah ? (
+                      <option value="SA">Saudi Arabia</option>
+                    ) : (
+                      countries.map((c) => (
+                        <option key={c.code} value={c.code}>{c.name}</option>
+                      ))
+                    )}
+                  </select>
+                  
+                  {/* Dropdown Arrow - Hidden for Umrah */}
+                  {!isUmrah && (
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-500">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                  )}
+                </div>
+                {isUmrah && (
+                  <p className="text-xs text-gray-500 mt-1">* Only Saudi Arabia for Umrah services</p>
+                )}
               </div>
 
               {/* Airport */}
@@ -282,9 +333,14 @@ export default function TravelBookingForm(): JSX.Element {
               <div className="space-y-3">
                 <label className="text-sm font-semibold text-gray-700">Number of Travelers</label>
                 <div className="space-y-3">
-                  {travelerRows.map(({ label, value, setter, min }) => (
+                  {travelerRows.map(({ label, value, setter, min, max, helperText }) => (
                     <div key={label} className="flex items-center justify-between bg-gray-50 rounded-2xl px-5 py-4">
-                      <p className="font-semibold text-gray-800 text-sm">{label}</p>
+                      <div>
+                        <p className="font-semibold text-gray-800 text-sm">{label}</p>
+                        {helperText && (
+                          <p className="text-xs text-gray-500">{helperText}</p>
+                        )}
+                      </div>
                       <div className="flex items-center gap-4">
                         <button
                           type="button"
@@ -297,9 +353,17 @@ export default function TravelBookingForm(): JSX.Element {
                         <span className="w-6 text-center text-lg font-bold text-gray-800">{value}</span>
                         <button
                           type="button"
-                          onClick={() => setter((prev) => prev + 1)}
-                          className="w-10 h-10 rounded-full border-2 border-[#0F91D5] text-[#0F91D5] text-xl font-bold flex items-center justify-center hover:bg-[#0F91D5] hover:text-white transition-all"
+                          onClick={() => {
+                            if (max && value >= max) return;
+                            setter((prev) => prev + 1);
+                          }}
+                          className={`w-10 h-10 rounded-full border-2 text-xl font-bold flex items-center justify-center transition-all ${
+                            max && value >= max
+                              ? "border-gray-300 text-gray-300 cursor-not-allowed"
+                              : "border-[#0F91D5] text-[#0F91D5] hover:bg-[#0F91D5] hover:text-white"
+                          }`}
                           aria-label={`Increase ${label}`}
+                          disabled={max ? value >= max : false}
                         >
                           +
                         </button>

@@ -5,24 +5,24 @@ import Image from "next/image";
 
 const faqs = [
   {
-    question: "How can I apply for an Umrah visa from the Netherlands?",
+    question: "Do you apply for an Umrah visa or a tourist visa?",
     answer:
-      "To apply for an Umrah visa from the Netherlands, you must consult a verified travel agency. Required documents include passport, photos, flight, insurance, accommodation, and vaccination certificate.",
+      "We apply for a tourist visa. It offers the same benefits and more. A tourist visa is valid for one year and is usually cheaper, easier, and faster to obtain."
   },
   {
-    question: "What documents are required for a Pakistani visa?",
+    question: "Can we book only flights, hotels, or visa services?",
     answer:
-      "You need a valid passport, photos, application form, proof of residence, and supporting travel documents.",
+      "- Yes, you can. We also offer these services separately, but we recommend booking everything together with us for the full experience and to ensure everything is well organized.",
   },
   {
-    question: "Can I apply for a UAE visa online from the Netherlands?",
+    question: "– Can you assist with visa rejections or issues?",
     answer:
-      "Yes, UAE visas can be applied online through authorized agencies or airlines.",
+      "Unfortunately, we are not the final decision-making authority and only handle the visa application process. If your visa is rejected or placed under review, we can only advise you to contact the embassy for further assistance.",
   },
   {
-    question: "How long does it take to get a Saudi visa?",
+    question: "How long does it take to get a KSA (Kingdom of Saudi Arabia) visa?",
     answer:
-      "Processing time usually takes 3–7 working days depending on application type.",
+      "We require 3 working days to process the visa application, and approval usually takes 1 additional day.",
   },
 ];
 

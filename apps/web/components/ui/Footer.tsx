@@ -13,10 +13,16 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* LEFT */}
           <div>
-            <h2 className="text-xl font-bold italic">
-              <span className="text-blue-400">Hassaan</span>{" "}
-              <span className="text-lime-400">Travel</span>
-            </h2>
+            {/* UPDATED: Logo image instead of text */}
+            <div className="mb-4">
+              <Image
+                src="/assets/logo.webp"
+                alt="Hassaan Travel"
+                width={160}
+                height={50}
+                className="w-auto h-auto object-contain"
+              />
+            </div>
 
             <p className="text-xs text-gray-400 mt-4 leading-relaxed max-w-xs">
               We as a company work efficiently and are very customer-oriented.
@@ -32,7 +38,7 @@ export default function Footer() {
                 width={36}
                 height={36}
               />
-              <span className="text-xs text-gray-400">Iata ACCREDITED</span>
+              <span className="text-xs text-gray-400">IATA ACCREDITED</span>
             </div>
           </div>
 
@@ -46,7 +52,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                {/* FIXED: Link set directly to /visa */}
                 <Link href="/visa" className="hover:text-white transition-colors block py-0.5">
                   Visa Services
                 </Link>
@@ -120,12 +125,12 @@ export default function Footer() {
 
               {/* PHONE */}
               <a
-                href="tel:+31104857673"
+                href="tel:+31 (0) 104857673"
                 className="flex items-center gap-3 hover:text-blue-400 transition-colors"
                 aria-label="Call +31 104857673"
               >
                 <FiPhone className="text-blue-400 text-lg flex-shrink-0" />
-                <span>+31 104857673</span>
+                <span>+31 (0) 104857673</span>
               </a>
 
               {/* SOCIAL */}
@@ -157,7 +162,6 @@ export default function Footer() {
                   <FaTiktok size={12} />
                 </Link>
 
-                {/* LINKEDIN */}
                 <Link
                   href="#"
                   target="_blank"

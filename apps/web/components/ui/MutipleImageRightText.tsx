@@ -68,7 +68,7 @@ export default function MutipleImageRightText({
         {/* RIGHT TEXT */}
         <div className="flex flex-col justify-center">
           <h2 className="text-4xl md:text-3xl font-extrabold leading-tight text-black">
-            Why Hassaan Travel is Your Trusted Visa Partner
+            Why Hassaan Travel is Your Trusted Partner
           </h2>
 
           <p className="mt-5 text-gray-600 text-base leading-relaxed">
@@ -79,22 +79,23 @@ export default function MutipleImageRightText({
           <div className="mt-8 space-y-4">
             <Feature
               icon={<Plane size={16} />}
-              text="Assistance in obtaining all necessary documents, including legalisations and translations."
+              text="Assistance in obtaining the best and cheapest flights to your destination 
+              Quick, transparent service through WhatsApp chat."
             />
 
             <Feature
               icon={<FaStackExchange size={16} />}
-              text="Fast, reliable, and transparent visa services."
-            />
-
-            <Feature
-              icon={<Binoculars size={16} />}
               text="Expertise in handling visa applications for multiple countries."
             />
 
             <Feature
-              icon={<Phone size={16} />}
+              icon={<Binoculars size={16} />}
               text="Customer support in multiple languages."
+            />
+
+            <Feature
+              icon={<Phone size={16} />}
+              text="Contact Us Today – See all of our services."
             />
           </div>
 

@@ -11,14 +11,15 @@ export default function packages() {
     <>
      {/* HERO SECTION */}
 <CommonHeader
-  heading={"Pakistani Family & Tourist Visa Services |\nHassaan Travel - Simple & Fast Processing"}
-  desc="Apply online for a Pakistani Family & Tourist visa today! Simple application process, fast approvals, and expert assistance"
+  heading={"Book your package vacation with  \nHassaan Travel "}
+  desc="We provide exclusive trips with an unforgettable experience.Don’t go simple, book with us!"
 />
 
       {/* ====== SECTION WRAPPER WITH BG ====== */}
       <PopularTourPackages />
 
-      <CustomTravelPackages />
+      {/* Pass mode="packages" (default) to CustomTravelPackages */}
+      <CustomTravelPackages mode="packages" />
 
       <section className="relative w-full py-12 px-5 overflow-hidden">
         {/* 🔥 BACKGROUND IMAGE */}

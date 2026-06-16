@@ -26,12 +26,12 @@ const visaSolution = {
   data: [
     {
       title: "Flight Booking",
-      desc: "Book affordable flights with flexible options for individuals and families.",
+      desc: "Book affordable flights to every destination with flexible options for individuals and families.",
       icon: <Plane />,
     },
     {
       title: "Hotel Reservations",
-      desc: "Comfortable accommodation in Makkah, Madinah and worldwide destinations.",
+      desc: "Book comfortable accommodation worldwide with ease and convenience.",
       icon: <Bed />,
     },
     {

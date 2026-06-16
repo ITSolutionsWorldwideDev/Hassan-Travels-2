@@ -97,7 +97,7 @@ const OurStory = () => {
         {/* RIGHT SIDE */}
         <div className="relative">
           <img
-            src="/assets/about-us/side.webp"
+            src="/assets/about-us/4.webp"
             alt="Map"
             loading="lazy"
             className="rounded-2xl shadow-lg w-full h-125 object-cover"

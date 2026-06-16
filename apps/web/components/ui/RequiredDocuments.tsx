@@ -32,10 +32,10 @@ const RequiredDocuments: React.FC<RequiredDocumentsProps> = ({
         {/* ================= LEFT SIDE: TEXT DETAILS ================= */}
         <div className="w-full md:w-[58%] text-left flex flex-col justify-center">
           {/* 🌟 LINE BREAK ADDED: "an {title} visa are" will now explicitly wrap to the next line */}
-          <h2 className="text-xl md:text-2xl font-bold text-gray-900 leading-snug mb-5 tracking-tight">
-            The <span className="text-[#0F91D5]">Required Documents</span> for <br />
-            an {title} visa are
-          </h2>
+
+<h2 className="text-xl md:text-2xl font-bold text-gray-900 leading-snug mb-5 tracking-tight">
+  The <span className="text-[#0F91D5]">Required Documents</span> for a visa for {title} are
+</h2>
 
           {/* BULLET POINTS */}
           <ul className="text-gray-800 text-xs md:text-sm space-y-3 list-disc pl-5 font-normal leading-relaxed">

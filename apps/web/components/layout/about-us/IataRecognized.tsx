@@ -57,7 +57,7 @@ const IataRecognized = () => {
       <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8 text-white/90 text-xs">
         <a href="tel:+31104857673" className="flex items-center gap-2 hover:underline">
           <FaPhoneAlt />
-          +31 104857673
+          +31 (0) 104857673
         </a>
 
         <a href="mailto:info@hassaantravel.nl" className="flex items-center gap-2 hover:underline">

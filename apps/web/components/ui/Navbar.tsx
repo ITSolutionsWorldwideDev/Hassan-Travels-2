@@ -128,10 +128,10 @@ export default function Navbar() {
           <a
             href="tel:+31104857673"
             className="hidden md:flex items-center gap-2 text-sm text-gray-500 hover:text-blue-400 transition-colors"
-            aria-label="Call +31 (0)10 485 7673"
+            aria-label="Call +31 (0) 10 485 7673"
           >
             <Phone size={16} className="text-black fill-current" />
-            <span>+31 (0)10 485 7673</span>
+            <span>+31 (0) 10 485 7673</span>
           </a>
 
           {/* DESKTOP BOOK NOW BUTTON */}
@@ -220,7 +220,7 @@ export default function Navbar() {
               <div className="flex items-center gap-2 mb-2 text-sm text-gray-500">
                 <Phone size={14} className="text-black fill-current" />
                 <a href="tel:+31104857673" className="hover:text-black transition-colors">
-                  +31 (0)10 485 7673
+                  +31 (0) 10 485 7673
                 </a>
               </div>
 

@@ -13,8 +13,8 @@ export default function AboutPage() {
     <main className="w-full text-gray-800">
       {/* HERO SECTION */}
       <CommonHeader
-           heading={"Netherlands Visa Services for Pakistani & UAE \nCitizens"}
-        desc="Expert Visa Services for Pakistani and UAE Travelers."
+           heading={"Who Are We"}
+        desc="A Father &  Son Travel Agency."
       />
 
       <OurStory />

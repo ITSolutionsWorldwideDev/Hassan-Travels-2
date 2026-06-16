@@ -71,7 +71,7 @@ const Map = () => {
               <div>
                 <p className="text-xs text-gray-400">Phone</p>
                 <a href="tel:+31104857673" className="text-sm font-medium">
-                  +31 104857673
+                  +31 (0) 104857673
                 </a>
               </div>
             </article>

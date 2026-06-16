@@ -295,9 +295,8 @@ const PopularTourPackages = () => {
           </h2>
 
           <p className="text-gray-500 mb-6 w-full max-w-none lg:max-w-7xl whitespace-normal text-sm sm:text-base">
-            Embark on unforgettable journeys to popular destinations such as Makkah, Madinah, Dubai, and more with our exclusive tour packages.
+            Everything you need for your next trip in one place from flights and visas to travel packages, tours, and eSIMs. Discover our most popular services today.
           </p>
-
           {/* CATEGORY TABS - Popular, Destination, Umrah, Visa, Packages */}
           <div className="flex flex-wrap gap-3 mb-8 border-b border-gray-200 pb-3">
             <button
