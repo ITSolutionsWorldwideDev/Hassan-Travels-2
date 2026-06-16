@@ -14,13 +14,14 @@ const formSections: SectionType[] = [
   {
     title: "Flight Details",
     icon: <FaPlane size={12} className="text-[#0F91D5]" />,
-    fields: [
-      { label: "From (Departure City)", name: "from" },
-      { label: "To (Destination City)", name: "to" },
-      { label: "Departure Date", name: "departure", type: "date" },
-      { label: "Return Date", name: "return", type: "date" },
-      { label: "Your Class", name: "travelClass", full: true, options: ["Economy Class", "Business Class", "First Class"] },
-    ],
+   fields: [
+  { label: "From (Departure City)", name: "from" },
+  { label: "To (Destination City)", name: "to" },
+  { label: "Next City", name: "nextCity" },  // ← yeh add karo
+  { label: "Departure Date", name: "departure", type: "date" },
+  { label: "Return Date", name: "return", type: "date" },
+  { label: "Your Class", name: "travelClass", full: true, options: ["Economy Class", "Business Class", "First Class"] },
+],
   },
   {
     title: "Passenger Information",
@@ -85,12 +86,13 @@ const TicketRequestForm = () => {
   };
 
   // Helper to determine if a specific field is absolutely compulsory
-  const isRequiredField = (fieldName: string) => {
-    const nonRequiredFields = ["middleName", "passport", "issueDate", "expiryDate"];
-    if (nonRequiredFields.includes(fieldName)) return false;
-    if (tripType === "One Way" && fieldName === "return") return false;
-    return true;
-  };
+ const isRequiredField = (fieldName: string) => {
+  const nonRequiredFields = ["middleName", "passport", "issueDate", "expiryDate"];
+  if (nonRequiredFields.includes(fieldName)) return false;
+  if (tripType === "One Way" && fieldName === "return") return false;
+  if (fieldName === "nextCity" && tripType !== "Multi-City") return false; // ← yeh add karo
+  return true;
+};
 
   return (
     <section className="relative w-full min-h-[70vh] py-12 sm:py-20 px-4 sm:px-8 md:px-16 overflow-hidden flex justify-center items-center">
@@ -147,7 +149,8 @@ const TicketRequestForm = () => {
               <div className="grid sm:grid-cols-2 gap-4">
                 {section.fields.map((field) => {
                   if (tripType === "One Way" && field.name === "return") return null;
-
+                  if (tripType !== "Multi-City" && field.name === "nextCity") return null; // ← yeh
+                 if (tripType === "One Way" && field.name === "return") return null;
                   const isCompulsory = isRequiredField(field.name);
 
                   return (
