@@ -30,6 +30,15 @@ const airlines = [
   { src: "/assets/home/partners/p25.webp", alt: "Partner 25" },
   { src: "/assets/home/partners/p26.webp", alt: "Partner 26" },
   { src: "/assets/home/partners/p27.webp", alt: "Partner 27" },
+  { src: "/assets/home/partners/p27.webp", alt: "Partner 27" },
+  { src: "/assets/home/partners/p28.webp", alt: "Partner 28" },
+  { src: "/assets/home/partners/p29.webp", alt: "Partner 29" },
+  { src: "/assets/home/partners/p30.webp", alt: "Partner 30" },
+  { src: "/assets/home/partners/p32.webp", alt: "Partner 32" },
+  { src: "/assets/home/partners/p33.webp", alt: "Partner 33" },
+
+
+
 ];
 
 // Duplicate for seamless loop
