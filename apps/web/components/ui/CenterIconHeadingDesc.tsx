@@ -17,12 +17,12 @@ const iconsData: Props[] = [
   },
   {
     icon: <Headset />,
-    title: "Concierge - Emergency Support",
+    title: "Emergency Support",
    desc: "Available 24/7",
   },
   {
     icon: <Award />,
-    title: "Award-Winning – Trusted by Travelers",
+    title: "Trusted by Travelers",
     desc: "15+ Years Excellence",
   },
   {
