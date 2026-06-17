@@ -79,7 +79,7 @@ export default function HomeMain() {
           {/* BADGE (Updated background to white, text to black, and altered text to Accredited) */}
           <div className="inline-flex items-center gap-2 border border-white/30 bg-white px-4 py-2 rounded-full mb-5 text-xs sm:text-sm text-black font-medium shadow-sm">
             <Image
-              src="/assets/home/iata.webp"
+              src="/assets/home/partners/iata.webp"
               alt="IATA Badge"
               width={20}
               height={20}

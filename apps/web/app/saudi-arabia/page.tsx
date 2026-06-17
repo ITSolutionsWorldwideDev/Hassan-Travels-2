@@ -13,25 +13,16 @@ const visaType = {
   head: "Which Visa Do You Need?",
   data: [
     {
-      title: "Tourist Visa",
+      title: "Tourist Visa | Umrah Visa",
       desc: "Ideal for leisure travel and exploring Saudi Arabia.",
       icon: <ImCreditCard />,
     },
     {
-      title: "Business Visa",
-      desc: "For meetings, events, and professional engagements.",
-      icon: <LuHeadset />,
-    },
-    {
-      title: "Family Visit Visa",
-      desc: "Reunite with loved ones living in Saudi Arabia.",
+      title: "Umrah Visa",
+      desc: "Your gateway to a blessed Umrah experience in the holy cities of Makkah and Madinah.",
       icon: <FaPassport />,
     },
-    {
-      title: "Student Visa",
-      desc: "For academic or training opportunities (if applicable).",
-      icon: <GiLaptop />,
-    },
+    
   ],
 };
 
