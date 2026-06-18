@@ -172,7 +172,7 @@ export default function HomeMain() {
             href="https://wa.me/31104857673?text=Hello,%20I%20would%20like%20to%20request%20a%20free%20quote%20for%20my%20travel%20plans."
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-lime-400 text-black px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm font-semibold hover:bg-lime-500 transition-colors"
+            className="inline-block bg-[#d4e157] hover:bg-[#d4e157] text-black px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm font-semibold hover:bg-lime-500 transition-colors"
           >
             Request a Free Quote →
           </Link>

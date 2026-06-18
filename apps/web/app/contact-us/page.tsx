@@ -13,8 +13,8 @@ export default function ContactPage() {
   return (
     <>
       <CommonHeader
-        heading={"Netherlands Visa Services for Pakistani & UAE \nCitizens"}
-        desc="Expert Visa Services for Pakistani and UAE Travelers."
+        heading={"Get in touch with us"}
+        desc="Our travel experts are ready to help you every step of the way"
       />
 
       {/* <ContactForm /> */}

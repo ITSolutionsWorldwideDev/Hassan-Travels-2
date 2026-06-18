@@ -485,13 +485,19 @@ Please provide me with more details regarding availability and booking requireme
                     <ChevronRight size={20} />
                   </button>
 
-                  <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-xl shadow text-[#0F91D5] font-semibold text-sm w-[110px] h-[58px] flex flex-col items-center justify-center text-center leading-tight">
-                    {isNumericPrice(item.price) && (
-                      <div className="text-[10px] text-gray-500">From</div>
-                    )}
-                    <div className="text-sm font-bold">{item.price}</div>
-                    <div className="text-[10px] text-gray-400">per person</div>
-                  </div>
+                <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-xl shadow text-[#0F91D5] font-semibold text-sm w-[110px] h-[58px] flex flex-col items-center justify-center text-center leading-tight">
+  {isNumericPrice(item.price) && (
+    <div className="text-[10px] text-gray-500">From</div>
+  )}
+  
+  <div className="text-sm font-bold">
+    {isNumericPrice(item.price) ? `€ ${item.price}` : item.price}
+  </div>
+  
+  {isNumericPrice(item.price) && (
+    <div className="text-[10px] text-gray-400">per person</div>
+  )}
+</div>
 
                   <div className="absolute bottom-0 bg-white rounded-md left-2 p-1 text-xs text-gray-500 mb-2">
                     ⭐ 4.8 (365)

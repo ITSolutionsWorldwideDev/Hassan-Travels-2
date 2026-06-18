@@ -134,13 +134,13 @@ export default function Navbar() {
             <span>+31 (0) 10 485 7673</span>
           </a>
 
-          {/* DESKTOP BOOK NOW BUTTON */}
-          <button 
-            onClick={() => setIsModalOpen(true)}
-            className="hidden md:block bg-lime-400 hover:bg-lime-500 text-white px-6 py-2 rounded-full text-sm font-semibold transition cursor-pointer"
-          >
-            Book Now
-          </button>
+         {/* DESKTOP BOOK NOW BUTTON */}
+<button 
+  onClick={() => setIsModalOpen(true)}
+  className="hidden md:block bg-[#d4e157] hover:bg-[#d4e157] text-white px-6 py-2 rounded-full text-sm font-extrabold transition cursor-pointer"
+>
+  Book Now
+</button>
 
           {/* MOBILE MENU BUTTON */}
           <button
@@ -229,7 +229,7 @@ export default function Navbar() {
                   setOpen(false); 
                   setIsModalOpen(true);
                 }}
-                className="bg-lime-400 px-6 py-2 rounded-full text-sm font-semibold text-white hover:bg-lime-500 transition cursor-pointer"
+                className="bg-[#d4e157] hover:bg-[#d4e157] px-6 py-2 rounded-full text-sm font-extrabold text-white hover:bg-lime-500 transition cursor-pointer"
               >
                 Book Now
               </button>
