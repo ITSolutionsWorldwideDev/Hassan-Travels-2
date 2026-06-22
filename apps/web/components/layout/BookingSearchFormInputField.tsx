@@ -41,6 +41,7 @@ export const BookingSearchFormInputField = ({
           font-medium
           text-left
         "
+        required
       />
     </div>
   );
