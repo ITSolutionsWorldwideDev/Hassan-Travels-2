@@ -179,7 +179,12 @@ export default function Footer() {
         <div className="border-t border-white/10 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 gap-4">
           <p>Copyright © 2006 - 2026 HassaanTravel | All rights reserved</p>
 
-          <div className="flex items-center gap-2 opacity-80">
+          <Link
+            href="https://www.itsolutionsworldwide.com/en"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 opacity-80 hover:opacity-100 transition-opacity"
+          >
             <span>Powered by</span>
             <Image
               src="/assets/footer/logo.webp"
@@ -188,7 +193,7 @@ export default function Footer() {
               height={18}
             />
             <span>IT SOLUTIONS WORLDWIDE</span>
-          </div>
+          </Link>
         </div>
       </div>
     </footer>
