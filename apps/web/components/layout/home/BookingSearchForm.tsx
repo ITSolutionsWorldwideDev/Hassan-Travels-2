@@ -31,6 +31,13 @@ interface FormData {
   contactNumber: string;
 }
 
+interface TouchedState {
+  from: boolean;
+  to: boolean;
+  travellers: boolean;
+  contactNumber: boolean;
+}
+
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 /** Safely formats date field (object or plain string) for email */
@@ -85,6 +92,33 @@ const formatDateField = (value: DateFieldValue | string): string => {
   return "Not specified";
 };
 
+// ─── Validation helpers ───────────────────────────────────────────────────────
+
+const isValidEmail = (value: string): boolean =>
+  /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+
+// Accepts digits, spaces, +, -, () — must have at least 7 digits total
+const isValidPhone = (value: string): boolean => {
+  const digitsOnly = value.replace(/\D/g, "");
+  return /^[+\d\s()-]+$/.test(value.trim()) && digitsOnly.length >= 7;
+};
+
+/** A contact value is valid if it's EITHER a valid email OR a valid phone number */
+const isValidContact = (value: string): boolean => {
+  const trimmed = value.trim();
+  if (!trimmed) return false;
+  return isValidEmail(trimmed) || isValidPhone(trimmed);
+};
+
+const getContactError = (value: string): string => {
+  const trimmed = value.trim();
+  if (!trimmed) return "Phone number or email is required";
+  if (isValidEmail(trimmed) || isValidPhone(trimmed)) return "";
+  // Give a specific hint depending on what they seem to be typing
+  if (trimmed.includes("@")) return "Enter a valid email address";
+  return "Enter a valid phone number (at least 7 digits)";
+};
+
 // ─── Component ────────────────────────────────────────────────────────────────
 
 const BookingSearchForm = () => {
@@ -98,17 +132,49 @@ const BookingSearchForm = () => {
   });
 
   const [status, setStatus] = React.useState<SubmitStatus>("idle");
-  console.log(formData);
+  const [touched, setTouched] = React.useState<TouchedState>({
+    from: false,
+    to: false,
+    travellers: false,
+    contactNumber: false,
+  });
+
   const handleChange = (name: string, value: string) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleBlur = (field: keyof TouchedState) => {
+    setTouched((prev) => ({ ...prev, [field]: true }));
   };
 
   const handleSwap = () => {
     setFormData((prev) => ({ ...prev, from: prev.to, to: prev.from }));
   };
 
+  // ─── Validation ──────────────────────────────────────────────────────────
+
+  const fromError = touched.from && !formData.from.trim() ? "From is required" : "";
+  const toError = touched.to && !formData.to.trim() ? "To is required" : "";
+  const travellersError =
+    touched.travellers && !formData.travellers.trim() ? "Travellers info is required" : "";
+  const contactError = touched.contactNumber ? getContactError(formData.contactNumber) : "";
+
+  const isFormValid =
+    formData.from.trim() !== "" &&
+    formData.to.trim() !== "" &&
+    formData.travellers.trim() !== "" &&
+    isValidContact(formData.contactNumber);
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    // Mark everything touched so all errors show up if invalid
+    setTouched({ from: true, to: true, travellers: true, contactNumber: true });
+
+    if (!isFormValid) {
+      return;
+    }
+
     setStatus("loading");
 
     try {
@@ -117,16 +183,12 @@ const BookingSearchForm = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           formType: "flightSearch",
-          // recipientEmail: "maviasajjad78@gmail.com", // or make dynamic if you have user email
           from: formData.from,
           to: formData.to,
           depart: formatDateField(formData.depart),
           returnDate: formatDateField(formData.returnDate),
           travellers: formData.travellers,
           contactNumber: formData.contactNumber,
-          // raw objects also sent for your backend logs
-          // departRaw: JSON.stringify(formData.depart),
-          // returnDateRaw: JSON.stringify(formData.returnDate),
         }),
       });
 
@@ -140,6 +202,7 @@ const BookingSearchForm = () => {
           travellers: "",
           contactNumber: "",
         });
+        setTouched({ from: false, to: false, travellers: false, contactNumber: false });
         setTimeout(() => setStatus("idle"), 3000);
       } else {
         setStatus("error");
@@ -154,17 +217,19 @@ const BookingSearchForm = () => {
       <form
         onSubmit={handleSubmit}
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-13 gap-1 md:gap-1.5 items-stretch w-full"
+        noValidate
       >
         {/* FROM */}
         <div className="relative w-full min-w-0 lg:col-span-2">
           <BookingSearchFormInputField
-            label="From"
+            label="From *"
             placeHolder="Country, city or airport"
             value={formData.from}
-            handleChange={(name: string, value: string) =>
-              handleChange("from", value)
-            }
+            handleChange={(name: string, value: string) => {
+              handleChange("from", value);
+            }}
           />
+          {fromError && <p className="text-xs text-red-500 mt-1">{fromError}</p>}
           {/* SWAP BUTTON */}
           <button
             type="button"
@@ -178,13 +243,14 @@ const BookingSearchForm = () => {
         {/* TO */}
         <div className="w-full min-w-0 lg:col-span-2">
           <BookingSearchFormInputField
-            label="To"
+            label="To *"
             placeHolder="Country, city or airport"
             value={formData.to}
-            handleChange={(name: string, value: string) =>
-              handleChange("to", value)
-            }
+            handleChange={(name: string, value: string) => {
+              handleChange("to", value);
+            }}
           />
+          {toError && <p className="text-xs text-red-500 mt-1">{toError}</p>}
         </div>
 
         {/* DEPART */}
@@ -218,31 +284,36 @@ const BookingSearchForm = () => {
         {/* TRAVELLERS */}
         <div className="w-full min-w-0 lg:col-span-2">
           <BookingSearchFormInputField
-            label="Travellers & Cabin"
+            label="Travellers & Cabin *"
             placeHolder="Passenger, Economy"
             value={formData.travellers}
-            handleChange={(name: string, value: string) =>
-              handleChange("travellers", value)
-            }
+            handleChange={(name: string, value: string) => {
+              handleChange("travellers", value);
+            }}
           />
+          {travellersError && <p className="text-xs text-red-500 mt-1">{travellersError}</p>}
         </div>
 
-        {/* CONTACT NUMBER / EMAIL FIELD (Kept tight on single line to prevent layout shift) */}
+        {/* CONTACT NUMBER / EMAIL FIELD (now mandatory + validated) */}
         <div className="w-full min-w-0 lg:col-span-2">
           <BookingSearchFormInputField
-            label="Contact / Email"
+            label="Contact / Email *"
             placeHolder="Phone or Email"
             value={formData.contactNumber}
-            handleChange={(name: string, value: string) =>
-              handleChange("contactNumber", value)
-            }
+            handleChange={(name: string, value: string) => {
+              handleChange("contactNumber", value);
+            }}
           />
+          {contactError && <p className="text-xs text-red-500 mt-1">{contactError}</p>}
         </div>
 
         {/* SUBMIT BUTTON */}
         <button
           type="submit"
           disabled={status === "loading"}
+          onClick={() =>
+            setTouched({ from: true, to: true, travellers: true, contactNumber: true })
+          }
           className="bg-[#0F91D5] hover:bg-blue-600 text-white w-full h-14 lg:h-full lg:col-span-1 rounded-xl font-semibold shadow-sm flex items-center justify-center transition disabled:opacity-60"
         >
           {status === "loading" ? "..." : status === "success" ? "✓" : "Submit"}
@@ -260,6 +331,14 @@ const BookingSearchForm = () => {
           ❌ Something went wrong. Please try again.
         </p>
       )}
+      {!isFormValid &&
+        (touched.from || touched.to || touched.travellers || touched.contactNumber) &&
+        status === "idle" && (
+          <p className="text-red-500 text-sm text-center mt-3">
+            ⚠️ Please fill in all required fields with a valid phone number or email so we can
+            contact you.
+          </p>
+        )}
     </section>
   );
 };

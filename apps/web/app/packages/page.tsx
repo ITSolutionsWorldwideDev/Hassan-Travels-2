@@ -11,8 +11,8 @@ export default function packages() {
     <>
      {/* HERO SECTION */}
 <CommonHeader
-  heading={"Book your package vacation with  \nHassaan Travel "}
-  desc="We provide exclusive trips with an unforgettable experience.Don’t go simple, book with us!"
+  heading={"Book your package vacation with \nHassaan Travel "}
+  desc={<>We provide exclusive trips with an unforgettable experience.<br /><strong>Don’t go simple, book with us!</strong></>}
 />
 
       {/* ====== SECTION WRAPPER WITH BG ====== */}

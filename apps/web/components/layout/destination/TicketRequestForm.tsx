@@ -14,14 +14,14 @@ const formSections: SectionType[] = [
   {
     title: "Flight Details",
     icon: <FaPlane size={12} className="text-[#0F91D5]" />,
-   fields: [
-  { label: "From (Departure City)", name: "from" },
-  { label: "To (Destination City)", name: "to" },
-  { label: "Next City", name: "nextCity" },  // ← yeh add karo
-  { label: "Departure Date", name: "departure", type: "date" },
-  { label: "Return Date", name: "return", type: "date" },
-  { label: "Your Class", name: "travelClass", full: true, options: ["Economy Class", "Business Class", "First Class"] },
-],
+    fields: [
+      { label: "From (Departure City)", name: "from" },
+      { label: "To (Destination City)", name: "to" },
+      { label: "Next City", name: "nextCity" },
+      { label: "Departure Date", name: "departure", type: "date" },
+      { label: "Return Date", name: "return", type: "date" },
+      { label: "Your Class", name: "travelClass", full: true, options: ["Economy Class", "Business Class", "First Class"] },
+    ],
   },
   {
     title: "Passenger Information",
@@ -85,28 +85,22 @@ const TicketRequestForm = () => {
     }
   };
 
-  // Helper to determine if a specific field is absolutely compulsory
- const isRequiredField = (fieldName: string) => {
-  const nonRequiredFields = ["middleName", "passport", "issueDate", "expiryDate"];
-  if (nonRequiredFields.includes(fieldName)) return false;
-  if (tripType === "One Way" && fieldName === "return") return false;
-  if (fieldName === "nextCity" && tripType !== "Multi-City") return false; // ← yeh add karo
-  return true;
-};
+  const isRequiredField = (fieldName: string) => {
+    const nonRequiredFields = ["middleName", "passport", "issueDate", "expiryDate", "dob", "nationality"];
+    if (nonRequiredFields.includes(fieldName)) return false;
+    if (tripType === "One Way" && fieldName === "return") return false;
+    if (fieldName === "nextCity" && tripType !== "Multi-City") return false;
+    return true;
+  };
 
   return (
     <section className="relative w-full min-h-[70vh] py-12 sm:py-20 px-4 sm:px-8 md:px-16 overflow-hidden flex justify-center items-center">
-
-      {/* BACKGROUND IMAGE */}
       <div className="absolute inset-0 -z-30 w-full h-full">
         <Image src="/assets/bgimage/h1.webp" alt="" fill priority className="object-cover" />
       </div>
-
-      {/* OVERLAYS */}
       <div className="absolute inset-0 -z-20 bg-linear-to-b from-[rgba(207,234,246,0.15)] to-[rgba(85,178,218,0.25)]" />
       <div className="absolute inset-0 -z-10 bg-white/35" />
 
-      {/* FORM CARD */}
       <div className="w-full max-w-5xl bg-white/70 backdrop-blur-md rounded-2xl shadow-xl p-8 relative z-10">
         <div className="text-center mb-8">
           <h2 className="text-2xl font-bold">
@@ -114,12 +108,10 @@ const TicketRequestForm = () => {
             <span className="text-[#0F91D5]">Request Form</span>
           </h2>
           <p className="text-xs text-gray-500 mt-1">
-            Fill out the form below and our travel experts will find you the best flight deals
-            <br className="hidden sm:inline" /> within 24 hours
+            Fill out the form below and our travel experts will find you the best flight deals<br /> within 24 hours
           </p>
         </div>
 
-        {/* TRIP TYPE TOGGLE */}
         <div className="flex gap-3 mb-6">
           {(["Round Trip", "One Way", "Multi-City"] as TripType[]).map((type) => (
             <button
@@ -127,9 +119,7 @@ const TicketRequestForm = () => {
               key={type}
               onClick={() => setTripType(type)}
               className={`flex-1 py-2 rounded-lg text-sm font-medium transition-all shadow-xs ${
-                tripType === type
-                  ? "bg-[#0F91D5] text-white shadow-md shadow-blue-500/10"
-                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                tripType === type ? "bg-[#0F91D5] text-white shadow-md shadow-blue-500/10" : "bg-gray-200 text-gray-700 hover:bg-gray-300"
               }`}
             >
               {type}
@@ -137,8 +127,7 @@ const TicketRequestForm = () => {
           ))}
         </div>
 
-        {/* FORM */}
-        <form onSubmit={handleSubmit} >
+        <form onSubmit={handleSubmit}>
           {formSections.map((section) => (
             <div key={section.title} className="mb-8">
               <div className="flex items-center gap-2 mb-4 font-semibold text-sm text-gray-900">
@@ -149,8 +138,8 @@ const TicketRequestForm = () => {
               <div className="grid sm:grid-cols-2 gap-4">
                 {section.fields.map((field) => {
                   if (tripType === "One Way" && field.name === "return") return null;
-                  if (tripType !== "Multi-City" && field.name === "nextCity") return null; // ← yeh
-                 if (tripType === "One Way" && field.name === "return") return null;
+                  if (tripType !== "Multi-City" && field.name === "nextCity") return null;
+                  
                   const isCompulsory = isRequiredField(field.name);
 
                   return (
@@ -168,9 +157,7 @@ const TicketRequestForm = () => {
                         >
                           <option value="">Select class</option>
                           {field.options.map((option) => (
-                            <option key={option} value={option}>
-                              {option}
-                            </option>
+                            <option key={option} value={option}>{option}</option>
                           ))}
                         </select>
                       ) : (
@@ -190,19 +177,13 @@ const TicketRequestForm = () => {
             </div>
           ))}
 
-          {/* STATUS MESSAGES */}
           {status === "success" && (
-            <p className="text-green-600 text-sm text-center mb-4">
-              ✅ Request sent! We'll get back to you within 24 hours.
-            </p>
+            <p className="text-green-600 text-sm text-center mb-4">✅ Request sent! We'll get back to you within 24 hours.</p>
           )}
           {status === "error" && (
-            <p className="text-red-500 text-sm text-center mb-4">
-              ❌ Something went wrong. Please try again.
-            </p>
+            <p className="text-red-500 text-sm text-center mb-4">❌ Something went wrong. Please try again.</p>
           )}
 
-          {/* SUBMIT BUTTON */}
           <div className="text-center">
             <button
               type="submit"
@@ -212,10 +193,6 @@ const TicketRequestForm = () => {
               {status === "loading" ? "Sending..." : "Submit Request"}
             </button>
           </div>
-
-          <p className="text-[#666666] text-center mt-5 text-xs sm:text-sm">
-            Our team will review your request and send you the best flight options within 24 hours
-          </p>
         </form>
       </div>
     </section>

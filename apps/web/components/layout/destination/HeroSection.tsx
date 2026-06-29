@@ -40,15 +40,16 @@ Please let me know about the flight details, ticket availability, and booking op
       </div>
         
       <div className="container mx-auto">
-        <div className="text-center mb-14 max-w-3xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight tracking-tight">
-            Fly to Your <span className="font-bold text-[#0F91D5]">Dream Country</span>
-          </h2>
-          <p className="mt-4 text-gray-600 text-lg">
-            Discover the world's most popular countries with us. 
-            <span className="font-semibold text-gray-800"> Book now to get the best travel experience.</span>
-          </p>
-        </div>
+  <div className="text-center mb-14 max-w-3xl mx-auto">
+    <h2 className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight tracking-tight">
+      Fly to Your <span className="font-bold text-[#0F91D5]">Dream Country</span>
+    </h2>
+    <p className="mt-4 text-gray-600 text-lg">
+      Discover the world's most popular countries with us. 
+      <br /> {/* Yeh line break kar dega */}
+      <span className="font-semibold text-gray-800">Book now to get the best travel experience.</span>
+    </p>
+  </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {visibleDestinations.map((item, index) => (

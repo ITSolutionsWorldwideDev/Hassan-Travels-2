@@ -15,7 +15,7 @@ const popularPackages = [
     img: "cp2.webp",
     name: "Pakistan Visa",
     country: "",
-    price: "€ 70",
+    price: "From € 70",
     description: "Fast and reliable Pakistan visa processing services with expert guidance and hassle-free documentation support.",
   },
   {
@@ -43,7 +43,7 @@ const popularPackages = [
     img: "c6.webp",
     name: "E-Sim",
     country: "",
-    price: "€ 5",
+    price: "From € 5",
     description: "Stay connected worldwide with affordable eSIM plans offering instant activation and seamless mobile data.",
   },
 ];
@@ -51,181 +51,133 @@ const popularPackages = [
 // Destination PACKAGES
 const DestinationPackages = [
   {
-    img: "dubai.webp",
-    name: "Orlando",
-    country: "USA",
-    price: "€ 2,450",
-    description: "Theme park capital of the world! Walt Disney World, Universal Studios, and endless Destination fun.",
+    img: "d1.webp",
+    name: "Pakistan",
+    price: "€ 750",
+    description: "Explore the breathtaking beauty of Hunza Valley, Skardu, and the majestic peaks of the Karakoram range.",
   },
   {
-    img: "dubai.webp",
-    name: "Paris",
-    country: "France",
-    price: "€ 1,890",
-    description: "Disneyland Paris, Eiffel Tower, and Destination-friendly museums. A magical European escape.",
+    img: "d2.webp",
+    name: "Afghanistan",
+    price: "€ 950",
+    description: "Discover the historical richness of the Bamiyan Valley and the vibrant culture of Kabul.",
   },
   {
-    img: "dubai.webp",
-    name: "London",
-    country: "UK",
-    price: "€ 1,750",
-    description: "Natural History Museum, London Eye, Harry Potter Studio. Perfect for curious young minds.",
+    img: "d3.webp",
+    name: "Saudi Arabia",
+    price: "€ 1,200",
+    description: "Experience a spiritual journey with guided tours to the holy cities and historical landmarks.",
   },
   {
-    img: "dubai.webp",
-    name: "Rome",
-    country: "Italy",
-    price: "€ 1,950",
-    description: "Gladiator school, Colosseum, and delicious gelato. An educational adventure for all ages.",
+    img: "d4.webp",
+    name: "India",
+    price: "€ 890",
+    description: "Visit the iconic Taj Mahal and explore the majestic palaces and forts of the Pink City.",
   },
   {
-    img: "dubai.webp",
-    name: "Amsterdam",
-    country: "Netherlands",
-    price: "€ 850",
-    description: "Nemo Science Museum, Artis Zoo, canal cruises. Close to home but full of wonder.",
+    img: "d5.webp",
+    name: "Kurdistan",
+    price: "€ 990",
+    description: "Discover ancient citadels, beautiful mountain landscapes, and the warm hospitality of the Kurdish region.",
   },
   {
-    img: "dubai.webp",
-    name: "Barcelona",
-    country: "Spain",
-    price: "€ 1,590",
-    description: "Barcelona Aquarium, Park Güell, and sandy beaches. Sun and fun for the whole Destination.",
+    img: "d6.webp",
+    name: "Turkiye",
+    price: "€ 1,150",
+    description: "A perfect blend of history, culture, and unique landscapes. Hot air balloons and stunning architecture await.",
   },
 ];
 
 // Umrah PACKAGES
 const UmrahPackages = [
   {
-    img: "dubai.webp",
-    name: "Maldives",
-    country: "Maldives",
-    price: "€ 2,990",
-    description: "Overwater villas, crystal clear lagoons, and sunset cruises. Ultimate romantic escape.",
-  },
-  {
-    img: "dubai.webp",
-    name: "Santorini",
-    country: "Greece",
-    price: "€ 2,150",
-    description: "White-washed buildings, breathtaking caldera views, and magical sunsets.",
-  },
-  {
-    img: "dubai.webp",
-    name: "Bali",
-    country: "Indonesia",
-    price: "€ 2,390",
-    description: "Rice terraces, spiritual retreats, and luxury resorts. Perfect for Umrahers.",
-  },
-  {
-    img: "dubai.webp",
-    name: "Venice",
-    country: "Italy",
-    price: "€ 1,890",
-    description: "Gondola rides, romantic canals, and exquisite Italian cuisine.",
-  },
-  {
-    img: "dubai.webp",
-    name: "Mauritius",
-    country: "Mauritius",
-    price: "€ 2,490",
-    description: "Turquoise waters, white sandy beaches, and luxury overwater bungalows.",
-  },
-  {
-    img: "dubai.webp",
-    name: "Seychelles",
-    country: "Seychelles",
-    price: "€ 2,790",
-    description: "Granite boulders, pristine beaches, and ultimate privacy for two.",
+    img: "u.webp",
+    name: "Coming Soon",
+    price: "Stay Tuned",
+    description: "We are working on exciting new Umrah packages. Stay tuned for updates!",
   },
 ];
 
 // Visa PACKAGES
 const VisaPackages = [
   {
-    img: "dubai.webp",
-    name: "Ibiza",
-    country: "Spain",
-    price: "€ 1,450",
-    description: "Beautiful beaches, vibrant nightlife, and stunning sunsets. Perfect Visa getaway.",
+    img: "d1.webp",
+    name: "Pakistan Family Visa (3 months)",
+    price: "€ 70",
+    description: "Family visa service for a 3-month stay. Quick and reliable processing.",
   },
   {
-    img: "dubai.webp",
-    name: "Cancun",
-    country: "Mexico",
-    price: "€ 2,350",
-    description: "White sand beaches, turquoise waters, and ancient Mayan ruins.",
+    img: "d1.webp",
+    name: "Pakistan Tourist Visa",
+    price: "€ 80", // (€ 100 - € 20 discount)
+    description: "Tourist visa for Pakistan. Avail our special limited-time discount.",
   },
   {
-    img: "dubai.webp",
-    name: "Phuket",
-    country: "Thailand",
-    price: "€ 1,950",
-    description: "Tropical paradise with crystal waters, limestone cliffs, and vibrant culture.",
+    img: "d3.webp",
+    name: "Saudi-Arabia Tourist Visa",
+    price: "€ 120",
+    description: "Hassle-free tourist visa processing for your trip to Saudi Arabia.",
   },
   {
-    img: "dubai.webp",
-    name: "Crete",
-    country: "Greece",
-    price: "€ 1,290",
-    description: "Rich history, stunning beaches, and delicious Mediterranean cuisine.",
+    img: "c7.webp",
+    name: "Pakistan Family Visa (1 year)",
+    price: "€ 100",
+    description: "Long-term family visa for a 1-year duration. Efficient service provided.",
   },
   {
-    img: "dubai.webp",
-    name: "Algarve",
-    country: "Portugal",
-    price: "€ 1,150",
-    description: "Golden cliffs, hidden coves, and year-round sunshine.",
+    img: "v6.webp",
+    name: "Kenia Visa",
+    price: "€ 60",
+    description: "Streamlined visa application process for travel to Kenya.",
   },
   {
-    img: "dubai.webp",
-    name: "Sicily",
-    country: "Italy",
-    price: "€ 1,390",
-    description: "Volcanoes, ancient ruins, and authentic Italian coastal charm.",
+    img: "c5.webp",
+    name: "Others On request",
+    price: "Custom",
+    description: "Need a visa for another destination? Contact us for a personalized quote.",
   },
 ];
 
 // Packages PACKAGES
 const PackagesPackages = [
   {
-    img: "dubai.webp",
-    name: "Kyoto",
+    img: "p1.webp",
+    name: "Tanzania",
     country: "Japan",
     price: "€ 2,650",
     description: "Ancient temples, traditional tea ceremonies, and beautiful geisha districts.",
   },
   {
-    img: "dubai.webp",
-    name: "Cairo",
+    img: "p2.webp",
+    name: "Oman",
     country: "Egypt",
     price: "€ 1,850",
     description: "Pyramids of Giza, Egyptian Museum, and rich pharaonic history.",
   },
   {
-    img: "dubai.webp",
-    name: "Vienna",
+    img: "p3.webp",
+    name: "Malaysia",
     country: "Austria",
     price: "€ 1,250",
     description: "Imperial palaces, classical music, and world-class museums.",
   },
   {
-    img: "dubai.webp",
-    name: "Prague",
+    img: "p4.webp",
+    name: "Indonesia",
     country: "Czech Republic",
     price: "€ 1,150",
     description: "Fairytale architecture, medieval charm, and rich Bohemian culture.",
   },
   {
-    img: "dubai.webp",
-    name: "Delhi",
+    img: "p5.webp",
+    name: "Thiland",
     country: "India",
     price: "€ 1,750",
     description: "Historic monuments, bustling bazaars, and diverse spiritual heritage.",
   },
   {
-    img: "dubai.webp",
-    name: "Marrakech",
+    img: "p6.webp",
+    name: "Japan",
     country: "Morocco",
     price: "€ 1,450",
     description: "Vibrant souks, stunning palaces, and authentic Moroccan traditions.",
@@ -235,9 +187,9 @@ const PackagesPackages = [
 type PackageType = {
   img: string;
   name: string;
-  country: string;
   price: string;
   description: string;
+  country?: string; // Yeh '?' lagane se error khatam ho jayega
 };
 
 const PopularTourPackages = () => {
@@ -353,44 +305,42 @@ const PopularTourPackages = () => {
 
           {/* CARDS GRID - EXACT SAME SIZE AND LAYOUT AS ORIGINAL - NO CHANGES */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {currentPackages.map((item, i) => (
-              <article
-                key={i}
-                onClick={() => setSelectedPackage(item)}
-                className="group flex bg-white rounded-2xl shadow-md overflow-hidden transition-all duration-500 hover:shadow-2xl cursor-pointer"
-              >
-                {/* IMAGE SIDE */}
-                <div className="w-1/2 h-42.5 overflow-hidden">
-                  <Image
-                    src={item.img.startsWith("c") ? `/assets/tour/${item.img}` : `/assets/home/${item.img}`}
-                    alt={`${item.name} - ${item.country} tour package`}
-                    width={400}
-                    height={170}
-                    priority={i < 2}
-                    className="w-full h-full object-cover transition-all duration-500 ease-out group-hover:-translate-x-10"
-                  />
-                </div>
+  {currentPackages.map((item, i) => (
+    <article
+      key={i}
+      onClick={() => setSelectedPackage(item)}
+      className="group flex bg-white rounded-2xl shadow-md overflow-hidden transition-all duration-500 hover:shadow-2xl cursor-pointer"
+    >
+      {/* IMAGE SIDE */}
+      <div className="w-1/2 h-42.5 overflow-hidden">
+        <Image
+          src={item.img.startsWith("c") ? `/assets/tour/${item.img}` : `/assets/home/${item.img}`}
+          alt={`${item.name} tour package`} // 'item.country' hata diya
+          width={400}
+          height={170}
+          priority={i < 2}
+          className="w-full h-full object-cover transition-all duration-500 ease-out group-hover:-translate-x-10"
+        />
+      </div>
 
-                {/* TEXT SIDE */}
-                <div className="w-1/2 bg-white px-5 py-4 flex flex-col justify-center transition-all duration-500 ease-out group-hover:-translate-x-6">
-                  <h3 className="text-lg font-semibold text-gray-900">
-                    {item.name}
-                  </h3>
+      {/* TEXT SIDE */}
+      <div className="w-1/2 bg-white px-5 py-4 flex flex-col justify-center transition-all duration-500 ease-out group-hover:-translate-x-6">
+        <h3 className="text-lg font-semibold text-gray-900">
+          {item.name}
+        </h3>
 
-                  <p className="text-sm text-gray-500 mt-1">
-                    {item.country}
-                  </p>
+        {/* item.country wali line yahan se remove kar di */}
 
-                  <div className="mt-4">
-                    <p className="text-sm text-gray-500">Round trip from</p>
-                    <p className="text-[#0F91D5] text-xl font-bold">
-                      {item.price}
-                    </p>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
+        <div className="mt-4">
+          <p className="text-sm text-gray-500">Price</p> {/* "Round trip from" ki jagah generic label */}
+          <p className="text-[#0F91D5] text-xl font-bold">
+            {item.price}
+          </p>
+        </div>
+      </div>
+    </article>
+  ))}
+</div>
         </div>
       </section>
 

@@ -79,13 +79,23 @@ const preferences: PreferenceOption[] = [
   { id: "meals",   label: "Meals Included",       icon: <FaUtensils /> },
 ];
 
+// Simple email & phone validators
+const isValidEmail = (value: string): boolean =>
+  /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+
+const isValidPhone = (value: string): boolean =>
+  /^[+]?[\d\s()-]{7,}$/.test(value.trim());
+
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export default function CustomTravelPackages({ mode = 'packages' }: CustomTravelPackagesProps): JSX.Element {
   const isUmrah = mode === 'umrah';
-  
+
   // ─── State ─────────────────────────────────────────────────────────────────
-  
+
+  const [fullName, setFullName]             = useState<string>("");
+  const [email, setEmail]                   = useState<string>("");
+  const [phone, setPhone]                   = useState<string>("");
   const [country, setCountry]               = useState<CountryCode>("SA");
   const [airport, setAirport]               = useState<string>("");
   const [timeSpan, setTimeSpan]             = useState<string>("");
@@ -98,6 +108,10 @@ export default function CustomTravelPackages({ mode = 'packages' }: CustomTravel
   const [selectedPrefs, setSelectedPrefs]   = useState<string[]>(["airport"]);
   const [specialRequests, setSpecialRequests] = useState<string>("");
   const [status, setStatus]                 = useState<SubmitStatus>("idle");
+  const [touched, setTouched]               = useState<{ email: boolean; phone: boolean }>({
+    email: false,
+    phone: false,
+  });
 
   const togglePref = (id: string): void => {
     setSelectedPrefs((prev) =>
@@ -105,9 +119,28 @@ export default function CustomTravelPackages({ mode = 'packages' }: CustomTravel
     );
   };
 
+  // ─── Validation ────────────────────────────────────────────────────────────
+
+  const emailError = touched.email && !isValidEmail(email)
+    ? (email.trim() === "" ? "Email is required" : "Enter a valid email address")
+    : "";
+
+  const phoneError = touched.phone && !isValidPhone(phone)
+    ? (phone.trim() === "" ? "Phone number is required" : "Enter a valid phone number")
+    : "";
+
+  const isFormValid = isValidEmail(email) && isValidPhone(phone);
+
   // ─── Submit ───────────────────────────────────────────────────────────────
 
   const handleSubmit = async (): Promise<void> => {
+    // Mark mandatory fields as touched so errors show if invalid
+    setTouched({ email: true, phone: true });
+
+    if (!isFormValid) {
+      return;
+    }
+
     setStatus("loading");
 
     try {
@@ -117,6 +150,9 @@ export default function CustomTravelPackages({ mode = 'packages' }: CustomTravel
         body: JSON.stringify({
           formType: "travelQuote",
           pageType: isUmrah ? "umrah" : "packages",
+          fullName,
+          email,
+          phone,
           country: countries.find((c) => c.code === country)?.name,
           airport: airport || airportsByCountry[country]?.[0] || "",
           timeSpan,
@@ -142,7 +178,7 @@ export default function CustomTravelPackages({ mode = 'packages' }: CustomTravel
   };
 
   // ─── Traveler rows configuration ──────────────────────────────────────────
-  
+
   const travelerRows: TravelerRowConfig[] = [
     { label: "Adults (12+)", value: adults, setter: setAdults, min: 1 },
     { label: "Children (2-11)", value: children, setter: setChildren, min: 0, max: 10 },
@@ -195,6 +231,56 @@ export default function CustomTravelPackages({ mode = 'packages' }: CustomTravel
 
             {/* ── LEFT PANEL ── */}
             <div className="p-8 space-y-8">
+
+              {/* Contact Details (Mandatory) */}
+              <div className="space-y-4">
+                <label className="text-sm font-semibold text-gray-700">
+                  Contact Details <span className="text-red-500">*</span>
+                </label>
+
+                {/* Full Name (optional) */}
+                <input
+                  type="text"
+                  placeholder="Full Name"
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
+                  className="w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-700 font-medium focus:outline-none focus:border-[#0F91D5] focus:bg-white transition-all"
+                />
+
+                {/* Email (mandatory) */}
+                <div>
+                  <input
+                    type="email"
+                    placeholder="Email Address *"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    onBlur={() => setTouched((prev) => ({ ...prev, email: true }))}
+                    className={`w-full px-4 py-3.5 rounded-xl border-2 bg-gray-50 text-gray-700 font-medium focus:outline-none focus:bg-white transition-all ${
+                      emailError ? "border-red-400 focus:border-red-500" : "border-gray-200 focus:border-[#0F91D5]"
+                    }`}
+                  />
+                  {emailError && (
+                    <p className="text-xs text-red-500 mt-1">{emailError}</p>
+                  )}
+                </div>
+
+                {/* Phone (mandatory) */}
+                <div>
+                  <input
+                    type="tel"
+                    placeholder="Phone Number *"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    onBlur={() => setTouched((prev) => ({ ...prev, phone: true }))}
+                    className={`w-full px-4 py-3.5 rounded-xl border-2 bg-gray-50 text-gray-700 font-medium focus:outline-none focus:bg-white transition-all ${
+                      phoneError ? "border-red-400 focus:border-red-500" : "border-gray-200 focus:border-[#0F91D5]"
+                    }`}
+                  />
+                  {phoneError && (
+                    <p className="text-xs text-red-500 mt-1">{phoneError}</p>
+                  )}
+                </div>
+              </div>
 
               {/* Destination Country */}
               <div className="space-y-2">
@@ -407,6 +493,18 @@ export default function CustomTravelPackages({ mode = 'packages' }: CustomTravel
                     );
                   })}
                 </div>
+              </div>
+
+              {/* Special Requests */}
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-gray-700">Special Requests</label>
+                <textarea
+                  value={specialRequests}
+                  onChange={(e) => setSpecialRequests(e.target.value)}
+                  placeholder="Any special requirements or requests..."
+                  rows={3}
+                  className="w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-700 font-medium focus:outline-none focus:border-[#0F91D5] focus:bg-white transition-all resize-none"
+                />
               </div>
 
               {/* Submit Button */}
