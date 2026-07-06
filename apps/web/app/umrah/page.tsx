@@ -102,16 +102,27 @@ const UmrahPage: React.FC = () => {
                   Embark on a spiritual journey to Makkah and Madinah with our customized services.
                 </p>
               </div>
-
-              <div className="flex justify-center items-center py-2 w-full">
-                <div className="bg-white/70 backdrop-blur-md max-w-md w-full rounded-2xl shadow-xl p-8 text-center border border-white/30 hover:scale-105 transition duration-300 flex flex-col items-center">
-                  <FaClock size={40} className="text-[#0F91D5] mb-4 animate-pulse" />
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Coming Soon</h3>
-                  <p className="text-gray-500 text-sm">
-                    We are curating the best Umrah packages for you. Stay tuned for exciting new spiritual travel deals!
-                  </p>
-                </div>
-              </div>
+<div className="flex justify-center items-center py-6 w-full">
+  {/* Square shape with custom border and white background */}
+  <div 
+    className="bg-white max-w-md w-full rounded-2xl shadow-lg p-8 text-center hover:scale-[1.02] transition-transform duration-300 flex flex-col items-center"
+    style={{ border: '2px solid #d4e157' }}
+  >
+    
+    <FaClock
+      size={40}
+      className="text-[#d4e157] mb-4 animate-pulse"
+    />
+    
+    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+      Coming Soon
+    </h3>
+    
+    <p className="text-gray-500 text-sm">
+      We are curating the best Umrah packages for you. Stay tuned for exciting new spiritual travel deals!
+    </p>
+  </div>
+</div>
             </div>
           </section>
 
